@@ -1,0 +1,2788 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Strong Before Gentle</title>
+<meta name="description" content="A presentation: the ideal Philippines as a strong, clean, executive-led state, built from institutions borrowed from Singapore, Hong Kong, South Korea and Estonia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a 1920×1080 stage scaled to the screen; slides advance and recede along Z over a live 3D fortress of iron blocks that re-forms for each part of the argument. Phones get a stacked reading mode. */
+:root{
+  color-scheme: dark;
+  --void:#070809;
+  --void-rgb:7,8,9;
+  --ink:#ECE7DC;
+  --ink-rgb:236,231,220;
+  --ink-2:#BDB8AE;
+  --ink-3:#8E8B85;
+  --gold:#D9AE55;
+  --gold-rgb:217,174,85;
+  --gold-mark:#B88A33;
+  --crimson:#C23A33;
+  --crimson-ink:#E57A6E;
+  --steel:#5E6670;
+  --steel-ink:#9AA6B3;
+  --rule:rgba(236,231,220,.16);
+  --rule-strong:rgba(236,231,220,.34);
+
+  --f-display:"Bodoni Moda","Bodoni Moda Local","Bodoni 72","Didot",Georgia,serif;
+  --f-sans:"Archivo","Archivo Local","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"IBM Plex Mono","IBM Plex Mono Local",ui-monospace,Menlo,Consolas,monospace;
+
+  --fs-title:176px;
+  --fs-mega:132px;
+  --fs-display:84px;
+  --fs-lead:52px;
+  --fs-sub:40px;
+  --fs-body:32px;
+  --fs-small:22px;
+  --fs-hero:212px;
+  --fs-fig:112px;
+
+  --ease:cubic-bezier(.7,0,.16,1);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+  --base:480ms;
+}
+
+@font-face{font-family:"Bodoni Moda Local";src:url("assets/fonts/bodoni-moda-latin.woff2") format("woff2");font-weight:400 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Bodoni Moda Local";src:url("assets/fonts/bodoni-moda-italic-latin.woff2") format("woff2");font-weight:400 900;font-style:italic;font-display:swap}
+@font-face{font-family:"Archivo Local";src:url("assets/fonts/archivo-latin.woff2") format("woff2");font-weight:100 900;font-stretch:62% 125%;font-display:swap}
+@font-face{font-family:"IBM Plex Mono Local";src:url("assets/fonts/ibm-plex-mono-400-latin.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"IBM Plex Mono Local";src:url("assets/fonts/ibm-plex-mono-500-latin.woff2") format("woff2");font-weight:500;font-display:swap}
+
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;background:var(--void);color:var(--ink);
+  font-family:var(--f-sans);overflow:hidden;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;
+}
+p,h1,h2,h3,ol,ul,li,figure,figcaption{margin:0}
+ol,ul{padding:0;list-style:none}
+em{font-style:italic}
+svg{overflow:visible}
+
+/* ---------- atmosphere ---------- */
+#scene{position:fixed;inset:0;width:100%;height:100%;display:block;z-index:0}
+.fallback{position:fixed;inset:0;z-index:0;display:none;
+  background:
+    radial-gradient(ellipse 60% 50% at 70% 60%, rgba(var(--gold-rgb),.10), transparent 70%),
+    repeating-linear-gradient(90deg, rgba(var(--ink-rgb),.035) 0 1px, transparent 1px 72px),
+    repeating-linear-gradient(0deg, rgba(var(--ink-rgb),.035) 0 1px, transparent 1px 72px),
+    var(--void)}
+.no-webgl #scene{display:none}
+.no-webgl .fallback{display:block}
+.scrim{position:fixed;inset:0;pointer-events:none;opacity:0;z-index:1;transition:opacity 1.3s var(--ease)}
+.scrim-left{background:linear-gradient(90deg,rgba(var(--void-rgb),.95) 0%,rgba(var(--void-rgb),.86) 36%,rgba(var(--void-rgb),.4) 60%,rgba(var(--void-rgb),0) 78%)}
+.scrim-center{background:radial-gradient(ellipse 74% 68% at 50% 50%,rgba(var(--void-rgb),.88) 0%,rgba(var(--void-rgb),.7) 52%,rgba(var(--void-rgb),.25) 100%)}
+.scrim-full{background:rgba(var(--void-rgb),.82)}
+.scrim-soft{background:radial-gradient(ellipse 90% 80% at 50% 50%,rgba(var(--void-rgb),.55) 0%,rgba(var(--void-rgb),.25) 70%,rgba(var(--void-rgb),.1) 100%)}
+body[data-scrim="left"] .scrim-left,
+body[data-scrim="center"] .scrim-center,
+body[data-scrim="full"] .scrim-full,
+body[data-scrim="soft"] .scrim-soft{opacity:1}
+.vignette{position:fixed;inset:0;pointer-events:none;z-index:1;
+  background:
+    radial-gradient(ellipse 125% 105% at 50% 45%,transparent 55%,rgba(var(--void-rgb),.7) 100%),
+    linear-gradient(0deg,rgba(var(--void-rgb),.8) 0%,transparent 20%)}
+.grain{position:fixed;inset:-40%;z-index:2;pointer-events:none;opacity:.07;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  animation:grain 1.1s steps(5) infinite}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}60%{transform:translate(-2%,-1%)}80%{transform:translate(3%,3%)}100%{transform:translate(0,0)}}
+
+/* ---------- stage ---------- */
+.viewport{position:fixed;inset:0;z-index:3;overflow:hidden;cursor:default}
+.stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;
+  transform:translate(-50%,-50%) scale(var(--scale,1));transform-origin:center center;
+  perspective:2200px;perspective-origin:50% 46%}
+.slide{
+  position:absolute;inset:0;padding:120px 128px 172px;
+  display:flex;flex-direction:column;justify-content:center;gap:40px;
+  opacity:0;visibility:hidden;pointer-events:none;
+  transform:translate3d(0,0,-1100px);
+  transition:transform 1.25s var(--ease),opacity .85s var(--ease),visibility 0s linear 1.25s;
+}
+.slide.is-past{transform:translate3d(0,30px,620px)}
+.slide.is-active{opacity:1;visibility:visible;pointer-events:auto;transform:none;
+  transition:transform 1.3s var(--ease),opacity 1s var(--ease) .12s,visibility 0s}
+.slide.top{justify-content:flex-start;padding-top:128px}
+.slide.between{justify-content:space-between}
+.slide.l-center{align-items:center;text-align:center}
+
+/* ---------- reveal system ---------- */
+[data-r]{
+  transition:
+    opacity .95s var(--ease-out) calc(var(--base) + var(--d,0ms)),
+    transform 1.2s var(--ease-out) calc(var(--base) + var(--d,0ms)),
+    clip-path 1.35s var(--ease) calc(var(--base) + var(--d,0ms)),
+    color 1.6s var(--ease) calc(var(--base) + var(--d,0ms));
+}
+.slide:not(.is-active) [data-r]{transition-duration:.4s;transition-delay:0s}
+.slide:not(.is-active) [data-r="up"]{opacity:0;transform:translateY(44px)}
+.slide:not(.is-active) [data-r="fade"]{opacity:0}
+[data-r="grow-x"]{transform-origin:left center}
+.slide:not(.is-active) [data-r="grow-x"]{transform:scaleX(0)}
+[data-r="grow-y"]{transform-origin:center bottom}
+.slide:not(.is-active) [data-r="grow-y"]{transform:scaleY(0)}
+[data-r="mask"]{clip-path:inset(-20% -2% -20% 0)}
+.slide:not(.is-active) [data-r="mask"]{clip-path:inset(-20% 100% -20% 0)}
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding:.02em .14em .16em 0;margin:-.02em -.14em -.16em 0}
+.wi{display:inline-block;
+  transition:transform 1.15s var(--ease-out) calc(var(--base) + var(--d,0ms) + var(--i,0) * 1ms),
+             opacity .9s var(--ease-out) calc(var(--base) + var(--d,0ms) + var(--i,0) * 1ms)}
+.slide:not(.is-active) .wi{transform:translateY(112%);opacity:0;transition-duration:.35s;transition-delay:0s}
+[data-draw]{stroke-dasharray:var(--len,2000);stroke-dashoffset:0;
+  transition:stroke-dashoffset 1.6s var(--ease) calc(var(--base) + var(--d,0ms)),fill .9s var(--ease) calc(var(--base) + var(--d,0ms) + 900ms)}
+.slide:not(.is-active) [data-draw]{stroke-dashoffset:var(--len,2000);transition-duration:.3s;transition-delay:0s}
+.is-static [data-r],.is-static .wi,.is-static [data-draw]{transition:none!important;opacity:1!important;transform:none!important;clip-path:none!important;stroke-dashoffset:0!important}
+.is-static .fill-in{color:var(--gold)!important}
+.is-static .strike{transform:none!important}
+
+/* ---------- type ---------- */
+/* Bodoni's display optical size drops its hairlines on projectors; pin sturdier cuts */
+.t-title{font-variation-settings:"opsz" 16}
+.t-mega,.quote-xl,.risk-word,.fill-in{font-variation-settings:"opsz" 11}
+.t-display,.donor-place,.prong,.formula-main,.ghost-text{font-variation-settings:"opsz" 8}
+.t-lead,.t-sub,.clause,.spec-line,.facts li,.solid-list li,.lock-inst,.ans-fail,.ans-fix,.pillar-name,.bar-name,.chain span,.prong-sub,.node-t,.step-when{font-variation-settings:"opsz" 6}
+.t-title{font-family:var(--f-display);font-weight:500;font-size:var(--fs-title);line-height:.98;letter-spacing:-.022em;font-optical-sizing:auto}
+.t-mega{font-family:var(--f-display);font-weight:500;font-size:var(--fs-mega);line-height:1.02;letter-spacing:-.018em;text-wrap:balance}
+.t-display{font-family:var(--f-display);font-weight:500;font-size:var(--fs-display);line-height:1.07;letter-spacing:-.012em;text-wrap:balance}
+.t-lead{font-family:var(--f-display);font-weight:400;font-size:var(--fs-lead);line-height:1.2;letter-spacing:-.006em;text-wrap:balance}
+.t-sub{font-family:var(--f-display);font-weight:400;font-size:var(--fs-sub);line-height:1.2;text-wrap:balance}
+.t-body{font-family:var(--f-sans);font-size:var(--fs-body);line-height:1.46;font-weight:400;color:var(--ink-2);text-wrap:pretty;max-width:46ch}
+.t-small{font-family:var(--f-sans);font-size:var(--fs-small);line-height:1.45;color:var(--ink-3)}
+.cite,.cite-inline{font-family:var(--f-mono);font-size:var(--fs-small);line-height:1.45;color:var(--ink-3);letter-spacing:.005em}
+.cite{position:absolute;left:128px;right:128px;bottom:72px}
+.l-center .cite{text-align:center}
+.fig-hero{font-family:var(--f-sans);font-weight:700;font-stretch:112%;font-size:var(--fs-hero);line-height:.9;letter-spacing:-.04em;color:var(--ink)}
+.fig{font-family:var(--f-sans);font-weight:650;font-stretch:108%;font-size:var(--fs-fig);line-height:.95;letter-spacing:-.03em;color:var(--ink)}
+.unit{font-size:.36em;font-weight:500;letter-spacing:0;margin-left:.1em;font-stretch:100%}
+.it{font-style:italic}
+.gold{color:var(--gold)}
+.crim{color:var(--crimson-ink)}
+.soft{color:var(--ink-2)}
+.muted{color:var(--ink-3)}
+.ink{color:var(--ink)}
+.t-body.ink{color:var(--ink)}
+
+/* ---------- layout ---------- */
+.col{max-width:1180px}
+.col-wide{max-width:1400px}
+.stack{display:flex;flex-direction:column;gap:var(--gap,30px)}
+.g2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:120px;row-gap:48px;align-items:center}
+.g2.lw{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
+.g2.rw{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr)}
+.g2.start{align-items:start}
+.g2.end{align-items:end}
+.g2.pair-auto{grid-template-columns:auto minmax(0,1fr)}
+.bar-row.year-row{grid-template-columns:120px minmax(0,1fr)}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:72px;row-gap:40px}
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:52px;row-gap:40px}
+.ticked > *{position:relative;padding-top:30px}
+.ticked > *::before{content:"";position:absolute;left:0;top:0;width:56px;height:2px;background:var(--gold)}
+.ticked.crim-ticks > *::before{background:var(--crimson)}
+.l-center .ticked > *::before{left:50%;transform:translateX(-50%)}
+.ruled > *{border-top:1px solid var(--rule);padding-top:22px}
+.mt-s{margin-top:8px}
+.mt-m{margin-top:28px}
+.mt-l{margin-top:56px}
+.center-x{margin-inline:auto}
+
+/* ---------- title ---------- */
+.title-block{display:flex;flex-direction:column;align-items:center;gap:36px}
+.sun{width:150px;height:150px}
+.sun .ray,.sun .disc{fill:transparent;stroke:var(--gold);stroke-width:1.2;stroke-linejoin:round}
+.slide.is-active .sun .ray,.slide.is-active .sun .disc,.is-static .sun .ray,.is-static .sun .disc{fill:var(--gold)}
+.title-rule{display:block;width:140px;height:2px;background:var(--gold)}
+.title-rule.center-x{transform-origin:center}
+
+/* ---------- specific components ---------- */
+.clause{font-family:var(--f-display);font-size:var(--fs-lead);line-height:1.16;border-top:1px solid var(--rule);padding-top:24px;text-wrap:balance}
+.quote-xl{font-family:var(--f-display);font-style:italic;font-weight:500;font-size:var(--fs-mega);line-height:1;letter-spacing:-.02em}
+.spec-line{font-family:var(--f-display);font-size:var(--fs-lead);line-height:1.14;border-top:1px solid var(--rule);padding-top:22px}
+
+.route-wrap{position:relative;padding-top:60px;margin-top:40px}
+.route{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) minmax(0,1.55fr);column-gap:44px}
+.route-line{position:absolute;left:0;right:0;top:10px;height:1px;background:linear-gradient(90deg,var(--gold),rgba(var(--gold-rgb),.2))}
+.route li{position:relative}
+.route-dot{position:absolute;left:0;top:-60px;width:21px;height:21px;border-radius:50%;border:2px solid var(--gold);background:var(--void)}
+.route li:last-child .route-dot{background:var(--gold)}
+.route p{font-family:var(--f-sans);font-size:30px;line-height:1.36;color:var(--ink);text-wrap:balance}
+.route li:last-child p{color:var(--gold)}
+
+.conditions li{font-family:var(--f-sans);font-size:var(--fs-body);line-height:1.42;color:var(--ink)}
+
+.risk{display:flex;flex-wrap:wrap;column-gap:110px;row-gap:24px;align-items:baseline;margin-block:20px}
+.risk-word{position:relative;display:inline-block;font-family:var(--f-display);font-size:var(--fs-mega);line-height:1;letter-spacing:-.02em}
+.risk-word.dead{color:var(--ink-3)}
+.risk-word.live{color:var(--gold);font-style:italic}
+.strike{position:absolute;left:-3%;right:-3%;top:55%;height:6px;background:var(--crimson);transform-origin:left center}
+
+.halves{display:grid;grid-template-columns:minmax(0,1fr) 1px minmax(0,1fr);column-gap:80px;align-items:start;text-align:left;margin-top:16px;width:100%}
+.halves-rule{align-self:stretch;background:linear-gradient(180deg,transparent,var(--rule-strong) 15%,var(--rule-strong) 85%,transparent)}
+.ghost-text{font-family:var(--f-display);font-style:italic;font-weight:500;font-size:var(--fs-display);line-height:1.05;color:transparent;-webkit-text-stroke:1.4px var(--gold)}
+.solid-list{display:flex;flex-direction:column;gap:6px}
+.solid-list li{font-family:var(--f-display);font-size:var(--fs-sub);line-height:1.25;color:var(--ink)}
+.fill-in{display:inline-block;color:var(--gold);-webkit-text-stroke:1.4px var(--gold);font-style:italic}
+.slide .fill-in{transition:opacity .9s var(--ease-out) calc(var(--base) + var(--d,0ms)),transform 1.2s var(--ease-out) calc(var(--base) + var(--d,0ms)),color 1.4s var(--ease) calc(var(--base) + var(--d,0ms) + 900ms)}
+.slide:not(.is-active) .fill-in{color:transparent}
+
+.donors{margin-top:24px;column-gap:220px}
+.donor{display:flex;flex-direction:column;gap:12px}
+.donor-place{font-family:var(--f-display);font-size:var(--fs-display);line-height:1}
+.donor-year{font-family:var(--f-sans);font-weight:650;font-stretch:108%;font-size:var(--fs-lead);color:var(--gold);letter-spacing:-.01em}
+
+.facts{display:flex;flex-direction:column}
+.facts li{font-family:var(--f-display);font-size:var(--fs-lead);line-height:1.2;border-top:1px solid var(--rule);padding:22px 0}
+.facts li:last-child{border-bottom:1px solid var(--rule)}
+
+.figure{display:flex;flex-direction:column;gap:22px}
+.figure .t-body{max-width:30ch}
+
+.prongs{width:100%}
+.prong{font-family:var(--f-display);font-size:var(--fs-display);line-height:1}
+.prong-sub{font-family:var(--f-display);font-style:italic;font-size:var(--fs-sub);color:var(--ink-2);margin-top:10px}
+
+.formula{display:flex;flex-direction:column;align-items:center;gap:22px}
+.formula-main{font-family:var(--f-display);font-size:var(--fs-display);line-height:1.08;text-wrap:balance;max-width:20ch}
+.formula-less{display:flex;align-items:baseline;gap:28px}
+.formula-op{font-family:var(--f-sans);font-weight:300;font-size:var(--fs-fig);color:var(--ink-3);line-height:1}
+
+.mtl{display:grid;grid-template-columns:minmax(0,1fr) 140px minmax(0,1fr);align-items:start;column-gap:40px}
+.mtl-arrow{align-self:center;height:2px;background:var(--gold);position:relative;margin-top:-40px}
+.mtl-arrow::after{content:"";position:absolute;right:-2px;top:-7px;border:8px solid transparent;border-left:14px solid var(--gold);border-right:0}
+
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:64px}
+.steps li{position:relative}
+.steps .route-dot{top:-60px}
+.step-when{font-family:var(--f-sans);font-weight:650;font-stretch:108%;font-size:var(--fs-lead);line-height:1;color:var(--ink);margin-bottom:16px}
+
+.chain{display:flex;flex-wrap:wrap;align-items:center;gap:22px 34px}
+.chain span{font-family:var(--f-display);font-style:italic;font-size:var(--fs-lead);line-height:1.1}
+.chain i{display:inline-block;width:60px;height:1px;background:repeating-linear-gradient(90deg,var(--ink-3) 0 6px,transparent 6px 12px)}
+
+.pillars{display:flex;align-items:flex-end;gap:30px;margin-top:20px}
+.pillar{display:flex;flex-direction:column;align-items:center;gap:20px;width:200px}
+.pillar-shaft{width:84px;height:250px;position:relative;
+  background:linear-gradient(90deg,rgba(var(--ink-rgb),.26),rgba(var(--ink-rgb),.08) 45%,rgba(var(--ink-rgb),.2));
+  border-top:8px solid var(--gold)}
+.pillar-shaft::after{content:"";position:absolute;left:-14px;right:-14px;bottom:-8px;height:8px;background:rgba(var(--ink-rgb),.3)}
+.pillar-name{font-family:var(--f-display);font-size:var(--fs-sub);line-height:1}
+.pillar.late{margin-left:70px}
+.pillar.late .pillar-shaft{border-top-color:var(--steel-ink);background:linear-gradient(90deg,rgba(154,166,179,.32),rgba(154,166,179,.1) 45%,rgba(154,166,179,.26))}
+.pillar.late .pillar-name{color:var(--steel-ink)}
+
+.lock{position:relative;display:flex;flex-direction:column}
+.lock::before{content:"";position:absolute;left:19px;top:34px;bottom:34px;width:2px;background:linear-gradient(180deg,var(--gold),rgba(var(--gold-rgb),.35))}
+.lock li{position:relative;display:grid;grid-template-columns:minmax(0,560px) minmax(0,1fr);column-gap:48px;align-items:baseline;padding:13px 0 13px 64px;border-top:1px solid var(--rule)}
+.lock li:last-child{border-bottom:1px solid var(--rule)}
+.lock li::before{content:"";position:absolute;left:8px;top:50%;width:20px;height:20px;margin-top:-10px;border-radius:50%;border:2px solid var(--gold);background:var(--void)}
+.lock-inst{font-family:var(--f-display);font-size:var(--fs-sub);line-height:1.15}
+.lock-role{font-family:var(--f-sans);font-size:var(--fs-body);line-height:1.3;color:var(--ink-2)}
+
+.answers{display:flex;flex-direction:column}
+.answers li{display:grid;grid-template-columns:minmax(0,1fr) 120px minmax(0,1fr);column-gap:36px;align-items:center;padding:26px 0;border-top:1px solid var(--rule)}
+.answers li:last-child{border-bottom:1px solid var(--rule)}
+.ans-fail{font-family:var(--f-display);font-size:var(--fs-sub);line-height:1.18;color:var(--ink-2)}
+.ans-fix{font-family:var(--f-display);font-style:italic;font-size:var(--fs-sub);line-height:1.18;color:var(--gold)}
+.ans-arrow{height:2px;background:var(--gold);position:relative}
+.ans-arrow::after{content:"";position:absolute;right:-2px;top:-7px;border:8px solid transparent;border-left:14px solid var(--gold);border-right:0}
+
+/* charts */
+.chart{width:100%}
+.bars{position:relative;display:flex;flex-direction:column;gap:30px}
+.bar-row{display:grid;grid-template-columns:330px minmax(0,1fr);column-gap:40px;align-items:center}
+.bar-name{font-family:var(--f-display);font-size:var(--fs-sub);line-height:1.1}
+.bar-name small{display:block;font-family:var(--f-sans);font-size:var(--fs-small);color:var(--ink-3);margin-top:6px;letter-spacing:.01em}
+.bar-plot{position:relative;height:64px;
+  background-image:linear-gradient(90deg,var(--rule) 1px,transparent 1px);background-size:25% 100%;
+  border-right:1px solid var(--rule)}
+.bar{position:absolute;left:0;top:14px;height:36px;width:calc(var(--v) * 1%);min-width:3px;background:var(--mark,var(--gold-mark));border-radius:0 4px 4px 0}
+.bar-val{position:absolute;top:50%;left:calc(var(--v) * 1% + 22px);transform:translateY(-50%);font-family:var(--f-sans);font-weight:650;font-stretch:108%;font-size:var(--fs-sub);line-height:1;white-space:nowrap;color:var(--ink)}
+.bar-val.inside{left:auto;right:22px;color:var(--void)}
+.bar-val small{font-family:var(--f-sans);font-weight:400;font-stretch:100%;font-size:var(--fs-small);color:var(--ink-3);margin-left:12px}
+.bar-axis{display:grid;grid-template-columns:330px minmax(0,1fr);column-gap:40px}
+.bar-ticks{position:relative;height:28px;font-family:var(--f-mono);font-size:18px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.bar-ticks span{position:absolute;top:4px;transform:translateX(-50%)}
+.mark-gold{--mark:var(--gold-mark)}
+.mark-crim{--mark:var(--crimson)}
+.mark-steel{--mark:var(--steel)}
+
+.waffle{display:grid;grid-template-columns:repeat(15,38px);gap:7px}
+.cell{position:relative;width:38px;height:38px;border-radius:2px;background:rgba(var(--ink-rgb),.09);overflow:hidden;
+  transition:transform .6s var(--ease-out) calc(var(--base) + var(--d,0ms) + var(--i,0) * 16ms),opacity .6s var(--ease-out) calc(var(--base) + var(--d,0ms) + var(--i,0) * 16ms)}
+.cell.on{background:var(--crimson)}
+.cell.part::after{content:"";position:absolute;left:0;top:0;bottom:0;width:calc(var(--p) * 100%);background:var(--crimson)}
+.slide:not(.is-active) .cell{transform:scale(.4);opacity:0;transition-duration:.3s;transition-delay:0s}
+.is-static .cell{transform:none!important;opacity:1!important;transition:none!important}
+.legend{display:flex;align-items:center;gap:12px}
+.legend i{display:inline-block;width:18px;height:18px;border-radius:2px;flex:none}
+
+.timeline svg{width:100%;height:auto}
+.tl-axis{stroke:var(--ink-3);stroke-width:1.5}
+.tl-tick{stroke:var(--ink-3);stroke-width:1}
+.tl-year{font-family:var(--f-mono);font-size:19px;fill:var(--ink-3)}
+.tl-label{font-family:var(--f-sans);font-size:23px;fill:var(--ink-2)}
+.tl-label.strong{fill:var(--ink)}
+.tl-crim{fill:var(--crimson)}
+.tl-debt{fill:rgba(194,58,51,.55)}
+.tl-gold{fill:var(--gold-mark)}
+.tl-ink{fill:var(--ink)}
+
+.dots-fig{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:90px;align-items:end}
+.dots-group{display:flex;flex-direction:column;gap:20px}
+.dots-group svg{display:block;height:auto}
+.dots-ee{width:84px}
+.dots-ph{width:100%;max-width:1240px}
+.dot-ee{fill:var(--gold-mark)}
+.dot-ph{fill:var(--steel-ink)}
+
+/* diagrams */
+.diagram{width:100%;height:auto;display:block}
+.node{fill:rgba(var(--void-rgb),.82);stroke:var(--rule-strong);stroke-width:1.5}
+.node.gold{stroke:var(--gold);stroke-width:2}
+.node.dash{stroke-dasharray:8 7}
+.node-t{font-family:var(--f-display);font-size:34px;fill:var(--ink)}
+.node-n{font-family:var(--f-sans);font-size:21px;fill:var(--ink-3)}
+.dg-note{font-family:var(--f-sans);font-size:23px;fill:var(--ink-2)}
+.dg-note.crim{fill:var(--crimson-ink)}
+.dg-note.gold{fill:var(--gold)}
+.ln{fill:none;stroke-width:2;stroke-linecap:round}
+.ln.ink{stroke:var(--ink-2)}
+.ln.gold{stroke:var(--gold);stroke-width:3}
+.ln.crim{stroke:var(--crimson);stroke-width:4}
+.ln.dash{stroke-dasharray:8 8}
+.bus{stroke:var(--gold);stroke-width:4;fill:none}
+.packet{fill:var(--gold)}
+.slide.is-active .packet{animation:packet 3.6s linear infinite}
+@keyframes packet{from{transform:translateX(0)}to{transform:translateX(640px)}}
+
+/* ---------- chrome ---------- */
+.progress{position:fixed;left:0;right:0;bottom:0;height:3px;z-index:20;background:rgba(var(--ink-rgb),.06);pointer-events:none}
+.progress span{display:block;height:100%;width:0;background:var(--gold);transition:width .9s var(--ease)}
+.controls{position:fixed;right:22px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:21;display:flex;align-items:center;gap:4px;
+  padding:6px;border-radius:999px;background:rgba(var(--void-rgb),.78);border:1px solid var(--rule);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  opacity:0;transform:translateY(10px);transition:opacity .35s var(--ease-out),transform .35s var(--ease-out);pointer-events:none}
+body.ui .controls,.controls:focus-within{opacity:1;transform:none;pointer-events:auto}
+.controls button{appearance:none;border:0;background:transparent;color:var(--ink-2);cursor:pointer;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;padding:0}
+.controls button:hover{background:rgba(var(--ink-rgb),.09);color:var(--ink)}
+.controls button:focus-visible,.thumb:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.controls svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.counter{font-family:var(--f-mono);font-size:13px;color:var(--ink-3);padding:0 10px;min-width:78px;text-align:center;font-variant-numeric:tabular-nums}
+.blackout{position:fixed;inset:0;background:#000;z-index:40;opacity:0;pointer-events:none;transition:opacity .5s var(--ease)}
+body.black .blackout{opacity:1;pointer-events:auto}
+
+.overview{position:fixed;inset:0;z-index:30;background:rgba(var(--void-rgb),.93);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  overflow-y:auto;padding:64px 40px 96px}
+.ov-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:26px;max-width:1820px;margin:0 auto}
+.thumb{appearance:none;border:0;padding:0;margin:0;cursor:pointer;position:relative;display:block;width:100%;aspect-ratio:16/9;max-width:100%;border-radius:6px;overflow:hidden;
+  background:var(--thumb-bg,#0d0f12);outline:1px solid var(--rule);color:inherit;text-align:left;
+  transition:transform .35s var(--ease-out),outline-color .2s}
+.thumb:hover{transform:translateY(-4px);outline-color:var(--gold)}
+.thumb.current{outline:2px solid var(--gold)}
+.thumb-inner{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0;transform:scale(var(--ts,.13));pointer-events:none}
+.thumb-inner .slide{opacity:1;visibility:visible;transform:none;transition:none;pointer-events:none}
+.thumb-num{position:absolute;right:10px;bottom:8px;font-family:var(--f-mono);font-size:12px;color:var(--ink-3);background:rgba(var(--void-rgb),.7);padding:2px 6px;border-radius:3px}
+.thumb[data-tone="gold"]{--thumb-bg:radial-gradient(ellipse at 70% 70%,rgba(217,174,85,.22),transparent 60%),#0d0c0a}
+.thumb[data-tone="rust"]{--thumb-bg:radial-gradient(ellipse at 70% 70%,rgba(194,58,51,.24),transparent 60%),#0e0a09}
+.thumb[data-tone="cool"]{--thumb-bg:radial-gradient(ellipse at 70% 70%,rgba(134,169,208,.18),transparent 60%),#0b0d10}
+.thumb[data-tone="sea"]{--thumb-bg:radial-gradient(ellipse at 70% 70%,rgba(70,110,150,.25),transparent 60%),#09111a}
+.thumb[data-tone="dark"]{--thumb-bg:radial-gradient(ellipse at 70% 70%,rgba(160,60,50,.14),transparent 60%),#0a0909}
+.thumb[data-tone="iron"]{--thumb-bg:radial-gradient(ellipse at 70% 70%,rgba(236,231,220,.08),transparent 60%),#0c0d0f}
+
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* ---------- sources ---------- */
+.sources{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:56px;row-gap:0}
+.sources li{padding:13px 0;border-top:1px solid var(--rule);display:grid;grid-template-columns:minmax(0,1fr);row-gap:4px}
+.src-a{font-family:var(--f-sans);font-weight:600;font-size:24px;line-height:1.25;color:var(--ink)}
+.src-n{font-family:var(--f-sans);font-size:20px;line-height:1.35;color:var(--ink-3)}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce){
+  .slide,.slide.is-active,.slide.is-past{transform:none!important;transition:opacity .35s linear,visibility 0s linear .35s}
+  .slide.is-active{transition:opacity .35s linear,visibility 0s}
+  [data-r],.wi,[data-draw],.cell{transition:none!important;opacity:1!important;transform:none!important;clip-path:none!important;stroke-dashoffset:0!important}
+  .slide .fill-in{color:var(--gold)!important}
+  .grain{animation:none}
+  .slide.is-active .packet{animation:none}
+}
+
+/* ---------- reading mode (phones, tall windows) ---------- */
+@media (max-width: 760px), (max-aspect-ratio: 3/4){
+  :root{
+    --fs-title:clamp(46px,13vw,72px);
+    --fs-mega:clamp(32px,8.6vw,48px);
+    --fs-display:clamp(26px,6.8vw,36px);
+    --fs-lead:clamp(20px,5.2vw,26px);
+    --fs-sub:clamp(18px,4.7vw,22px);
+    --fs-body:16.5px;
+    --fs-small:12.5px;
+    --fs-hero:clamp(62px,18vw,104px);
+    --fs-fig:clamp(42px,11vw,60px);
+  }
+  html,body{height:auto}
+  body{overflow-x:hidden;overflow-y:auto}
+  .viewport{position:relative;inset:auto;overflow:visible;cursor:auto}
+  .stage{position:relative;left:auto;top:auto;width:auto;height:auto;transform:none!important;perspective:none;padding-inline:16px}
+  .slide{position:relative;inset:auto;opacity:1;visibility:visible;pointer-events:auto;transform:none!important;transition:none;
+    padding:64px 0 56px;gap:22px;border-bottom:1px solid var(--rule);min-height:0}
+  .slide.top{padding-top:64px}
+  .slide [data-r],.slide .wi,.slide [data-draw],.slide .cell{opacity:1!important;transform:none!important;clip-path:none!important;transition:none!important;stroke-dashoffset:0!important}
+  .slide .fill-in{color:var(--gold)!important}
+  .slide .sun .ray,.slide .sun .disc{fill:var(--gold)}
+  .cite{position:static;margin-top:6px}
+  .scrim{opacity:0!important}
+  .scrim-full{opacity:.74!important}
+  .controls,.progress{display:none}
+  .col,.col-wide{max-width:none}
+  .g2,.g2.lw,.g2.rw,.g2.pair-auto,.g3,.g4,.route,.steps,.halves,.mtl,.answers li,.lock li,.bar-row,.bar-row.year-row,.bar-axis,.dots-fig,.sources{grid-template-columns:minmax(0,1fr)}
+  .g2,.g3,.g4{row-gap:28px;column-gap:0}
+  .route,.steps{row-gap:26px}
+  .route-wrap{padding-top:0;margin-top:8px}
+  .route-line,.route-dot,.halves-rule,.mtl-arrow,.ans-arrow{display:none}
+  .halves{row-gap:22px;margin-top:0}
+  .risk{column-gap:28px}
+  .sun{width:96px;height:96px}
+  .title-block{gap:22px}
+  .lock::before,.lock li::before{display:none}
+  .lock li{padding-left:0;row-gap:4px}
+  .answers li{row-gap:8px;padding:16px 0}
+  .bar-row{row-gap:8px}
+  .bar-axis > :first-child{display:none}
+  .bar-plot{height:44px}
+  .bar{top:9px;height:26px}
+  .bar-ticks{font-size:11px}
+  .waffle{grid-template-columns:repeat(15,minmax(0,1fr));gap:4px;max-width:100%}
+  .cell{width:auto;height:auto;aspect-ratio:1}
+  .pillars{flex-wrap:wrap;gap:16px}
+  .pillar{width:auto;flex:1 1 30%}
+  .pillar.late{margin-left:0}
+  .pillar-shaft{width:40px;height:110px}
+  .donors{column-gap:0}
+  .formula-less{gap:14px}
+  .dots-ph{max-width:100%}
+  .src-a{font-size:15px}
+  .src-n{font-size:13px}
+  .node-t{font-size:34px}
+  .t-body{max-width:none}
+  .figure .t-body{max-width:none}
+}
+</style>
+<noscript><style>
+  body{overflow:auto}.viewport{position:relative}.stage{position:relative;left:auto;top:auto;transform:none;width:auto;height:auto;padding-inline:16px}
+  .slide{position:relative;opacity:1;visibility:visible;transform:none;min-height:100vh}
+  [data-r],.wi{opacity:1!important;transform:none!important;clip-path:none!important}
+</style></noscript>
+</head>
+<body data-scrim="center">
+
+<canvas id="scene" aria-hidden="true"></canvas>
+<div class="fallback" aria-hidden="true"></div>
+<div class="scrim scrim-left" aria-hidden="true"></div>
+<div class="scrim scrim-center" aria-hidden="true"></div>
+<div class="scrim scrim-full" aria-hidden="true"></div>
+<div class="scrim scrim-soft" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <marker id="ah-ink" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="12" markerHeight="12" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M1 1 L11 6 L1 11 z" fill="#BDB8AE"/></marker>
+    <marker id="ah-gold" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="16" markerHeight="16" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M1 1 L11 6 L1 11 z" fill="#D9AE55"/></marker>
+  </defs>
+</svg>
+
+<main class="viewport" id="viewport" aria-roledescription="presentation" aria-label="Strong Before Gentle">
+<div class="stage" id="stage">
+
+<!-- 1 -->
+<section class="slide l-center" data-scene="title" data-scrim="soft" aria-label="Title">
+  <div class="title-block">
+    <svg class="sun" viewBox="-100 -100 200 200" aria-hidden="true"></svg>
+    <h1 class="t-title" data-r="words" style="--d:500ms">Strong before<br><em class="gold">it is gentle.</em></h1>
+    <span class="title-rule center-x" data-r="grow-x" style="--d:1500ms"></span>
+    <p class="t-lead it soft" data-r="up" style="--d:1700ms">The Philippines I would design</p>
+  </div>
+</section>
+
+<!-- 2 -->
+<section class="slide" data-scene="thesis" data-scrim="left">
+  <div class="col stack" style="--gap:26px">
+    <p class="t-lead muted" data-r="up">The Philippines I would design is strong before it is gentle. I aim to describe a state that</p>
+    <p class="clause" data-r="up" style="--d:250ms">treats its own survival and prosperity as the <em class="gold">first duty of government,</em></p>
+    <p class="clause" data-r="up" style="--d:500ms">asks for <em class="gold">service</em> from every citizen before it asks for their opinions,</p>
+    <p class="clause" data-r="up" style="--d:750ms">and behaves, in a way most modern democracies would find faintly embarrassing, like <em class="gold">a fortress that never quite believes the siege is over.</em></p>
+  </div>
+</section>
+
+<!-- 3 -->
+<section class="slide" data-scene="route" data-scrim="full">
+  <h2 class="t-display" data-r="words">What follows goes through the design in order.</h2>
+  <div class="route-wrap">
+  <span class="route-line" data-r="grow-x" style="--d:300ms"></span>
+  <ol class="route">
+    <li data-r="up" style="--d:450ms"><span class="route-dot"></span><p>The ground rules of the exercise</p></li>
+    <li data-r="up" style="--d:600ms"><span class="route-dot"></span><p>The temperament I am borrowing from Lee Kuan Yew</p></li>
+    <li data-r="up" style="--d:750ms"><span class="route-dot"></span><p>The form of government that temperament requires</p></li>
+    <li data-r="up" style="--d:900ms"><span class="route-dot"></span><p>The figure in our own history who came closest to it</p></li>
+    <li data-r="up" style="--d:1050ms"><span class="route-dot"></span><p>The institutions I would import: where each comes from, what the evidence says about it, and what would have to change here for it to work</p></li>
+  </ol>
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="slide" data-scene="ground" data-scrim="full">
+  <p class="t-lead soft" data-r="up">One ground rule needs stating early, because it changes what counts as an objection.</p>
+  <h2 class="t-display" data-r="words" style="--d:300ms">This is my ideal Philippines, so I assume that <em class="gold">every condition is ideal.</em></h2>
+  <ul class="g4 conditions ticked mt-m">
+    <li data-r="up" style="--d:900ms">The 1987 Constitution has been amended through the process set out in its own Article XVII.</li>
+    <li data-r="up" style="--d:1050ms">The political class has consented instead of resisted.</li>
+    <li data-r="up" style="--d:1200ms">The person at the head of government cannot be bought.</li>
+    <li data-r="up" style="--d:1350ms">Every borrowed institution works here the way it works where it came from.</li>
+  </ul>
+  <p class="cite" data-r="fade" style="--d:1500ms">(Republic of the Philippines, 1987)</p>
+</section>
+
+<!-- 5 -->
+<section class="slide" data-scene="risk" data-scrim="full">
+  <p class="t-lead soft col" data-r="up">We would tend to think this makes the exercise easy, since obstacles are simply waved away. It does something more useful.</p>
+  <div class="risk">
+    <span class="risk-word dead" data-r="up" style="--d:300ms">Execution risk<span class="strike" data-r="grow-x" style="--d:1100ms"></span></span>
+    <span class="risk-word live" data-r="up" style="--d:550ms">Design risk</span>
+  </div>
+  <p class="t-body ink" data-r="up" style="--d:1500ms">It strips out execution risk and leaves design risk standing, so any cost that still appears belongs to the model itself and not to bad luck.</p>
+</section>
+
+<!-- 6 -->
+<section class="slide l-center" data-scene="machine" data-scrim="center">
+  <p class="t-display soft" data-r="words">Ideal, in this sense, does not mean nice.</p>
+  <h2 class="t-mega mt-m" data-r="words" style="--d:900ms">It means the machine runs <em class="gold">as drawn.</em></h2>
+</section>
+
+<!-- 7 -->
+<section class="slide" data-scene="iron" data-scrim="left">
+  <div class="col stack" style="--gap:34px">
+    <p class="t-body" data-r="up" style="max-width:40ch">At a People’s Action Party rally at Fullerton Square in 1980, describing how he had ended unrest at Singapore Airlines, Lee Kuan Yew said that whoever governs Singapore must have</p>
+    <p class="quote-xl gold" data-r="words" style="--d:350ms">“that iron in him,”</p>
+    <p class="t-display" data-r="up" style="--d:1300ms">or give it up.</p>
+  </div>
+  <p class="cite" data-r="fade" style="--d:1500ms">(Channel NewsAsia, n.d.; Channel NewsAsia, 2023)</p>
+</section>
+
+<!-- 8 -->
+<section class="slide" data-scene="argument" data-scrim="full">
+  <div class="g2 lw">
+    <div class="stack" style="--gap:36px">
+      <p class="t-lead muted" data-r="up">It is tempting to hear machismo in that, a strongman enjoying the sound of his own voice.</p>
+      <h2 class="t-display" data-r="words" style="--d:450ms">However, the sentence is doing the work of an argument.</h2>
+    </div>
+    <div class="stack" style="--gap:20px">
+      <p class="t-body" data-r="up" style="--d:1000ms">The person governing has to</p>
+      <p class="spec-line" data-r="up" style="--d:1150ms">absorb unpopularity,</p>
+      <p class="spec-line" data-r="up" style="--d:1300ms">refuse to be talked out of a hard decision,</p>
+      <p class="spec-line" data-r="up" style="--d:1450ms">and stay <em class="gold">clean</em> while doing it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 9 -->
+<section class="slide" data-scene="jobspec" data-scrim="left">
+  <div class="col stack" style="--gap:44px">
+    <h2 class="t-display" data-r="words">If that sounds less like a personality and more like a <em class="gold">job specification,</em> that is because it is one.</h2>
+    <p class="t-lead soft" data-r="up" style="--d:1200ms">Dismissing the line as swagger would be to miss the specification inside it.</p>
+  </div>
+</section>
+
+<!-- 10 -->
+<section class="slide" data-scene="discipline" data-scrim="full">
+  <p class="t-lead soft" data-r="up">Lee gave the policy version to the Philippine Business Conference in 1992, when he said</p>
+  <div class="g2 start mt-m">
+    <div class="stack ticked" style="--gap:22px;--d:350ms" data-r="up">
+      <p class="t-display">a country needs <em class="gold">discipline</em> more than democracy to develop,</p>
+      <p class="cite-inline">(The Philippine Star, 2015)</p>
+    </div>
+    <div class="stack ticked" style="--gap:22px;--d:700ms" data-r="up">
+      <p class="t-display">and that after debate the legislature must let the executive take the <em class="gold">hard decisions.</em></p>
+      <p class="cite-inline">(Lee, 1992)</p>
+    </div>
+  </div>
+</section>
+
+<!-- 11 -->
+<section class="slide" data-scene="deadlock" data-scrim="full">
+  <div class="g2">
+    <div class="stack" style="--gap:34px">
+      <h2 class="t-display" data-r="words">That argument fixes the form of government.</h2>
+      <p class="t-body ink" data-r="up" style="--d:500ms">The presidential system the Philippines inherited from the Americans splits authority between a president and a Congress that can each obstruct the other.</p>
+      <p class="t-body" data-r="up" style="--d:700ms">Lee warned in 1992 that there was no assurance such a constitution would produce wealth here as it had in the United States.</p>
+    </div>
+    <svg class="diagram" viewBox="0 0 760 420" role="img" aria-label="Diagram: a president and a Congress pushing against each other, each able to obstruct the other.">
+      <g data-r="fade" style="--d:300ms">
+        <rect class="node" x="10" y="120" width="280" height="150" rx="3"/>
+        <text class="node-t" x="150" y="207" text-anchor="middle">President</text>
+      </g>
+      <g data-r="fade" style="--d:450ms">
+        <rect class="node" x="470" y="120" width="280" height="150" rx="3"/>
+        <text class="node-t" x="610" y="207" text-anchor="middle">Congress</text>
+      </g>
+      <path class="ln ink" d="M290 195 H360" marker-end="url(#ah-ink)" data-draw style="--d:700ms"/>
+      <path class="ln ink" d="M470 195 H400" marker-end="url(#ah-ink)" data-draw style="--d:700ms"/>
+      <path class="ln crim" d="M380 120 l-22 25 l44 25 l-44 25 l44 25 l-44 25 l22 25" data-draw style="--d:1200ms"/>
+      <text class="dg-note" x="380" y="340" text-anchor="middle" data-r="fade" style="--d:1500ms">each can obstruct the other</text>
+    </svg>
+  </div>
+  <p class="cite" data-r="fade" style="--d:1500ms">(Lee, 1992)</p>
+</section>
+
+<!-- 12 -->
+<section class="slide" data-scene="ramos" data-scrim="left">
+  <div class="col stack" style="--gap:36px">
+    <p class="t-lead soft" data-r="up">By his account, even President Ramos agreed <em class="ink">in private</em> that British-style parliamentary constitutions work better</p>
+    <h2 class="t-display" data-r="words" style="--d:450ms">because the majority party in the legislature is <em class="gold">also the government,</em></h2>
+    <p class="t-lead it muted" data-r="up" style="--d:1400ms">although in public he had to say otherwise.</p>
+  </div>
+  <p class="cite" data-r="fade" style="--d:1500ms">(The Philippine Star, 2015)</p>
+</section>
+
+<!-- 13 -->
+<section class="slide" data-scene="ideal" data-scrim="left">
+  <div class="col stack" style="--gap:28px">
+    <p class="t-lead soft" data-r="up">So the ideal Philippines is a</p>
+    <h2 class="t-display" data-r="words" style="--d:250ms">dominant-party, executive-led parliamentary state on the <em class="gold">Singaporean model,</em></h2>
+    <p class="t-body" data-r="up" style="--d:1100ms">drawing on the Westminster tradition Singapore inherited.</p>
+    <div class="ruled stack mt-m" style="--gap:16px">
+      <p class="t-lead" data-r="up" style="--d:1350ms">The party that wins the mandate governs, and the deadlock that presidential systems treat as a feature is <em class="gold">designed out.</em></p>
+    </div>
+  </div>
+</section>
+
+<!-- 14 -->
+<section class="slide" data-scene="structure" data-scrim="full">
+  <div class="g2">
+    <div class="stack" style="--gap:32px">
+      <h2 class="t-lead" data-r="up">One Singaporean touch I would keep is an <em class="gold">elected head of state,</em> separate from the Prime Minister, whose concurrence is needed for key appointments.</h2>
+      <p class="t-lead it gold" data-r="up" style="--d:500ms">Its use will become clear shortly.</p>
+      <p class="t-body" data-r="up" style="--d:750ms">The amendments to Articles VI and VII that all this requires are among the conditions I stipulate.</p>
+    </div>
+    <svg class="diagram" viewBox="0 0 780 600" role="img" aria-label="Diagram: Parliament, whose majority party is also the government, forms the Prime Minister and Cabinet. A separately elected head of state must concur with key appointments.">
+      <g data-r="fade" style="--d:400ms">
+        <rect class="node gold" x="420" y="10" width="350" height="120" rx="3"/>
+        <text class="node-t" x="595" y="64" text-anchor="middle">Elected head of state</text>
+        <text class="node-n" x="595" y="100" text-anchor="middle">separate from the Prime Minister</text>
+      </g>
+      <g data-r="fade" style="--d:600ms">
+        <rect class="node" x="10" y="240" width="350" height="120" rx="3"/>
+        <text class="node-t" x="185" y="294" text-anchor="middle">Prime Minister</text>
+        <text class="node-n" x="185" y="330" text-anchor="middle">and Cabinet</text>
+      </g>
+      <g data-r="fade" style="--d:800ms">
+        <rect class="node dash" x="420" y="240" width="350" height="120" rx="3"/>
+        <text class="node-t" x="595" y="294" text-anchor="middle">Key appointments</text>
+        <text class="node-n" x="595" y="330" text-anchor="middle">need its concurrence</text>
+      </g>
+      <g data-r="fade" style="--d:200ms">
+        <rect class="node" x="10" y="470" width="760" height="120" rx="3"/>
+        <text class="node-t" x="390" y="524" text-anchor="middle">Parliament</text>
+        <text class="node-n" x="390" y="560" text-anchor="middle">the majority party is also the government</text>
+      </g>
+      <path class="ln ink" d="M185 470 V370" marker-end="url(#ah-ink)" data-draw style="--d:900ms"/>
+      <path class="ln ink" d="M360 300 H410" marker-end="url(#ah-ink)" data-draw style="--d:1100ms"/>
+      <path class="ln gold" d="M595 130 V228" marker-end="url(#ah-gold)" data-draw style="--d:1300ms"/>
+      <text class="dg-note gold" x="612" y="186" data-r="fade" style="--d:1500ms">concurrence</text>
+    </svg>
+  </div>
+  <p class="cite" data-r="fade" style="--d:1500ms">(Chan, 2023)</p>
+</section>
+
+<!-- 15 -->
+<section class="slide l-center" data-scene="marcos" data-scrim="center">
+  <p class="t-lead soft center-x" data-r="up" style="max-width:28ch">We would expect a Filipino essay on strongman government to be about Ferdinand Marcos Sr., and this one cannot avoid him,</p>
+  <h2 class="t-display center-x" data-r="words" style="--d:600ms;max-width:22ch">because he is the closest thing this country produced to a Lee Kuan Yew,</h2>
+  <p class="t-display it crim" data-r="up" style="--d:1700ms">in method if not in result.</p>
+</section>
+
+<!-- 16 -->
+<section class="slide l-center" data-scene="slogan" data-scrim="center">
+  <p class="t-body center-x" data-r="up" style="max-width:52ch">The two ruled in the same era and reached for the same tools. Marcos announced martial law in September 1972 and built a New Society around a slogan Lee could almost have written:</p>
+  <p class="quote-xl ink center-x" data-r="words" style="--d:450ms;max-width:15ch">Sa ikauunlad ng bayan, disiplina ang kailangan.</p>
+  <p class="t-lead it gold" data-r="up" style="--d:1600ms">National progress requires discipline.</p>
+  <p class="cite" data-r="fade" style="--d:1700ms">(Martial Law Museum, n.d.)</p>
+</section>
+
+<!-- 17 -->
+<section class="slide" data-scene="technocrats" data-scrim="full">
+  <div class="g2 lw">
+    <div class="stack" style="--gap:28px">
+      <p class="t-lead" data-r="up">He gave the economy to a corps of technocrats around <em class="gold">Cesar Virata,</em> later his prime minister,</p>
+      <p class="t-body" data-r="up" style="--d:250ms">whom the public read, for a time, as the apolitical and comparatively clean part of the regime.</p>
+      <p class="cite-inline" data-r="fade" style="--d:450ms">(Tadem, 2013)</p>
+    </div>
+    <div class="figure">
+      <p class="fig-hero" data-r="up" style="--d:700ms">≈<span data-count="9">9</span><span class="unit">%</span></p>
+      <p class="t-body ink" data-r="up" style="--d:900ms">Growth followed: it approached nine percent in both 1973 and 1976.</p>
+      <p class="cite-inline" data-r="fade" style="--d:1100ms">(ABS-CBN News, 2021)</p>
+    </div>
+  </div>
+</section>
+
+<!-- 18 -->
+<section class="slide l-center" data-scene="rescue" data-scrim="center">
+  <p class="t-display soft center-x" data-r="words" style="max-width:24ch">On this view, here was our Lee, undone only by bad luck and an ungrateful electorate.</p>
+  <h2 class="t-mega crim mt-m" data-r="words" style="--d:1700ms">That rescue proves too much.</h2>
+  <p class="t-lead" data-r="up" style="--d:2500ms">The man best placed to judge did not accept it.</p>
+</section>
+
+<!-- 19 -->
+<section class="slide" data-scene="pillaged" data-scrim="left">
+  <div class="col stack" style="--gap:30px">
+    <p class="t-body" data-r="up">Lee wrote that only in the Philippines could a leader who</p>
+    <p class="quote-xl crim" data-r="words" style="--d:300ms">“pillaged his country”</p>
+    <p class="t-lead" data-r="up" style="--d:1100ms">for over twenty years be considered for a national burial,</p>
+    <p class="t-body" data-r="up" style="--d:1400ms">and that Marcos let his wife and cronies strip the state through monopolies while putting the government heavily in debt.</p>
+  </div>
+  <p class="cite" data-r="fade" style="--d:1600ms">(The Philippine Star, 2016)</p>
+</section>
+
+<!-- 20 -->
+<section class="slide top" data-scene="numbers" data-scrim="full">
+  <h2 class="t-display" data-r="words">The numbers side with Lee.</h2>
+  <div class="g2 lw end" style="column-gap:80px">
+    <div class="figure" data-r="up" style="--d:300ms">
+      <p class="fig-hero"><span data-count="3.8" data-decimals="1">3.8</span><span class="unit">%</span></p>
+      <p class="t-body ink">average growth over the Marcos years, against peaks near nine percent.</p>
+    </div>
+    <ul class="stack ruled" style="--gap:18px">
+      <li class="t-sub" data-r="up" style="--d:500ms">The country suffered its worst recession in 1984 and 1985.</li>
+      <li class="t-sub" data-r="up" style="--d:650ms">Debt ran above two hundred percent of exports from 1978 onward, peaking in 1985.</li>
+    </ul>
+  </div>
+  <figure class="timeline" data-r="fade" style="--d:800ms">
+    <svg viewBox="0 0 1664 250" role="img" aria-label="Timeline, 1972 to 1986: martial law in September 1972; growth near nine percent in 1973 and 1976; debt above 200 percent of exports from 1978 onward, peaking in 1985; worst recession in 1984 and 1985.">
+      <g id="tl-marcos"></g>
+    </svg>
+  </figure>
+  <p class="cite" data-r="fade" style="--d:1400ms">(ABS-CBN News, 2021)</p>
+</section>
+
+<!-- 21 -->
+<section class="slide" data-scene="tadem" data-scrim="left">
+  <div class="col stack" style="--gap:34px">
+    <p class="t-lead soft" data-r="up">Tadem (2016) explains why the technocrats could not stop the slide:</p>
+    <h2 class="t-display" data-r="words" style="--d:350ms">their network could not control <em class="crim">Imelda Marcos’s spending</em> or the cronies’ <em class="crim">sugar and coconut monopolies.</em></h2>
+  </div>
+</section>
+
+<!-- 22 -->
+<section class="slide" data-scene="humanbill" data-scrim="full">
+  <div class="g2 lw">
+    <div class="stack" style="--gap:26px">
+      <p class="t-lead soft" data-r="up">There was a human bill as well.</p>
+      <p class="fig-hero" data-r="up" style="--d:250ms"><span data-count="11103">11,103</span></p>
+      <p class="t-body ink" data-r="up" style="--d:450ms">martial law victims recognised by the state’s own claims board, out of roughly 75,000 applicants.</p>
+    </div>
+    <figure class="stack" style="--gap:22px">
+      <div class="waffle" data-waffle data-total="75" data-on="11.103" role="img" aria-label="75 squares, each standing for 1,000 applicants; just over 11 are filled for the 11,103 recognised victims."></div>
+      <figcaption class="stack" style="--gap:10px;--d:1600ms" data-r="fade">
+        <span class="legend t-small"><i style="background:rgba(236,231,220,.09)"></i>Each square stands for 1,000 applicants</span>
+        <span class="legend t-small"><i style="background:var(--crimson)"></i>Recognised victims: 11,103</span>
+      </figcaption>
+    </figure>
+  </div>
+  <p class="cite" data-r="fade" style="--d:1600ms">(Bulatlat, 2018)</p>
+</section>
+
+<!-- 23 -->
+<section class="slide l-center" data-scene="half" data-scrim="center">
+  <p class="t-lead soft" data-r="up">I draw a different lesson from Marcos than the usual one.</p>
+  <div class="halves">
+    <div class="stack" style="--gap:24px;--d:400ms" data-r="up">
+      <p class="t-display">He copied the visible half of the Lee model,</p>
+      <ul class="solid-list">
+        <li>the emergency powers,</li>
+        <li>the slogan,</li>
+        <li>the planners,</li>
+      </ul>
+    </div>
+    <span class="halves-rule" data-r="fade" style="--d:700ms"></span>
+    <div class="stack" style="--gap:24px;--d:1000ms" data-r="up">
+      <p class="t-display soft">and left out the invisible half,</p>
+      <p class="ghost-text">the incorruptible centre.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 24 -->
+<section class="slide" data-scene="written" data-scrim="left">
+  <h2 class="t-mega" style="max-width:14ch"><span data-r="words">My ideal Philippines is the same draft with</span> <span class="fill-in" data-r="up" style="--d:900ms">the missing half written in.</span></h2>
+</section>
+
+<!-- 25 -->
+<section class="slide between" data-scene="twin" data-scrim="soft">
+  <div class="stack" style="--gap:22px">
+    <h2 class="t-display" data-r="words">The first import, then, is that <em class="gold">incorruptible centre,</em></h2>
+    <p class="t-lead soft" data-r="up" style="--d:900ms">and it needs two donors, because one body alone teaches only half of the lesson.</p>
+  </div>
+  <div class="g2 donors">
+    <div class="donor" data-r="up" style="--d:1200ms">
+      <p class="donor-place">Singapore</p>
+      <p class="t-body ink">Corrupt Practices Investigation Bureau</p>
+      <p class="donor-year">1952</p>
+    </div>
+    <div class="donor" data-r="up" style="--d:1400ms">
+      <p class="donor-place">Hong Kong</p>
+      <p class="t-body ink">Independent Commission Against Corruption</p>
+      <p class="donor-year">1974</p>
+    </div>
+  </div>
+</section>
+
+<!-- 26 -->
+<section class="slide" data-scene="cpib" data-scrim="left">
+  <div class="col stack" style="--gap:30px;max-width:1060px">
+    <p class="t-lead soft" data-r="up">From Singapore I would take the</p>
+    <h2 class="t-display" data-r="words" style="--d:250ms">Corrupt Practices Investigation Bureau,</h2>
+    <ul class="facts mt-s">
+      <li data-r="up" style="--d:900ms">founded in <em class="gold">1952,</em></li>
+      <li data-r="up" style="--d:1050ms">housed in the <em class="gold">Prime Minister’s Office,</em></li>
+      <li data-r="up" style="--d:1200ms">and led by a director who reports <em class="gold">directly to the Prime Minister.</em></li>
+    </ul>
+  </div>
+  <p class="cite" data-r="fade" style="--d:1400ms">(Corrupt Practices Investigation Bureau [CPIB], n.d.-a)</p>
+</section>
+
+<!-- 27 -->
+<section class="slide" data-scene="article22g" data-scrim="full">
+  <div class="g2 rw" style="column-gap:90px">
+    <div class="stack" style="--gap:26px">
+      <p class="t-lead" data-r="up">Putting the graft hunter under the head of government looks like asking a goalkeeper to referee his own match,</p>
+      <p class="t-lead it gold" data-r="up" style="--d:300ms">and the clever part is the fix.</p>
+      <p class="t-body" data-r="up" style="--d:550ms">Under Article 22G of Singapore’s Constitution, if a Prime Minister refuses consent for an investigation, the director can go to the elected President, whose concurrence is also needed to appoint or remove the director.</p>
+    </div>
+    <div class="stack" style="--gap:34px">
+      <svg class="diagram" viewBox="0 0 780 600" role="img" aria-label="Diagram: if the Prime Minister refuses consent, the CPIB director goes to the elected President, who must also concur to appoint or remove the director.">
+        <g data-r="fade" style="--d:300ms">
+          <rect class="node" x="10" y="10" width="330" height="120" rx="3"/>
+          <text class="node-t" x="175" y="82" text-anchor="middle">Prime Minister</text>
+        </g>
+        <g data-r="fade" style="--d:450ms">
+          <rect class="node gold" x="440" y="10" width="330" height="150" rx="3"/>
+          <text class="node-t" x="605" y="66" text-anchor="middle">Elected President</text>
+          <text class="node-n" x="605" y="102" text-anchor="middle">must concur to appoint</text>
+          <text class="node-n" x="605" y="130" text-anchor="middle">or remove the director</text>
+        </g>
+        <g data-r="fade" style="--d:150ms">
+          <rect class="node" x="225" y="470" width="330" height="120" rx="3"/>
+          <text class="node-t" x="390" y="542" text-anchor="middle">CPIB director</text>
+        </g>
+        <path class="ln ink" d="M310 470 L196 142" marker-end="url(#ah-ink)" data-draw style="--d:700ms"/>
+        <g data-r="fade" style="--d:1200ms">
+          <path class="ln crim" d="M232 283 l36 36 M268 283 l-36 36"/>
+          <text class="dg-note crim" x="214" y="306" text-anchor="end">consent refused</text>
+        </g>
+        <path class="ln gold" d="M470 470 L586 172" marker-end="url(#ah-gold)" data-draw style="--d:1500ms"/>
+        <text class="dg-note gold" x="552" y="330" data-r="fade" style="--d:1900ms">the route around</text>
+      </svg>
+      <p class="t-lead" data-r="up" style="--d:2000ms">The referee, in other words, has a direct line to the stadium owner.</p>
+    </div>
+  </div>
+  <p class="cite" data-r="fade" style="--d:2100ms">(Chan, 2023)</p>
+</section>
+
+<!-- 28 -->
+<section class="slide" data-scene="evidence" data-scrim="full">
+  <div class="g2 start">
+    <div class="stack" style="--gap:30px">
+      <p class="t-lead" data-r="up">The government’s own claim is that no Prime Minister has ever blocked the Bureau,</p>
+      <p class="t-lead it muted" data-r="up" style="--d:400ms">which is the kind of assurance we should hold at arm’s length.</p>
+    </div>
+    <div class="figure">
+      <p class="fig-hero" data-r="up" style="--d:800ms"><span data-count="12">12</span><span class="unit"> months</span></p>
+      <p class="t-body ink" data-r="up" style="--d:1000ms">Still, the 2024 jailing of a former transport minister, S. Iswaran, for twelve months over gifts and obstructing justice, with the judge treating high office as an aggravating factor and not a shield, suggests the reach is real.</p>
+      <p class="cite-inline" data-r="fade" style="--d:1200ms">(The Straits Times, 2024)</p>
+    </div>
+  </div>
+</section>
+
+<!-- 29 -->
+<section class="slide" data-scene="cpi" data-scrim="left">
+  <div class="stack" style="--gap:44px;max-width:1150px">
+    <p class="t-lead" data-r="up">Singapore scored 84 out of 100 and ranked third in the 2025 Corruption Perceptions Index, while the Philippines scored 32 and ranked 120th.</p>
+    <div class="chart" role="img" aria-label="Bar chart, 2025 Corruption Perceptions Index on a 0 to 100 scale: Singapore 84, ranked 3rd; Philippines 32, ranked 120th.">
+      <div class="bars">
+        <div class="bar-row">
+          <p class="bar-name">Singapore<small>ranked 3rd</small></p>
+          <div class="bar-plot"><span class="bar mark-gold" style="--v:84;--d:500ms" data-r="grow-x" title="Singapore: 84"></span><span class="bar-val" style="--v:84;--d:1100ms" data-r="fade">84</span></div>
+        </div>
+        <div class="bar-row">
+          <p class="bar-name">Philippines<small>ranked 120th</small></p>
+          <div class="bar-plot"><span class="bar mark-steel" style="--v:32;--d:700ms" data-r="grow-x" title="Philippines: 32"></span><span class="bar-val" style="--v:32;--d:1300ms" data-r="fade">32</span></div>
+        </div>
+        <div class="bar-axis"><span></span><div class="bar-ticks"><span style="left:0%">0</span><span style="left:25%">25</span><span style="left:50%">50</span><span style="left:75%">75</span><span style="left:100%">100</span></div></div>
+      </div>
+    </div>
+  </div>
+  <p class="cite" data-r="fade" style="--d:1400ms">(CPIB, n.d.-b; The Philippine Star, 2026)</p>
+</section>
+
+<!-- 30 -->
+<section class="slide" data-scene="icac" data-scrim="left">
+  <div class="stack" style="--gap:40px;max-width:1180px">
+    <p class="t-lead soft" data-r="up">From Hong Kong I would take the other half.</p>
+    <div class="mtl">
+      <div class="stack" style="--gap:16px;--d:300ms" data-r="up">
+        <p class="fig">1973</p>
+        <p class="t-body">Peter Godber, a police chief superintendent under investigation, escaped to Britain.</p>
+      </div>
+      <span class="mtl-arrow" data-r="grow-x" style="--d:700ms"></span>
+      <div class="stack" style="--gap:16px;--d:900ms" data-r="up">
+        <p class="fig gold">1974</p>
+        <p class="t-body ink">Hong Kong created its Independent Commission Against Corruption.</p>
+      </div>
+    </div>
+    <p class="t-display it" data-r="up" style="--d:1300ms">A useful reminder that the police cannot be relied on to investigate the police.</p>
+  </div>
+  <p class="cite" data-r="fade" style="--d:1500ms">(Hong Kong SAR Government, n.d.; Independent Commission Against Corruption [ICAC], n.d.)</p>
+</section>
+
+<!-- 31 -->
+<section class="slide between l-center" data-scene="prongs" data-scrim="soft">
+  <p class="t-lead center-x" data-r="up" style="max-width:34ch">Its Commissioner answers directly to the Chief Executive, and its founding idea was that prosecution is only one prong of three,</p>
+  <div class="g3 prongs">
+    <div data-r="up" style="--d:600ms"><p class="prong">Prosecution</p><p class="prong-sub">only one prong,</p></div>
+    <div data-r="up" style="--d:800ms"><p class="prong">Prevention</p><p class="prong-sub">inside institutions,</p></div>
+    <div data-r="up" style="--d:1000ms"><p class="prong">Education</p><p class="prong-sub">of the public.</p></div>
+  </div>
+  <p class="cite" data-r="fade" style="--d:1200ms">(ICAC, n.d.)</p>
+</section>
+
+<!-- 32 -->
+<section class="slide l-center" data-scene="pay" data-scrim="center">
+  <p class="t-lead soft center-x" data-r="up" style="max-width:32ch">Neither body works if honesty is also a sacrifice, so the package includes Singapore’s pay rule.</p>
+  <div class="formula mt-m">
+    <p class="t-body" data-r="up" style="--d:400ms">Ministerial salaries are pegged to</p>
+    <p class="formula-main" data-r="words" style="--d:550ms">the median income of the top <span class="gold">1,000</span> citizen earners,</p>
+    <p class="formula-less" data-r="up" style="--d:1300ms"><span class="formula-op">less</span><span class="fig gold">40%</span></p>
+    <p class="t-lead it soft" data-r="up" style="--d:1550ms">to reflect the ethos of political service.</p>
+  </div>
+  <p class="cite" data-r="fade" style="--d:1700ms">(Public Service Division, 2012)</p>
+</section>
+
+<!-- 33 -->
+<section class="slide" data-scene="price" data-scrim="full">
+  <h2 class="t-display" data-r="words">Even Singapore pays a political price for this logic.</h2>
+  <div class="g2 start mt-m">
+    <div class="figure" data-r="up" style="--d:500ms">
+      <p class="fig-hero">−<span data-count="36">36</span><span class="unit">%</span></p>
+      <p class="t-body ink">Ministers took a pay cut of about 36 percent in 2012 to calm public anger,</p>
+    </div>
+    <div class="figure" data-r="up" style="--d:800ms">
+      <p class="fig-hero"><span data-count="15">15</span><span class="unit"> years</span></p>
+      <p class="t-body ink">and the first raise in fifteen years, announced this month, came with the prime minister acknowledging that Singaporeans scrutinise it.</p>
+    </div>
+  </div>
+  <p class="cite" data-r="fade" style="--d:1200ms">(Associated Press, 2026)</p>
+</section>
+
+<!-- 34 -->
+<section class="slide" data-scene="adapt" data-scrim="full">
+  <h2 class="t-display" data-r="words">The Philippine adaptation is a matter of <em class="gold">moving powers, not inventing them.</em></h2>
+  <p class="t-body ink" data-r="up" style="--d:900ms;max-width:62ch">The 1987 Constitution gives the investigative job to the Ombudsman under Article XI, so the ideal state amends that article to create a single bureau with</p>
+  <ul class="g4 conditions ticked mt-m">
+    <li data-r="up" style="--d:1100ms">a protected director’s tenure,</li>
+    <li data-r="up" style="--d:1250ms">reach over ministers and legislators,</li>
+    <li data-r="up" style="--d:1400ms">a prevention and education wing on the Hong Kong model,</li>
+    <li data-r="up" style="--d:1550ms">and the route to the head of state that Singapore wrote into its own constitution.</li>
+  </ul>
+  <p class="cite" data-r="fade" style="--d:1700ms">(Republic of the Philippines, 1987)</p>
+</section>
+
+<!-- 35 -->
+<section class="slide" data-scene="vote" data-scrim="left">
+  <div class="stack" style="--gap:36px">
+    <h2 class="t-display" data-r="words" style="max-width:24ch">What would really have to change is who is willing to be investigated.</h2>
+    <p class="t-body ink" data-r="up" style="--d:900ms;max-width:56ch">In the actual Philippines, dynastic politics means the investigated are also the legislators who would have to vote for the bureau, and that is the obstacle.</p>
+    <p class="t-mega gold it mt-s" data-r="words" style="--d:1500ms">I stipulate that they vote for it.</p>
+  </div>
+</section>
+
+<!-- 36 -->
+<section class="slide" data-scene="korea" data-scrim="full">
+  <h2 class="t-display" data-r="words">The second import is the economy, and there the obvious donor is <em class="gold">South Korea.</em></h2>
+  <p class="t-lead" data-r="up" style="--d:800ms">Park Chung-hee took power in 1961 and created the Economic Planning Board the same year,</p>
+  <ul class="g3 ticked mt-s">
+    <li class="t-sub" data-r="up" style="--d:1050ms">headed by a deputy prime minister,</li>
+    <li class="t-sub" data-r="up" style="--d:1200ms">staffed by bureaucrats chosen for their intellectual ability,</li>
+    <li class="t-sub" data-r="up" style="--d:1350ms">with the power to allocate resources, direct credit, and formulate the national plans.</li>
+  </ul>
+  <p class="cite" data-r="fade" style="--d:1500ms">(Library of Congress, n.d.)</p>
+</section>
+
+<!-- 37 -->
+<section class="slide" data-scene="conditional" data-scrim="left">
+  <div class="col stack" style="--gap:40px">
+    <h2 class="t-mega" data-r="words">Support was <em class="gold">conditional.</em></h2>
+    <p class="t-lead" data-r="up" style="--d:800ms;max-width:30ch">In the heavy industry drive of the 1970s, firms either succeeded internationally or lost favourable government backing.</p>
+  </div>
+  <p class="cite" data-r="fade" style="--d:1200ms">(PBS, n.d.)</p>
+</section>
+
+<!-- 38 -->
+<section class="slide" data-scene="gdp" data-scrim="full">
+  <p class="t-lead" data-r="up">Korea’s GDP per capita was about 159 US dollars in 1960 and more than 36,000 by 2024.</p>
+  <div class="g2 end mt-s pair-auto" style="column-gap:110px">
+    <div class="figure" data-r="up" style="--d:300ms">
+      <p class="fig muted">$159</p>
+      <p class="t-small">1960</p>
+    </div>
+    <div class="figure" data-r="up" style="--d:550ms">
+      <p class="fig-hero">$<span data-count="36000">36,000</span><span class="unit">+</span></p>
+      <p class="t-small">2024</p>
+    </div>
+  </div>
+  <div class="chart mt-s" role="img" aria-label="Bar chart to scale: GDP per capita of 159 US dollars in 1960 against more than 36,000 in 2024.">
+    <div class="bars" style="gap:20px">
+      <div class="bar-row year-row">
+        <p class="bar-name">1960</p>
+        <div class="bar-plot" style="background:none;border:0"><span class="bar mark-gold" style="--v:.44;--d:900ms" data-r="grow-x" title="1960: $159"></span><span class="bar-val" style="--v:.44;--d:1400ms" data-r="fade">$159</span></div>
+      </div>
+      <div class="bar-row year-row">
+        <p class="bar-name">2024</p>
+        <div class="bar-plot" style="background:none;border:0"><span class="bar mark-gold" style="--v:100;--d:1050ms" data-r="grow-x" title="2024: more than $36,000"></span><span class="bar-val inside" style="--v:100;--d:1700ms" data-r="fade">$36,000+</span></div>
+      </div>
+    </div>
+  </div>
+  <p class="cite" data-r="fade" style="--d:1800ms">(World Bank, 2025)</p>
+</section>
+
+<!-- 39 -->
+<section class="slide l-center" data-scene="caveat" data-scrim="center">
+  <p class="t-lead center-x" data-r="up" style="max-width:34ch">It is tempting to credit the planners alone, but foreign aid accounted for</p>
+  <p class="t-mega gold it" data-r="words" style="--d:500ms">almost half</p>
+  <p class="t-lead" data-r="up" style="--d:1000ms">the national budget between 1954 and 1960,</p>
+  <p class="t-display soft center-x mt-s" data-r="up" style="--d:1500ms;max-width:26ch">so the link between authoritarian planning and growth is suggestive and not proof.</p>
+  <p class="cite" data-r="fade" style="--d:1800ms">(PBS, n.d.)</p>
+</section>
+
+<!-- 40 -->
+<section class="slide" data-scene="sunset" data-scrim="full">
+  <h2 class="t-display" data-r="words">Korea also treated the board as <em class="gold">scaffolding.</em></h2>
+  <div class="route-wrap mt-m">
+  <span class="route-line" data-r="grow-x" style="--d:400ms"></span>
+  <ol class="steps">
+    <li data-r="up" style="--d:600ms"><span class="route-dot"></span><p class="step-when">1961</p><p class="t-body">Park creates the Economic Planning Board.</p></li>
+    <li data-r="up" style="--d:800ms"><span class="route-dot"></span><p class="step-when">1970s</p><p class="t-body">The heavy industry drive: succeed internationally or lose favourable backing.</p></li>
+    <li data-r="up" style="--d:1000ms"><span class="route-dot"></span><p class="step-when">Late 1980s</p><p class="t-body ink">The power to allocate credit has returned to the functional ministries.</p></li>
+  </ol>
+  </div>
+  <p class="t-lead it gold mt-m" data-r="up" style="--d:1400ms">I would copy the sunset as well.</p>
+  <p class="cite" data-r="fade" style="--d:1600ms">(Library of Congress, n.d.; PBS, n.d.)</p>
+</section>
+
+<!-- 41 -->
+<section class="slide" data-scene="phcase" data-scrim="left">
+  <div class="col stack" style="--gap:34px">
+    <p class="t-lead soft" data-r="up">In the Philippine case the firms to be disciplined are, on the usual account, the same families that finance elections,</p>
+    <h2 class="t-display" data-r="words" style="--d:500ms">and the ideal stipulation is that they accept <em class="gold">conditional support</em> as the Korean conglomerates did.</h2>
+    <p class="t-body ink" data-r="up" style="--d:1500ms">A dominant-party parliament, which does not have to buy its majority seat by seat, helps that stipulation along.</p>
+  </div>
+</section>
+
+<!-- 42 -->
+<section class="slide l-center" data-scene="hide" data-scrim="center">
+  <p class="t-lead soft center-x" data-r="up" style="max-width:30ch">The third import is quieter and, for my purposes, probably more important:</p>
+  <h2 class="t-mega mt-s" data-r="words" style="--d:600ms">a state that <em class="gold">cannot hide.</em></h2>
+</section>
+
+<!-- 43 -->
+<section class="slide" data-scene="xroad" data-scrim="full">
+  <div class="g2" style="column-gap:90px">
+    <div class="stack" style="--gap:24px">
+      <h2 class="t-display" data-r="words">Estonia’s X-Road, in operation since 2001,</h2>
+      <p class="t-body ink" data-r="up" style="--d:600ms">lets independent public and private databases exchange data securely under a once-only principle, so citizens give the state a given piece of information one time.</p>
+      <p class="t-body" data-r="up" style="--d:800ms">Citizens can see through the state portal who has looked at their data.</p>
+      <div class="figure mt-s" data-r="up" style="--d:1000ms;gap:10px">
+        <p class="fig"><span data-count="1000">1,000</span>+<span class="unit"> years</span></p>
+        <p class="t-body">of working time: what the system is credited with saving every year.</p>
+      </div>
+    </div>
+    <svg class="diagram" viewBox="0 0 760 560" role="img" aria-label="Diagram: public and private databases, and the citizen, all connected through the X-Road; the citizen can see who has looked at their data.">
+      <g data-r="fade" style="--d:300ms">
+        <rect class="node" x="20" y="40" width="200" height="104" rx="3"/><text class="node-t" x="120" y="88" text-anchor="middle" style="font-size:30px">Public</text><text class="node-n" x="120" y="120" text-anchor="middle">database</text>
+        <rect class="node" x="280" y="40" width="200" height="104" rx="3"/><text class="node-t" x="380" y="88" text-anchor="middle" style="font-size:30px">Public</text><text class="node-n" x="380" y="120" text-anchor="middle">database</text>
+        <rect class="node" x="540" y="40" width="200" height="104" rx="3"/><text class="node-t" x="640" y="88" text-anchor="middle" style="font-size:30px">Public</text><text class="node-n" x="640" y="120" text-anchor="middle">database</text>
+        <rect class="node" x="20" y="416" width="200" height="104" rx="3"/><text class="node-t" x="120" y="464" text-anchor="middle" style="font-size:30px">Private</text><text class="node-n" x="120" y="496" text-anchor="middle">database</text>
+        <rect class="node" x="280" y="416" width="200" height="104" rx="3"/><text class="node-t" x="380" y="464" text-anchor="middle" style="font-size:30px">Private</text><text class="node-n" x="380" y="496" text-anchor="middle">database</text>
+        <rect class="node gold" x="540" y="416" width="200" height="104" rx="3"/><text class="node-t" x="640" y="464" text-anchor="middle" style="font-size:30px">Citizen</text><text class="node-n" x="640" y="496" text-anchor="middle">sees who looked</text>
+      </g>
+      <g data-r="fade" style="--d:600ms">
+        <path class="ln ink" d="M120 144 V280 M380 144 V280 M640 144 V280 M120 416 V280 M380 416 V280 M640 416 V280"/>
+      </g>
+      <path class="bus" d="M40 280 H720" data-draw style="--d:500ms"/>
+      <text class="dg-note gold" x="720" y="266" text-anchor="end" data-r="fade" style="--d:900ms">X-Road</text>
+      <g data-r="fade" style="--d:1200ms">
+        <circle class="packet" cx="60" cy="280" r="6"/>
+        <circle class="packet" cx="60" cy="280" r="6" style="animation-delay:-1.2s"/>
+        <circle class="packet" cx="60" cy="280" r="6" style="animation-delay:-2.4s"/>
+      </g>
+    </svg>
+  </div>
+  <p class="cite" data-r="fade" style="--d:1400ms">(e-Estonia, n.d.-a; e-Estonia, n.d.-b)</p>
+</section>
+
+<!-- 44 -->
+<section class="slide" data-scene="discretion" data-scrim="full">
+  <h2 class="t-display" data-r="words">It belongs in a strong-state design because <em class="gold">discretion is where graft lives.</em></h2>
+  <div class="stack mt-m" style="--gap:26px">
+    <p class="t-lead soft" data-r="up" style="--d:800ms">A paper state is nothing but discretion:</p>
+    <p class="chain" data-r="mask" style="--d:1000ms"><span>a stamp here,</span><i></i><span>a signature there,</span><i></i><span class="crim">and a fixer in between.</span></p>
+  </div>
+  <p class="t-body ink mt-m" data-r="up" style="--d:1700ms;max-width:60ch">A logged state has fewer places to hide a favour, and it hands the integrity bureau an audit trail it would otherwise have to build by hand.</p>
+</section>
+
+<!-- 45 -->
+<section class="slide top" data-scene="scale" data-scrim="full">
+  <h2 class="t-display" data-r="words">The problem is scale.</h2>
+  <div class="dots-fig mt-s">
+    <div class="dots-group" data-r="up" style="--d:400ms">
+      <svg class="dots-ee" data-dots="13" data-cols="4" data-class="dot-ee" role="img" aria-label="13 dots: Estonia, about 1.3 million people"></svg>
+      <p class="t-sub">Estonia</p>
+      <p class="t-small">about 1.3 million people</p>
+    </div>
+    <div class="dots-group" data-r="mask" style="--d:700ms">
+      <svg class="dots-ph" data-dots="1000" data-cols="50" data-class="dot-ph" role="img" aria-label="1,000 dots: the Philippines, over 100 million people"></svg>
+      <p class="t-sub">The Philippines</p>
+      <p class="t-small">over 100 million people, spread across more than 7,000 islands</p>
+    </div>
+  </div>
+  <div class="g2 end pair-auto" style="column-gap:60px">
+    <p class="legend t-small" data-r="fade" style="--d:1300ms"><i style="background:var(--steel-ink);border-radius:50%;width:12px;height:12px"></i>Each dot stands for 100,000 people</p>
+    <p class="t-body ink" data-r="up" style="--d:1500ms;max-width:60ch">So the adaptation is a long and expensive build on top of the national ID, and the ideal condition is funding and connectivity that arrive on schedule.</p>
+  </div>
+</section>
+
+<!-- 46 -->
+<section class="slide" data-scene="boot" data-scrim="left">
+  <div class="col stack" style="--gap:40px">
+    <h2 class="t-mega" data-r="words">The fourth import keeps the iron from feeling like a <em class="gold">boot.</em></h2>
+    <p class="t-lead soft" data-r="up" style="--d:1200ms;max-width:30ch">Lee’s Singapore demanded a great deal, and it also gave citizens something to lose.</p>
+  </div>
+</section>
+
+<!-- 47 -->
+<section class="slide" data-scene="hdb" data-scrim="full">
+  <p class="t-lead" data-r="up">The Housing and Development Board, founded in 1960,</p>
+  <div class="g3 mt-m">
+    <div class="figure" data-r="up" style="--d:300ms">
+      <p class="fig"><span data-count="54430">54,430</span></p>
+      <p class="t-body ink">flats completed by 1965.</p>
+      <p class="cite-inline">(Chew, 2009)</p>
+    </div>
+    <div class="figure" data-r="up" style="--d:550ms">
+      <p class="fig">≈<span data-count="80">80</span>%</p>
+      <p class="t-body ink">of residents, close to eighty percent, live in its housing today.</p>
+      <p class="cite-inline">(Housing &amp; Development Board [HDB], n.d.)</p>
+    </div>
+    <div class="figure" data-r="up" style="--d:800ms">
+      <p class="fig">≈<span data-count="90">90</span>%</p>
+      <p class="t-body ink">of those households own their home, on the 2014 figures.</p>
+      <p class="cite-inline">(Singapore Language Councils, n.d.)</p>
+    </div>
+  </div>
+</section>
+
+<!-- 48 -->
+<section class="slide" data-scene="mortgage" data-scrim="left">
+  <div class="col stack" style="--gap:32px">
+    <p class="t-lead soft" data-r="up">The logic, as it is usually put, is that</p>
+    <h2 class="t-mega" data-r="words" style="--d:300ms;max-width:12ch">a citizen with a mortgage on the country has reasons to <em class="gold">keep it standing.</em></h2>
+  </div>
+</section>
+
+<!-- 49 -->
+<section class="slide" data-scene="pagibig" data-scrim="left">
+  <div class="col stack" style="--gap:30px">
+    <p class="t-lead soft" data-r="up">The Philippines already has a savings-based housing fund in Pag-IBIG, so the adaptation is scale and land:</p>
+    <h2 class="t-display" data-r="words" style="--d:400ms">the state must assemble land at a pace private markets never will,</h2>
+    <p class="t-body ink" data-r="up" style="--d:1200ms">which is exactly the sort of power a strong executive has and a gridlocked one does not.</p>
+    <p class="t-lead it gold mt-s" data-r="up" style="--d:1600ms">I stipulate that the land is assembled fairly, which is a bigger stipulation than it sounds.</p>
+  </div>
+</section>
+
+<!-- 50 -->
+<section class="slide" data-scene="defence" data-scrim="full">
+  <h2 class="t-display" data-r="words">The last import faces <em class="gold">outward.</em></h2>
+  <p class="t-body ink" data-r="up" style="--d:600ms;max-width:62ch">Singapore’s Total Defence, proclaimed in 1984 and adapted from Sweden and Switzerland, rests on five pillars, with a sixth, digital, added later.</p>
+  <div class="pillars">
+    <div class="pillar" data-r="up" style="--d:800ms"><span class="pillar-shaft"></span><p class="pillar-name">Military</p></div>
+    <div class="pillar" data-r="up" style="--d:900ms"><span class="pillar-shaft"></span><p class="pillar-name">Civil</p></div>
+    <div class="pillar" data-r="up" style="--d:1000ms"><span class="pillar-shaft"></span><p class="pillar-name">Economic</p></div>
+    <div class="pillar" data-r="up" style="--d:1100ms"><span class="pillar-shaft"></span><p class="pillar-name">Social</p></div>
+    <div class="pillar" data-r="up" style="--d:1200ms"><span class="pillar-shaft"></span><p class="pillar-name">Psychological</p></div>
+    <div class="pillar late" data-r="up" style="--d:1500ms"><span class="pillar-shaft"></span><p class="pillar-name">Digital</p></div>
+  </div>
+  <p class="cite" data-r="fade" style="--d:1700ms">(RSIS, 2009; Ministry of Defence, Singapore [MINDEF], n.d.)</p>
+</section>
+
+<!-- 51 -->
+<section class="slide l-center" data-scene="duty" data-scrim="center">
+  <p class="t-lead soft center-x" data-r="up" style="max-width:36ch">The core idea is that a small state survives only if every part of its society counts itself as part of the defence, National Service included.</p>
+  <h2 class="t-mega center-x mt-s" data-r="words" style="--d:700ms;max-width:16ch">Duty, in this arrangement, is the unit of belonging:</h2>
+  <p class="t-display it gold" data-r="up" style="--d:1700ms">you are counted because you serve.</p>
+  <p class="cite" data-r="fade" style="--d:1900ms">(MINDEF, n.d.)</p>
+</section>
+
+<!-- 52 -->
+<section class="slide" data-scene="award" data-scrim="left">
+  <div class="col stack" style="--gap:30px;max-width:1080px">
+    <p class="t-lead soft" data-r="up">An externally strong Philippines needs the same idea for a sharper reason.</p>
+    <p class="fig" data-r="up" style="--d:300ms">July 2016</p>
+    <p class="t-lead" data-r="up" style="--d:600ms">An arbitral tribunal under the UN Convention on the Law of the Sea found that China’s nine-dash line had <em class="gold">no legal basis,</em></p>
+    <p class="t-lead soft" data-r="up" style="--d:900ms">and Beijing rejected the ruling, even though the Convention makes such awards <em class="ink">final and binding.</em></p>
+  </div>
+  <p class="cite" data-r="fade" style="--d:1200ms">(International Crisis Group, 2016; Permanent Court of Arbitration, 2016)</p>
+</section>
+
+<!-- 53 -->
+<section class="slide l-center" data-scene="bailiff" data-scrim="center">
+  <h2 class="t-mega center-x" data-r="words" style="max-width:15ch">A binding award with no bailiff</h2>
+  <p class="t-display soft center-x" data-r="up" style="--d:1100ms;max-width:24ch">is a fair picture of what law is worth when capacity does not stand behind it.</p>
+</section>
+
+<!-- 54 -->
+<section class="slide" data-scene="adaptdef" data-scrim="full">
+  <p class="t-lead soft" data-r="up">The adaptation is</p>
+  <ul class="g3 ticked">
+    <li class="t-lead" data-r="up" style="--d:250ms">conscription,</li>
+    <li class="t-lead" data-r="up" style="--d:450ms">a naval and industrial base tied to the planning board,</li>
+    <li class="t-lead" data-r="up" style="--d:650ms">and civil defence that gives every province a role.</li>
+  </ul>
+  <p class="t-body ink mt-l" data-r="up" style="--d:1000ms;max-width:62ch">An archipelago is still costlier to defend than an island city, and a public with good historical reasons to distrust its own military will not hand over its young cheaply.</p>
+</section>
+
+<!-- 55 -->
+<section class="slide" data-scene="civilian" data-scrim="left">
+  <div class="col stack" style="--gap:34px">
+    <p class="t-lead soft" data-r="up">Ideal conditions assume</p>
+    <h2 class="t-mega gold it" data-r="words" style="--d:300ms">civilian control holds,</h2>
+    <p class="t-lead" data-r="up" style="--d:1100ms;max-width:30ch">and that is the assumption I would put nearest the top of the list of things worth worrying about.</p>
+  </div>
+</section>
+
+<!-- 56 -->
+<section class="slide" data-scene="lock" data-scrim="full">
+  <h2 class="t-display" data-r="words" style="max-width:26ch">These pieces are meant to lock together instead of sitting side by side.</h2>
+  <ol class="lock mt-s">
+    <li data-r="up" style="--d:700ms"><p class="lock-inst">The elected head of state</p><p class="lock-role">guards the integrity bureau’s independence,</p></li>
+    <li data-r="up" style="--d:820ms"><p class="lock-inst">The dominant-party parliament</p><p class="lock-role">gives the Prime Minister the mandate to act,</p></li>
+    <li data-r="up" style="--d:940ms"><p class="lock-inst">The pay rule</p><p class="lock-role">makes honesty affordable,</p></li>
+    <li data-r="up" style="--d:1060ms"><p class="lock-inst">The digital layer</p><p class="lock-role">makes concealment expensive,</p></li>
+    <li data-r="up" style="--d:1180ms"><p class="lock-inst">The planning board</p><p class="lock-role">turns discipline into growth,</p></li>
+    <li data-r="up" style="--d:1300ms"><p class="lock-inst">Housing</p><p class="lock-role">gives citizens a stake in the outcome,</p></li>
+    <li data-r="up" style="--d:1420ms"><p class="lock-inst">Total Defence</p><p class="lock-role">turns that stake into a willingness to defend it.</p></li>
+  </ol>
+</section>
+
+<!-- 57 -->
+<section class="slide" data-scene="failures" data-scrim="full">
+  <h2 class="t-display" data-r="words" style="max-width:24ch">Each institution answers a failure the previous one leaves open.</h2>
+  <ol class="answers mt-s">
+    <li data-r="up" style="--d:800ms"><p class="ans-fail">Concentrated power is dangerous unless it can be audited,</p><span class="ans-arrow"></span><p class="ans-fix">so the audit lives inside the state with a route around the ruler.</p></li>
+    <li data-r="up" style="--d:1000ms"><p class="ans-fail">Audits are cheap only if records exist,</p><span class="ans-arrow"></span><p class="ans-fix">so the state logs itself.</p></li>
+    <li data-r="up" style="--d:1200ms"><p class="ans-fail">Strength is wasted without growth, and growth without a stake is resented,</p><span class="ans-arrow"></span><p class="ans-fix">so the state builds homes.</p></li>
+  </ol>
+</section>
+
+<!-- 58 -->
+<section class="slide l-center" data-scene="durability" data-scrim="center">
+  <h2 class="t-mega center-x" data-r="words" style="max-width:16ch">The whole is one argument for durability:</h2>
+  <p class="t-display it gold center-x" data-r="up" style="--d:1100ms;max-width:24ch">a country that expects to be tested and prepares accordingly.</p>
+</section>
+
+<!-- 59 -->
+<section class="slide" data-scene="costs" data-scrim="full">
+  <h2 class="t-display" data-r="words" style="max-width:26ch">Now the honest costs, which is where assuming ideal conditions earns its keep.</h2>
+  <p class="t-body ink" data-r="up" style="--d:1000ms;max-width:60ch">With corruption and sabotage stipulated away, the objections that remain belong to the design, and I count three.</p>
+  <ol class="g3 ticked crim-ticks mt-m">
+    <li class="t-lead" data-r="up" style="--d:1300ms">Informational.</li>
+    <li class="t-lead" data-r="up" style="--d:1450ms">The base rate.</li>
+    <li class="t-lead" data-r="up" style="--d:1600ms">The human cost of discipline.</li>
+  </ol>
+</section>
+
+<!-- 60 -->
+<section class="slide" data-scene="silence" data-scrim="left">
+  <div class="col stack" style="--gap:28px">
+    <h2 class="t-display" data-r="words">The first is informational.</h2>
+    <p class="t-lead" data-r="up" style="--d:600ms">A state that wins every argument with its critics loses its feedback.</p>
+    <p class="t-body" data-r="up" style="--d:900ms">Lee’s own view was that wrong ideas have to be challenged before they shape public opinion, which is why he answered critics sharply. That works if the executive is right.</p>
+    <p class="t-lead it crim mt-s" data-r="up" style="--d:1300ms">An ideal ruler can still be wrong, and a state built to stop dissent has stopped the one signal that would say so.</p>
+  </div>
+  <p class="cite" data-r="fade" style="--d:1500ms">(Lee, 2000)</p>
+</section>
+
+<!-- 61 -->
+<section class="slide" data-scene="baserate" data-scrim="left">
+  <div class="stack" style="--gap:40px;max-width:1150px">
+    <h2 class="t-display" data-r="words">The second is the base rate, which is unkind.</h2>
+    <div class="chart" role="img" aria-label="Bar chart, average score in the 2024 index on a 0 to 100 scale: full democracies 73, non-democratic regimes 33.">
+      <p class="t-small" data-r="fade" style="--d:500ms;margin-bottom:22px">Average score in the 2024 index, out of 100</p>
+      <div class="bars">
+        <div class="bar-row">
+          <p class="bar-name">Full democracies</p>
+          <div class="bar-plot"><span class="bar mark-steel" style="--v:73;--d:700ms" data-r="grow-x" title="Full democracies: 73"></span><span class="bar-val" style="--v:73;--d:1300ms" data-r="fade">73</span></div>
+        </div>
+        <div class="bar-row">
+          <p class="bar-name">Non-democratic regimes</p>
+          <div class="bar-plot"><span class="bar mark-crim" style="--v:33;--d:900ms" data-r="grow-x" title="Non-democratic regimes: 33"></span><span class="bar-val" style="--v:33;--d:1500ms" data-r="fade">33</span></div>
+        </div>
+        <div class="bar-axis"><span></span><div class="bar-ticks"><span style="left:0%">0</span><span style="left:25%">25</span><span style="left:50%">50</span><span style="left:75%">75</span><span style="left:100%">100</span></div></div>
+      </div>
+    </div>
+    <p class="t-body ink" data-r="up" style="--d:1700ms;max-width:58ch">So Singapore is an exception we admire and not a rule we can expect, and the ideal condition is doing enormous work by assuming we would be the exception too.</p>
+  </div>
+  <p class="cite" data-r="fade" style="--d:1900ms">(The Straits Times, 2025)</p>
+</section>
+
+<!-- 62 -->
+<section class="slide" data-scene="memorial" data-scrim="left">
+  <div class="col stack" style="--gap:30px;max-width:980px">
+    <h2 class="t-display" data-r="words">The third is the human cost of discipline.</h2>
+    <p class="t-lead" data-r="up" style="--d:700ms">The New Society’s discipline was not an abstraction for the people it was applied to,</p>
+    <p class="t-lead soft" data-r="up" style="--d:1000ms">and the claims board’s list of <em class="ink">11,103 names</em> is what it looked like from the other side.</p>
+    <p class="t-small mt-s" data-r="fade" style="--d:2200ms">Behind this slide: 11,103 points of light, one for each name.</p>
+  </div>
+  <p class="cite" data-r="fade" style="--d:1400ms">(Bulatlat, 2018)</p>
+</section>
+
+<!-- 63 -->
+<section class="slide l-center" data-scene="coercion" data-scrim="center">
+  <h2 class="t-mega center-x" data-r="words" style="max-width:16ch">An ideal authoritarian state uses coercion precisely,</h2>
+  <p class="t-display crim center-x" data-r="up" style="--d:1300ms;max-width:24ch">but precise coercion is still coercion, and someone bears it.</p>
+</section>
+
+<!-- 64 -->
+<section class="slide l-center" data-scene="claim" data-scrim="center">
+  <p class="t-lead soft" data-r="up">If there is a claim I would defend, it is a narrow one.</p>
+  <h2 class="t-mega center-x mt-s" data-r="words" style="--d:500ms;max-width:15ch">Strength and cleanliness may not be opposites,</h2>
+  <p class="t-display gold it center-x" data-r="up" style="--d:1500ms;max-width:26ch">and the second may be the condition that decides whether the first is worth having.</p>
+</section>
+
+<!-- 65 -->
+<section class="slide" data-scene="split" data-scrim="soft">
+  <div class="g2 start" style="column-gap:160px">
+    <p class="t-display" data-r="up" style="--d:200ms">Marcos showed that iron without an incorruptible centre <em class="crim">rusts within a generation,</em></p>
+    <p class="t-display" data-r="up" style="--d:900ms">and Singapore shows that iron with one <em class="gold">can last,</em> <span class="soft">at least so far.</span></p>
+  </div>
+</section>
+
+<!-- 66 -->
+<section class="slide" data-scene="question" data-scrim="left">
+  <div class="col stack" style="--gap:30px">
+    <h2 class="t-display" data-r="words">Whether the wager can be won more than once, and by people who are not Lee, is an <em class="gold">open and testable question</em> rather than a settled one.</h2>
+  </div>
+</section>
+
+<!-- 67 -->
+<section class="slide l-center" data-scene="finale" data-scrim="soft">
+  <div class="title-block">
+    <svg class="sun" viewBox="-100 -100 200 200" aria-hidden="true"></svg>
+    <p class="t-lead soft" data-r="up" style="--d:300ms">My ideal Philippines answers it by stipulation,</p>
+    <h2 class="t-mega center-x" data-r="words" style="--d:700ms;max-width:16ch">and the honest position is that a stipulation is <em class="gold">exactly what that is.</em></h2>
+  </div>
+</section>
+
+<!-- 68 -->
+<section class="slide top" data-scene="sources" data-scrim="full">
+  <h2 class="t-display" data-r="words">Sources</h2>
+  <ul class="sources mt-s" data-r="fade" style="--d:300ms">
+    <li><span class="src-a">ABS-CBN News (2021)</span><span class="src-n">Marcos-era growth, the 1984–85 recession, and debt against exports</span></li>
+    <li><span class="src-a">Associated Press (2026)</span><span class="src-n">The 2012 ministerial pay cut and the first raise in fifteen years</span></li>
+    <li><span class="src-a">Bulatlat (2018)</span><span class="src-n">11,103 recognised martial law victims of roughly 75,000 applicants</span></li>
+    <li><span class="src-a">Chan (2023)</span><span class="src-n">The elected President, Article 22G, and the CPIB director</span></li>
+    <li><span class="src-a">Channel NewsAsia (n.d.)</span><span class="src-n">Lee Kuan Yew at Fullerton Square, 1980</span></li>
+    <li><span class="src-a">Channel NewsAsia (2023)</span><span class="src-n">Lee Kuan Yew at Fullerton Square, 1980</span></li>
+    <li><span class="src-a">Chew (2009)</span><span class="src-n">The Housing and Development Board, 1960 to 1965</span></li>
+    <li><span class="src-a">Corrupt Practices Investigation Bureau [CPIB] (n.d.-a)</span><span class="src-n">The Bureau’s founding, placement and reporting line</span></li>
+    <li><span class="src-a">CPIB (n.d.-b)</span><span class="src-n">Singapore in the 2025 Corruption Perceptions Index</span></li>
+    <li><span class="src-a">e-Estonia (n.d.-a)</span><span class="src-n">Citizens seeing who has looked at their data</span></li>
+    <li><span class="src-a">e-Estonia (n.d.-b)</span><span class="src-n">X-Road, the once-only principle, and working time saved</span></li>
+    <li><span class="src-a">Hong Kong SAR Government (n.d.)</span><span class="src-n">The founding of the ICAC after the Godber escape</span></li>
+    <li><span class="src-a">Housing &amp; Development Board [HDB] (n.d.)</span><span class="src-n">The share of residents living in HDB housing</span></li>
+    <li><span class="src-a">Independent Commission Against Corruption [ICAC] (n.d.)</span><span class="src-n">Godber, the Commissioner’s line to the Chief Executive, and the three prongs</span></li>
+    <li><span class="src-a">International Crisis Group (2016)</span><span class="src-n">The 2016 arbitral ruling and Beijing’s rejection of it</span></li>
+    <li><span class="src-a">Lee (1992)</span><span class="src-n">Address to the Philippine Business Conference</span></li>
+    <li><span class="src-a">Lee (2000)</span><span class="src-n">Challenging wrong ideas before they shape public opinion</span></li>
+  </ul>
+</section>
+
+<!-- 69 -->
+<section class="slide top" data-scene="sources" data-scrim="full">
+  <h2 class="t-display" data-r="words">Sources</h2>
+  <ul class="sources mt-s" data-r="fade" style="--d:300ms">
+    <li><span class="src-a">Library of Congress (n.d.)</span><span class="src-n">South Korea’s Economic Planning Board</span></li>
+    <li><span class="src-a">Martial Law Museum (n.d.)</span><span class="src-n">The New Society and its slogan</span></li>
+    <li><span class="src-a">Ministry of Defence, Singapore [MINDEF] (n.d.)</span><span class="src-n">Total Defence, its digital pillar, and National Service</span></li>
+    <li><span class="src-a">PBS (n.d.)</span><span class="src-n">Korea’s heavy industry drive and foreign aid, 1954–1960</span></li>
+    <li><span class="src-a">Permanent Court of Arbitration (2016)</span><span class="src-n">The award as final and binding under the Convention</span></li>
+    <li><span class="src-a">Public Service Division (2012)</span><span class="src-n">Singapore’s ministerial salary benchmark</span></li>
+    <li><span class="src-a">Republic of the Philippines (1987)</span><span class="src-n">The 1987 Constitution, Articles XI and XVII</span></li>
+    <li><span class="src-a">RSIS (2009)</span><span class="src-n">The origins and five pillars of Total Defence</span></li>
+    <li><span class="src-a">Singapore Language Councils (n.d.)</span><span class="src-n">Home ownership among HDB households, 2014</span></li>
+    <li><span class="src-a">Tadem (2013)</span><span class="src-n">Cesar Virata and the Marcos technocrats</span></li>
+    <li><span class="src-a">Tadem (2016)</span><span class="src-n">Why the technocrats could not control spending and monopolies</span></li>
+    <li><span class="src-a">The Philippine Star (2015)</span><span class="src-n">Lee in 1992 on discipline, and on Ramos</span></li>
+    <li><span class="src-a">The Philippine Star (2016)</span><span class="src-n">Lee’s verdict on Marcos</span></li>
+    <li><span class="src-a">The Philippine Star (2026)</span><span class="src-n">The Philippines in the 2025 Corruption Perceptions Index</span></li>
+    <li><span class="src-a">The Straits Times (2024)</span><span class="src-n">The sentencing of S. Iswaran</span></li>
+    <li><span class="src-a">The Straits Times (2025)</span><span class="src-n">Average scores by regime type in the 2024 index</span></li>
+    <li><span class="src-a">World Bank (2025)</span><span class="src-n">South Korea’s GDP per capita, 1960 and 2024</span></li>
+  </ul>
+</section>
+
+</div>
+</main>
+
+<div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+
+<nav class="controls" id="controls" aria-label="Presentation controls">
+  <button type="button" id="btn-prev" aria-label="Previous slide" title="Previous (←)"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <span class="counter" id="counter" aria-live="polite">01 / 69</span>
+  <button type="button" id="btn-next" aria-label="Next slide" title="Next (→ or Space)"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+  <button type="button" id="btn-overview" aria-label="All slides" title="All slides (O)"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7"/><rect x="13.5" y="3.5" width="7" height="7"/><rect x="3.5" y="13.5" width="7" height="7"/><rect x="13.5" y="13.5" width="7" height="7"/></svg></button>
+  <button type="button" id="btn-fs" aria-label="Full screen" title="Full screen (F)"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+</nav>
+
+<div class="overview" id="overview" hidden role="dialog" aria-modal="true" aria-label="All slides">
+  <div class="ov-grid" id="ov-grid"></div>
+</div>
+<div class="blackout" aria-hidden="true"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  /* =========================================================
+     Deck controller
+     ========================================================= */
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+
+  var stage = $('#stage');
+  var slides = $$('.slide', stage);
+  var total = slides.length;
+  var body = document.body;
+  var reduceMQ = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var readingMQ = window.matchMedia('(max-width: 760px), (max-aspect-ratio: 3/4)');
+  var current = -1;
+  var scene3d = null;
+  var overviewOpen = false;
+  var countTimers = [];
+
+  var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+
+  /* ---------- generated content ---------- */
+  function buildSuns() {
+    $$('svg.sun').forEach(function (svg) {
+      var ns = 'http://www.w3.org/2000/svg';
+      var parts = [];
+      var disc = document.createElementNS(ns, 'circle');
+      disc.setAttribute('r', '27'); disc.setAttribute('class', 'disc');
+      disc.setAttribute('data-draw', ''); disc.style.setProperty('--d', '0ms');
+      parts.push(disc);
+      var ray = function (a, r0, r1, w, delay) {
+        var dx = Math.sin(a), dy = -Math.cos(a), px = Math.cos(a), py = Math.sin(a);
+        var bx = dx * r0, by = dy * r0;
+        var pts = [(bx + px * w), (by + py * w), dx * r1, dy * r1, (bx - px * w), (by - py * w)];
+        var p = document.createElementNS(ns, 'polygon');
+        p.setAttribute('points', pts.map(function (v) { return v.toFixed(2); }).join(' '));
+        p.setAttribute('class', 'ray'); p.setAttribute('data-draw', '');
+        p.style.setProperty('--d', delay + 'ms');
+        return p;
+      };
+      for (var k = 0; k < 8; k++) {
+        var a = k * Math.PI / 4;
+        parts.push(ray(a, 34, 96, 6.5, 120 + k * 70));
+        parts.push(ray(a + 0.2, 34, 74, 3.6, 180 + k * 70));
+        parts.push(ray(a - 0.2, 34, 74, 3.6, 180 + k * 70));
+      }
+      parts.forEach(function (p) { svg.appendChild(p); });
+    });
+  }
+
+  function buildWaffles() {
+    $$('[data-waffle]').forEach(function (el) {
+      var totalCells = +el.getAttribute('data-total');
+      var on = parseFloat(el.getAttribute('data-on'));
+      var full = Math.floor(on), frac = on - full;
+      var html = '';
+      for (var k = 0; k < totalCells; k++) {
+        var cls = 'cell' + (k < full ? ' on' : (k === full && frac > 0 ? ' part' : ''));
+        var style = '--i:' + k + (k === full && frac > 0 ? ';--p:' + frac.toFixed(3) : '');
+        html += '<span class="' + cls + '" style="' + style + '"></span>';
+      }
+      el.innerHTML = html;
+    });
+  }
+
+  function buildDots() {
+    $$('svg[data-dots]').forEach(function (svg) {
+      var n = +svg.getAttribute('data-dots'), cols = +svg.getAttribute('data-cols');
+      var cls = svg.getAttribute('data-class');
+      var step = 19.2, r = 6.2;
+      var rows = Math.ceil(n / cols);
+      svg.setAttribute('viewBox', '0 0 ' + (cols * step) + ' ' + (rows * step));
+      var out = '';
+      for (var k = 0; k < n; k++) {
+        var c = k % cols, rr = Math.floor(k / cols);
+        out += '<circle class="' + cls + '" cx="' + (c * step + step / 2).toFixed(1) + '" cy="' + (rr * step + step / 2).toFixed(1) + '" r="' + r + '"/>';
+      }
+      svg.innerHTML = out;
+    });
+  }
+
+  function buildMarcosTimeline() {
+    var g = $('#tl-marcos');
+    if (!g) return;
+    var x = function (y) { return 60 + (y - 1972) * (1544 / 14); };
+    var s = '';
+    // debt band: from 1978 onward
+    s += '<rect class="tl-debt" x="' + x(1978) + '" y="96" width="' + (x(1986) - x(1978)) + '" height="10" rx="2"/>';
+    s += '<path d="M' + (x(1986) - 2) + ' 89 l16 12 l-16 12 z" class="tl-crim"/>';
+    s += '<text class="tl-label" x="' + x(1978) + '" y="80">debt above 200% of exports, 1978 onward</text>';
+    s += '<circle class="tl-crim" cx="' + x(1985.5) + '" cy="101" r="9"/>';
+    s += '<text class="tl-label strong" x="' + x(1985.5) + '" y="44" text-anchor="middle">peak, 1985</text>';
+    s += '<path d="M' + x(1985.5) + ' 54 V88" stroke="#8E8B85" stroke-width="1"/>';
+    // axis
+    s += '<line class="tl-axis" x1="60" y1="170" x2="1604" y2="170"/>';
+    for (var y = 1972; y <= 1986; y++) {
+      s += '<line class="tl-tick" x1="' + x(y) + '" y1="164" x2="' + x(y) + '" y2="176"/>';
+      if (y % 2 === 0) s += '<text class="tl-year" x="' + x(y) + '" y="204" text-anchor="middle">' + y + '</text>';
+    }
+    // recession 1984 and 1985
+    s += '<rect class="tl-crim" x="' + x(1984) + '" y="161" width="' + (x(1986) - x(1984)) + '" height="18" rx="2"/>';
+    s += '<text class="tl-label strong" x="' + x(1985) + '" y="242" text-anchor="middle">worst recession, 1984–85</text>';
+    // martial law, September 1972
+    var ml = x(1972 + 8 / 12);
+    s += '<path class="tl-ink" d="M' + ml + ' 158 l12 12 l-12 12 l-12 -12 z"/>';
+    s += '<text class="tl-label strong" x="' + (ml - 14) + '" y="242">martial law, September 1972</text>';
+    // growth peaks
+    [1973, 1976].forEach(function (yy) {
+      s += '<circle class="tl-gold" cx="' + x(yy + 0.5) + '" cy="170" r="10"/>';
+      s += '<text class="tl-label" x="' + x(yy + 0.5) + '" y="140" text-anchor="middle">≈9% growth, ' + yy + '</text>';
+    });
+    g.innerHTML = s;
+  }
+
+  /* ---------- words ---------- */
+  function splitWords(el) {
+    var words = [];
+    (function walk(node) {
+      Array.prototype.slice.call(node.childNodes).forEach(function (child) {
+        if (child.nodeType === 3) {
+          var parts = child.textContent.split(/(\s+)/);
+          var frag = document.createDocumentFragment();
+          parts.forEach(function (part) {
+            if (!part) return;
+            if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+            var w = document.createElement('span'); w.className = 'w';
+            var wi = document.createElement('span'); wi.className = 'wi';
+            wi.textContent = part; w.appendChild(wi); frag.appendChild(w); words.push(wi);
+          });
+          node.replaceChild(frag, child);
+        } else if (child.nodeType === 1 && child.tagName !== 'BR') {
+          walk(child);
+        }
+      });
+    })(el);
+    var step = Math.min(70, 1100 / Math.max(1, words.length));
+    words.forEach(function (wi, k) { wi.style.setProperty('--i', Math.round(k * step)); });
+    el.setAttribute('aria-label', el.textContent.replace(/\s+/g, ' ').trim());
+  }
+
+  /* ---------- counters ---------- */
+  function runCounters(slide) {
+    countTimers.forEach(cancelAnimationFrame); countTimers = [];
+    if (reduceMQ.matches || readingMQ.matches) return;
+    $$('[data-count]', slide).forEach(function (el) {
+      var target = parseFloat(el.getAttribute('data-count'));
+      var dec = +(el.getAttribute('data-decimals') || 0);
+      var fmt = function (v) { return v.toLocaleString('en-US', { minimumFractionDigits: dec, maximumFractionDigits: dec }); };
+      var holder = el.closest('[data-r]');
+      var delay = 480 + (holder ? parseInt(getComputedStyle(holder).getPropertyValue('--d')) || 0 : 0);
+      var dur = 1500;
+      var t0 = performance.now() + delay;
+      el.textContent = fmt(0);
+      var tick = function (now) {
+        var p = Math.min(1, Math.max(0, (now - t0) / dur));
+        var e = p === 1 ? 1 : 1 - Math.pow(2, -10 * p);
+        el.textContent = fmt(target * e);
+        if (p < 1) countTimers.push(requestAnimationFrame(tick)); else el.textContent = fmt(target);
+      };
+      countTimers.push(requestAnimationFrame(tick));
+    });
+  }
+
+  /* ---------- fit ---------- */
+  function fit() {
+    var s = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+    stage.style.setProperty('--scale', s.toFixed(5));
+    if (overviewOpen) sizeThumbs();
+    if (scene3d) scene3d.resize();
+  }
+
+  /* ---------- navigation ---------- */
+  function go(n, opts) {
+    opts = opts || {};
+    n = Math.max(0, Math.min(total - 1, n));
+    if (n === current && !opts.force) return;
+    current = n;
+    slides.forEach(function (s, i) {
+      var active = i === n;
+      s.classList.toggle('is-active', active);
+      s.classList.toggle('is-past', i < n);
+      if (!readingMQ.matches) {
+        s.setAttribute('aria-hidden', active ? 'false' : 'true');
+        if (active) s.removeAttribute('inert'); else s.setAttribute('inert', '');
+      }
+    });
+    var slide = slides[n];
+    body.setAttribute('data-scrim', slide.getAttribute('data-scrim') || 'none');
+    $('#progress-bar').style.width = ((n + 1) / total * 100) + '%';
+    $('#counter').textContent = pad(n + 1) + ' / ' + pad(total);
+    try { history.replaceState(null, '', '#' + (n + 1)); } catch (e) { /* sandboxed */ }
+    if (scene3d) scene3d.set(slide.getAttribute('data-scene'));
+    runCounters(slide);
+    if (readingMQ.matches && opts.scroll) slide.scrollIntoView({ behavior: reduceMQ.matches ? 'auto' : 'smooth', block: 'start' });
+  }
+  function next() { go(current + 1, { scroll: true }); }
+  function prev() { go(current - 1, { scroll: true }); }
+
+  /* ---------- overview ---------- */
+  var SCENE_TONE = {};
+  function sizeThumbs() {
+    var first = $('.thumb', $('#ov-grid'));
+    if (!first) return;
+    $('#ov-grid').style.setProperty('--ts', (first.clientWidth / 1920).toFixed(5));
+  }
+  function buildOverview() {
+    var grid = $('#ov-grid');
+    if (grid.childElementCount) return;
+    slides.forEach(function (s, i) {
+      var b = document.createElement('div');
+      b.className = 'thumb';
+      b.setAttribute('role', 'button'); b.setAttribute('tabindex', '0');
+      b.setAttribute('aria-label', 'Slide ' + (i + 1));
+      b.setAttribute('data-tone', SCENE_TONE[s.getAttribute('data-scene')] || 'iron');
+      var inner = document.createElement('div'); inner.className = 'thumb-inner'; inner.setAttribute('aria-hidden', 'true');
+      var clone = s.cloneNode(true);
+      clone.classList.add('is-static'); clone.classList.remove('is-active', 'is-past');
+      clone.removeAttribute('inert'); clone.removeAttribute('aria-hidden'); clone.removeAttribute('aria-label');
+      $$('[id]', clone).forEach(function (el) { el.removeAttribute('id'); });
+      inner.appendChild(clone);
+      var num = document.createElement('span'); num.className = 'thumb-num'; num.textContent = pad(i + 1);
+      b.appendChild(inner); b.appendChild(num);
+      b.addEventListener('click', function () { closeOverview(); go(i, { scroll: true }); });
+      b.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.stopPropagation(); closeOverview(); go(i, { scroll: true }); }
+      });
+      grid.appendChild(b);
+    });
+  }
+  function openOverview() {
+    if (readingMQ.matches) return;
+    buildOverview();
+    var ov = $('#overview');
+    ov.hidden = false; overviewOpen = true;
+    sizeThumbs();
+    $$('.thumb', ov).forEach(function (t, i) { t.classList.toggle('current', i === current); });
+    var cur = $$('.thumb', ov)[current];
+    if (cur) { cur.focus({ preventScroll: true }); cur.scrollIntoView({ block: 'center' }); }
+  }
+  function closeOverview() {
+    var ov = $('#overview');
+    ov.hidden = true; overviewOpen = false;
+  }
+
+  /* ---------- fullscreen, blackout, wake lock ---------- */
+  function toggleFS() {
+    try {
+      if (document.fullscreenElement) { document.exitFullscreen().catch(function () {}); }
+      else if (document.documentElement.requestFullscreen) { document.documentElement.requestFullscreen().catch(function () {}); }
+    } catch (e) { /* not available */ }
+  }
+  var wakeLock = null;
+  function requestWake() {
+    if (wakeLock || !navigator.wakeLock) return;
+    navigator.wakeLock.request('screen').then(function (l) { wakeLock = l; l.addEventListener('release', function () { wakeLock = null; }); }).catch(function () {});
+  }
+
+  /* ---------- input ---------- */
+  document.addEventListener('keydown', function (e) {
+    if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.altKey) return;
+    var onControl = e.target && e.target.closest && e.target.closest('button, a');
+    if (overviewOpen) {
+      if (e.key === 'Escape' || e.key === 'o' || e.key === 'O') { e.preventDefault(); closeOverview(); }
+      return;
+    }
+    if (body.classList.contains('black') && /^(b|B|\.|Escape)$/.test(e.key)) { body.classList.remove('black'); e.preventDefault(); return; }
+    switch (e.key) {
+      case 'ArrowRight': case 'ArrowDown': case 'PageDown': case 'n': case 'N': next(); break;
+      case ' ': case 'Enter': if (onControl) return; next(); break;
+      case 'ArrowLeft': case 'ArrowUp': case 'PageUp': case 'p': case 'P': case 'Backspace': prev(); break;
+      case 'Home': go(0); break;
+      case 'End': go(total - 1); break;
+      case 'f': case 'F': toggleFS(); break;
+      case 'o': case 'O': case 'g': case 'G': openOverview(); break;
+      case 'b': case 'B': case '.': body.classList.toggle('black'); break;
+      default: return;
+    }
+    requestWake();
+    e.preventDefault();
+  });
+
+  $('#viewport').addEventListener('click', function (e) {
+    if (readingMQ.matches) return;
+    if (e.target.closest('a, button')) return;
+    var sel = window.getSelection && String(window.getSelection());
+    if (sel) return;
+    if (e.clientX < window.innerWidth * 0.2) prev(); else next();
+    requestWake();
+  });
+
+  var touchX = 0, touchY = 0;
+  document.addEventListener('touchstart', function (e) { var t = e.changedTouches[0]; touchX = t.clientX; touchY = t.clientY; }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    if (readingMQ.matches || overviewOpen) return;
+    var t = e.changedTouches[0], dx = t.clientX - touchX, dy = t.clientY - touchY;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.3) { if (dx < 0) next(); else prev(); }
+  }, { passive: true });
+
+  var uiTimer = 0;
+  document.addEventListener('mousemove', function (e) {
+    body.classList.add('ui');
+    clearTimeout(uiTimer);
+    uiTimer = setTimeout(function () { body.classList.remove('ui'); }, 2400);
+    if (scene3d) scene3d.pointer(e.clientX / window.innerWidth * 2 - 1, e.clientY / window.innerHeight * 2 - 1);
+  });
+
+  $('#btn-prev').addEventListener('click', prev);
+  $('#btn-next').addEventListener('click', next);
+  $('#btn-overview').addEventListener('click', openOverview);
+  $('#btn-fs').addEventListener('click', toggleFS);
+  $('#overview').addEventListener('click', function (e) { if (e.target === e.currentTarget) closeOverview(); });
+
+  window.addEventListener('resize', fit);
+  window.addEventListener('hashchange', function () {
+    var h = parseInt(location.hash.slice(1), 10);
+    if (!isNaN(h) && h - 1 !== current) go(h - 1, { scroll: true });
+  });
+
+  /* ---------- reading mode ---------- */
+  var readObserver = null;
+  function applyMode() {
+    var reading = readingMQ.matches;
+    body.classList.toggle('reading', reading);
+    slides.forEach(function (s) {
+      s.classList.toggle('is-static', reading);
+      if (reading) { s.removeAttribute('inert'); s.removeAttribute('aria-hidden'); }
+    });
+    if (readObserver) { readObserver.disconnect(); readObserver = null; }
+    if (reading && 'IntersectionObserver' in window) {
+      readObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) {
+            var i = slides.indexOf(en.target);
+            if (i !== current) { current = i; if (scene3d) scene3d.set(en.target.getAttribute('data-scene')); }
+          }
+        });
+      }, { rootMargin: '-45% 0px -45% 0px' });
+      slides.forEach(function (s) { readObserver.observe(s); });
+    } else {
+      go(Math.max(0, current), { force: true });
+    }
+    fit();
+  }
+  if (readingMQ.addEventListener) readingMQ.addEventListener('change', applyMode);
+
+  /* =========================================================
+     3D: the fortress of iron blocks
+     ========================================================= */
+  function rng(seed) {
+    var a = seed >>> 0;
+    return function () {
+      a |= 0; a = a + 0x6D2B79F5 | 0;
+      var t = Math.imul(a ^ a >>> 15, 1 | a);
+      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+      return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    };
+  }
+
+  var ENVS = {
+    iron: { key: 0xffe2bc, keyI: 2.7, hemi: 0.45, fog: 0.019, exp: 1.0, tile: 0x2a2c30, plane: 0x0c0d0f, grid: 0.35, tiles: 1 },
+    gold: { key: 0xffc77a, keyI: 3.1, hemi: 0.4, fog: 0.017, exp: 1.08, tile: 0x2c2820, plane: 0x0d0c0a, grid: 0.28, tiles: 1 },
+    cool: { key: 0xe4ecff, keyI: 2.3, hemi: 0.55, fog: 0.018, exp: 1.0, tile: 0x262a30, plane: 0x0b0d10, grid: 1, tiles: 1 },
+    rust: { key: 0xff8456, keyI: 2.7, hemi: 0.24, fog: 0.025, exp: 0.98, tile: 0x2a1f1a, plane: 0x0e0b0a, grid: 0.06, tiles: 1 },
+    dark: { key: 0xc25a4c, keyI: 1.5, hemi: 0.14, fog: 0.034, exp: 0.92, tile: 0x1d1819, plane: 0x0a0909, grid: 0, tiles: 1 },
+    sea: { key: 0xe2ecff, keyI: 2.4, hemi: 0.6, fog: 0.009, exp: 1.02, tile: 0x0d1a26, plane: 0x0a1622, grid: 0, tiles: 0 }
+  };
+
+  var SCENES = {
+    title:       { f: 'fortress', cam: [0, 16, 37], look: [0, 8.6, 0], env: 'gold', sun: 1 },
+    thesis:      { f: 'fortress', cam: [-27, 7, 17], look: [1, 3.2, 0], env: 'iron', frame: 'r' },
+    route:       { f: 'none', cam: [0, 30, 26], look: [0, 0, 2], env: 'cool' },
+    ground:      { f: 'none', cam: [-14, 20, 28], look: [0, 0, 0], env: 'cool' },
+    risk:        { f: 'machine', cam: [18, 15, 26], look: [0, 1, 0], env: 'iron' },
+    machine:     { f: 'machine', cam: [0, 9, 27], look: [0, 1.6, 0], env: 'iron' },
+    iron:        { f: 'monolith', cam: [5, 1.4, 15], look: [0, 6.8, 0], env: 'iron', frame: 'r' },
+    argument:    { f: 'monolith', cam: [-13, 3.5, 16], look: [0, 6, 0], env: 'iron' },
+    jobspec:     { f: 'monolith', cam: [2, 10, 22], look: [0, 5, 0], env: 'gold', frame: 'r' },
+    discipline:  { f: 'ranks', cam: [-22, 4, 14], look: [0, 1.2, -3], env: 'iron' },
+    deadlock:    { f: 'deadlock', cam: [0, 9, 27], look: [0, 2, 0], env: 'iron' },
+    ramos:       { f: 'parliament', cam: [16, 10, 17], look: [-2, 1, 0], env: 'gold', frame: 'rr' },
+    ideal:       { f: 'parliament', cam: [-6, 15, 20], look: [-1, 0.5, 0], env: 'gold', frame: 'rr' },
+    structure:   { f: 'parliament', cam: [-22, 6, 9], look: [0, 1.2, 0], env: 'gold' },
+    marcos:      { f: 'rust', cam: [12, 10, 28], look: [0, 3, 0], env: 'rust' },
+    slogan:      { f: 'ranksRust', cam: [-22, 3.2, 13], look: [0, 1.4, -3], env: 'rust' },
+    technocrats: { f: 'growthRust', cam: [-8, 9, 28], look: [3, 5, 0], env: 'rust' },
+    rescue:      { f: 'rust', cam: [-15, 6, 22], look: [0, 2.6, 0], env: 'rust' },
+    pillaged:    { f: 'collapse', cam: [10, 6, 22], look: [0, 1.6, 0], env: 'rust', frame: 'r' },
+    numbers:     { f: 'collapse', cam: [0, 19, 26], look: [0, 0, 0], env: 'rust' },
+    tadem:       { f: 'collapse', cam: [-12, 4, 16], look: [0, 1.5, 0], env: 'rust', frame: 'r' },
+    humanbill:   { f: 'collapse', cam: [16, 3, 14], look: [0, 1.2, 0], env: 'dark' },
+    half:        { f: 'half', cam: [0, 12, 34], look: [0, 3.4, 0], env: 'iron', ghost: 1 },
+    whole:       { f: 'whole', cam: [0, 12, 32], look: [0, 3.8, 0], env: 'gold', core: [0, 4.9, 0] },
+    written:     { f: 'whole', cam: [6, 11, 30], look: [0, 4, 0], env: 'gold', core: [0, 4.9, 0], frame: 'rr' },
+    twin:        { f: 'twin', cam: [0, 15, 27], look: [0, 1.5, 0], env: 'gold', core: [-8, 3.2, 0], coreB: [8, 3.2, 0] },
+    cpib:        { f: 'twin', cam: [-8, 7, 16], look: [-8, 2.5, 0], env: 'gold', core: [-8, 3.2, 0], coreB: [8, 3.2, 0], frame: 'r' },
+    article22g:  { f: 'core', cam: [0, 16, 24], look: [0, 1.5, 0], env: 'gold', core: [0, 3.6, 0] },
+    evidence:    { f: 'core', cam: [11, 5, 15], look: [0, 2.2, 0], env: 'gold', core: [0, 3.6, 0] },
+    cpi:         { f: 'towersCPI', cam: [-4, 10, 40], look: [7, 9, 0], env: 'gold', frame: 'r' },
+    icac:        { f: 'twin', cam: [8, 7, 16], look: [8, 2.5, 0], env: 'gold', core: [-8, 3.2, 0], coreB: [8, 3.2, 0], frame: 'r' },
+    prongs:      { f: 'pillars3', cam: [0, 6.5, 35], look: [0, 7.6, 0], env: 'iron' },
+    pay:         { f: 'paygrid', cam: [0, 15, 24], look: [0, 0, -2], env: 'gold' },
+    price:       { f: 'paygrid', cam: [-17, 7, 17], look: [0, 0.5, -2], env: 'gold' },
+    adapt:       { f: 'core', cam: [-14, 12, 20], look: [0, 1.5, 0], env: 'gold', core: [0, 3.6, 0] },
+    vote:        { f: 'whole', cam: [0, 5, 24], look: [0, 4.5, 0], env: 'gold', core: [0, 4.9, 0], frame: 'r' },
+    korea:       { f: 'growth', cam: [-8, 9, 28], look: [3, 5, 0], env: 'gold' },
+    conditional: { f: 'growth', cam: [15, 4, 19], look: [2, 6, 0], env: 'gold', frame: 'r' },
+    gdp:         { f: 'growth', cam: [-20, 12, 26], look: [3, 7, 0], env: 'gold' },
+    caveat:      { f: 'growth', cam: [0, 3, 30], look: [0, 5, 0], env: 'iron' },
+    sunset:      { f: 'growth', cam: [16, 14, 24], look: [0, 4, 0], env: 'gold' },
+    phcase:      { f: 'growth', cam: [-10, 5, 18], look: [2, 4, 0], env: 'gold', frame: 'r' },
+    hide:        { f: 'network', cam: [0, 20, 26], look: [0, 1, 0], env: 'cool', net: 1 },
+    xroad:       { f: 'network', cam: [14, 12, 22], look: [0, 1, 0], env: 'cool', net: 1 },
+    discretion:  { f: 'network', cam: [-16, 8, 20], look: [0, 2, 0], env: 'cool', net: 1 },
+    scale:       { f: 'archScale', cam: [0, 38, 15], look: [1, 0, -1], env: 'sea' },
+    boot:        { f: 'housing', cam: [21, 9, 26], look: [0, 5, 0], env: 'gold', frame: 'r' },
+    hdb:         { f: 'housing', cam: [-19, 14, 24], look: [0, 4, 0], env: 'gold' },
+    mortgage:    { f: 'housing', cam: [16, 4, 32], look: [-3, 7, 0], env: 'gold', frame: 'rr' },
+    pagibig:     { f: 'housing', cam: [0, 27, 22], look: [0, 2, 0], env: 'gold', frame: 'r' },
+    defence:     { f: 'pillars6', cam: [0, 9, 27], look: [0, 6, 0], env: 'iron' },
+    duty:        { f: 'pillars6', cam: [-6, 3, 18], look: [0, 7.5, 0], env: 'gold' },
+    award:       { f: 'archDefence', cam: [0, 38, 15], look: [0, 0, -1], env: 'sea', frame: 'r' },
+    bailiff:     { f: 'archDefence', cam: [-14, 10, 26], look: [0, 0, 0], env: 'sea' },
+    adaptdef:    { f: 'archDefence', cam: [12, 22, 24], look: [0, 0, 0], env: 'sea' },
+    civilian:    { f: 'pillars6', cam: [0, 1.6, 14], look: [0, 8, 0], env: 'iron', frame: 'r' },
+    lock:        { f: 'cube', cam: [18, 13, 22], look: [0, 4.5, 0], env: 'gold', frame: 'r' },
+    failures:    { f: 'cube', cam: [-18, 10, 20], look: [0, 4.5, 0], env: 'gold', frame: 'rr' },
+    durability:  { f: 'whole', cam: [0, 8, 30], look: [0, 3.5, 0], env: 'gold', core: [0, 4.9, 0] },
+    costs:       { f: 'fortress', cam: [14, 5, 24], look: [0, 3, 0], env: 'dark' },
+    silence:     { f: 'silence', cam: [0, 10, 22], look: [0, 1, 0], env: 'dark', frame: 'r' },
+    baserate:    { f: 'towersBase', cam: [-4, 10, 40], look: [7, 9, 0], env: 'dark', frame: 'r' },
+    memorial:    { f: 'none', cam: [0, 6.5, 22], look: [0, 6.5, -6], env: 'dark', parts: 1, frame: 'r' },
+    coercion:    { f: 'none', cam: [0, 2, 13], look: [0, 7, -6], env: 'dark', parts: 1 },
+    claim:       { f: 'whole', cam: [0, 14, 30], look: [0, 3.8, 0], env: 'gold', core: [0, 4.9, 0] },
+    split:       { f: 'split', cam: [0, 12, 32], look: [0, 3.4, 0], env: 'iron' },
+    question:    { f: 'whole', cam: [-22, 10, 24], look: [0, 3, 0], env: 'gold', core: [0, 4.9, 0], frame: 'r' },
+    finale:      { f: 'whole', cam: [0, 9, 40], look: [0, 7.4, 0], env: 'gold', core: [0, 4.9, 0], sun: 1 },
+    sources:     { f: 'none', cam: [0, 32, 18], look: [0, 0, 0], env: 'cool' }
+  };
+  Object.keys(SCENES).forEach(function (k) { SCENE_TONE[k] = SCENES[k].env; });
+
+  function createScene3D(canvas) {
+    var T = window.THREE;
+    var renderer;
+    try {
+      renderer = new T.WebGLRenderer({ canvas: canvas, antialias: true, powerPreference: 'high-performance' });
+    } catch (e) { return null; }
+    if (!renderer || !renderer.getContext()) return null;
+
+    var reduce = reduceMQ.matches;
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.75));
+    renderer.setSize(window.innerWidth, window.innerHeight, false);
+    renderer.outputEncoding = T.sRGBEncoding;
+    renderer.toneMapping = T.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1;
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = T.PCFSoftShadowMap;
+    renderer.setClearColor(0x070809, 1);
+
+    var lin = function (h) { return new T.Color(h).convertSRGBToLinear(); };
+    var arr = function (h) { var c = lin(h); return [c.r, c.g, c.b]; };
+
+    var scene = new T.Scene();
+    scene.fog = new T.FogExp2(lin(0x070809), 0.019);
+    var camera = new T.PerspectiveCamera(38, window.innerWidth / window.innerHeight, 0.1, 600);
+
+    /* lights */
+    var hemi = new T.HemisphereLight(0x9fb2c8, 0x1c140c, 0.45);
+    scene.add(hemi);
+    var key = new T.DirectionalLight(0xffe2bc, 2.7);
+    key.position.set(-20, 30, 18);
+    key.castShadow = true;
+    key.shadow.mapSize.set(2048, 2048);
+    var sc = key.shadow.camera;
+    sc.left = -32; sc.right = 32; sc.top = 32; sc.bottom = -32; sc.near = 1; sc.far = 110;
+    key.shadow.bias = -0.0004;
+    key.shadow.normalBias = 0.03;
+    scene.add(key); scene.add(key.target);
+    var rim = new T.DirectionalLight(0x86a6cc, 0.9);
+    rim.position.set(22, 12, -26);
+    scene.add(rim);
+
+    /* textures */
+    var makeGlow = function (inner, outer) {
+      var c = document.createElement('canvas'); c.width = c.height = 128;
+      var g = c.getContext('2d');
+      var grd = g.createRadialGradient(64, 64, 0, 64, 64, 64);
+      grd.addColorStop(0, inner); grd.addColorStop(0.35, outer); grd.addColorStop(1, 'rgba(0,0,0,0)');
+      g.fillStyle = grd; g.fillRect(0, 0, 128, 128);
+      var tx = new T.CanvasTexture(c); return tx;
+    };
+    var glowTex = makeGlow('rgba(255,230,170,1)', 'rgba(255,180,80,.35)');
+    var dotTex = makeGlow('rgba(255,255,255,1)', 'rgba(255,255,255,.55)');
+
+    /* ground */
+    var planeMat = new T.MeshStandardMaterial({ color: lin(0x0c0d0f), roughness: 0.95, metalness: 0 });
+    var plane = new T.Mesh(new T.PlaneGeometry(700, 700), planeMat);
+    plane.rotation.x = -Math.PI / 2; plane.position.y = -0.02; plane.receiveShadow = true;
+    scene.add(plane);
+
+    var TG = 45, TSP = 1.1, THALF = (TG - 1) / 2;
+    var tileGeo = new T.BoxGeometry(1, 1, 1); tileGeo.translate(0, 0.5, 0);
+    var tileMat = new T.MeshStandardMaterial({ color: lin(0x2a2c30), roughness: 0.82, metalness: 0.12, transparent: true, opacity: 1 });
+    var tiles = new T.InstancedMesh(tileGeo, tileMat, TG * TG);
+    tiles.receiveShadow = true;
+    (function () {
+      var d = new T.Object3D(), c = new T.Color(), r = rng(7);
+      for (var i = 0; i < TG * TG; i++) {
+        var x = ((i % TG) - THALF) * TSP, z = (Math.floor(i / TG) - THALF) * TSP;
+        d.position.set(x, 0, z); d.scale.set(TSP * 0.94, 0.03 + r() * 0.05, TSP * 0.94); d.updateMatrix();
+        tiles.setMatrixAt(i, d.matrix);
+        var v = 0.7 + r() * 0.6; c.setRGB(v, v, v); tiles.setColorAt(i, c);
+      }
+    })();
+    scene.add(tiles);
+
+    var grid = new T.GridHelper(TG * TSP, TG, 0xd9ae55, 0xd9ae55);
+    grid.position.y = 0.095;
+    grid.material.transparent = true; grid.material.opacity = 0.05; grid.material.depthWrite = false;
+    scene.add(grid);
+
+    /* palette (linear) */
+    var P = {
+      iron: arr(0x3d424a), ironLo: arr(0x272a30), ironHi: arr(0x5c626c),
+      gold: arr(0xc99a45), goldHi: arr(0xf0c46a), goldDim: arr(0x7e6028),
+      rust: arr(0x7a3a26), rustHi: arr(0xa5502f), rustLo: arr(0x3b2019),
+      bone: arr(0xd9d1c1), boneDim: arr(0x8f897e),
+      steel: arr(0x4d6a88), steelHi: arr(0x86a9d0),
+      warm: arr(0xffc56a)
+    };
+    var mix = function (a, b, t) { return [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t]; };
+    var tint = function (c, r, amt) { var k = 1 + (r() - 0.5) * amt; return [c[0] * k, c[1] * k, c[2] * k]; };
+
+    /* structures */
+    var N = 1089, S = 12;
+    var geo = new T.BoxGeometry(1, 1, 1); geo.translate(0, 0.5, 0);
+    var mat = new T.MeshStandardMaterial({ color: 0xffffff, roughness: 0.46, metalness: 0.3 });
+    var mesh = new T.InstancedMesh(geo, mat, N);
+    mesh.castShadow = true; mesh.receiveShadow = true; mesh.frustumCulled = false;
+    mesh.instanceMatrix.setUsage(T.DynamicDrawUsage);
+    var tmpC = new T.Color();
+    for (var ci = 0; ci < N; ci++) mesh.setColorAt(ci, tmpC.setRGB(0.02, 0.02, 0.02));
+    mesh.instanceColor.setUsage(T.DynamicDrawUsage);
+    scene.add(mesh);
+
+    var G = 33, GH = 16, SP = 1.1;
+    var hx = function (i) { return ((i % G) - GH) * SP; };
+    var hz = function (i) { return (Math.floor(i / G) - GH) * SP; };
+    var put = function (A, i, x, y, z, sx, sy, sz, rx, ry, rz, c) {
+      var o = i * S;
+      A[o] = x; A[o + 1] = y; A[o + 2] = z; A[o + 3] = sx; A[o + 4] = sy; A[o + 5] = sz;
+      A[o + 6] = rx; A[o + 7] = ry; A[o + 8] = rz; A[o + 9] = c[0]; A[o + 10] = c[1]; A[o + 11] = c[2];
+    };
+    var hideFrom = function (A, from) {
+      for (var i = from; i < N; i++) put(A, i, hx(i), 0, hz(i), 0.6, 0.0001, 0.6, 0, 0, 0, P.ironLo);
+    };
+
+    var cur = new Float32Array(N * S), tgt = new Float32Array(N * S);
+    hideFrom(cur, 0);
+    var startAt = new Float64Array(N);
+    var dyn = null, base = null;
+    var used = 0;
+    var meta = {};
+
+    /* --- formations --- */
+    var F = {};
+    var ang = function (a) { return Math.atan2(Math.sin(a), Math.cos(a)); };
+
+    function fortressBase(variant) {
+      var A = new Float32Array(N * S), r = rng(11), i = 0;
+      var gate = Math.PI / 2;
+      var R3 = 16, W3 = 150, k, a;
+      for (k = 0; k < W3; k++) {
+        a = k / W3 * Math.PI * 2;
+        if (Math.abs(ang(a - gate)) < 0.12) continue;
+        put(A, i++, R3 * Math.cos(a), 0, R3 * Math.sin(a), 1.7, 0.45 + r() * 0.2, 2 * Math.PI * R3 / W3 * 0.9, 0, -a, 0, tint(P.ironLo, r, 0.25));
+      }
+      var R = 11.5, W = 124;
+      var towers = []; for (k = 0; k < 8; k++) towers.push(k * Math.PI / 4 + Math.PI / 8);
+      for (k = 0; k < W; k++) {
+        a = k / W * Math.PI * 2;
+        if (Math.abs(ang(a - gate)) < 0.17) continue;
+        var near = towers.some(function (t) { return Math.abs(ang(a - t)) < 0.075; });
+        var h = near ? 5.6 : (k % 2 ? 3.1 : 2.5);
+        put(A, i++, R * Math.cos(a), 0, R * Math.sin(a), near ? 2.6 : 1.25, h, 2 * Math.PI * R / W * 0.92, 0, -a, 0, tint(near ? P.ironHi : P.iron, r, 0.2));
+      }
+      var R2 = 6.6, W2 = 72;
+      for (k = 0; k < W2; k++) {
+        a = k / W2 * Math.PI * 2;
+        if (Math.abs(ang(a - gate)) < 0.2) continue;
+        put(A, i++, R2 * Math.cos(a), 0, R2 * Math.sin(a), 0.95, k % 2 ? 2.0 : 1.6, 2 * Math.PI * R2 / W2 * 0.9, 0, -a, 0, tint(P.iron, r, 0.2));
+      }
+      for (var dx = -1; dx <= 1; dx++) for (var dz = -1; dz <= 1; dz++) {
+        put(A, i++, dx * 1.05, 0, dz * 1.05, 1.0, 0.7, 1.0, 0, 0, 0, tint(P.ironHi, r, 0.1));
+      }
+      var mono = i;
+      put(A, i++, 0, 0.7, 0, 1.5, 8.4, 1.5, 0, 0.12, 0, P.ironLo);
+      var n = i;
+      hideFrom(A, i);
+
+      var o, j;
+      if (variant === 'gold' || variant === 'split') {
+        o = mono * S; A[o + 4] = 1.7;
+        var g = P.gold; A[o + 9] = g[0]; A[o + 10] = g[1]; A[o + 11] = g[2];
+        for (j = 0; j < n - 10; j++) {
+          o = j * S;
+          var rr = Math.hypot(A[o], A[o + 2]);
+          if (rr < 7.5 && rr > 5) { var c = mix([A[o + 9], A[o + 10], A[o + 11]], P.goldDim, 0.55); A[o + 9] = c[0]; A[o + 10] = c[1]; A[o + 11] = c[2]; }
+        }
+      }
+      if (variant === 'rust' || variant === 'collapse' || variant === 'split') {
+        var rr2 = rng(variant === 'collapse' ? 41 : 31);
+        for (j = 0; j < n; j++) {
+          o = j * S;
+          if (variant === 'split' && A[o] > -0.2) continue;
+          var heavy = variant === 'collapse' || variant === 'split';
+          var c2 = tint(mix(P.iron, heavy ? P.rustLo : P.rust, 0.45 + rr2() * 0.55), rr2, 0.3);
+          A[o + 9] = c2[0]; A[o + 10] = c2[1]; A[o + 11] = c2[2];
+          if (j === mono) {
+            if (heavy) { A[o + 6] = 0; A[o + 8] = 1.5; A[o] -= 3.6; A[o + 1] = 0; A[o + 4] = 8.4; }
+            else { A[o + 8] = 0.24; }
+            continue;
+          }
+          if (heavy) {
+            if (rr2() < 0.72) {
+              A[o + 6] = (rr2() < 0.5 ? -1 : 1) * (1.15 + rr2() * 0.42);
+              A[o + 8] = (rr2() - 0.5) * 0.5;
+              A[o] += (rr2() - 0.5) * 1.4; A[o + 2] += (rr2() - 0.5) * 1.4;
+              A[o + 4] *= 0.45 + rr2() * 0.4;
+            } else { A[o + 4] *= 0.25 + rr2() * 0.35; }
+          } else {
+            if (rr2() < 0.4) { A[o + 6] = (rr2() - 0.5) * 0.7; A[o + 8] = (rr2() - 0.5) * 0.7; }
+            if (rr2() < 0.32) A[o + 4] *= 0.35 + rr2() * 0.4;
+          }
+        }
+      }
+      if (variant === 'half') {
+        for (j = 0; j < n; j++) { o = j * S; if (A[o] > 0.3) A[o + 4] = 0.0001; }
+      }
+      return { A: A, used: n };
+    }
+    F.fortress = function () { return fortressBase('plain'); };
+    F.whole = function () { return fortressBase('gold'); };
+    F.rust = function () { return fortressBase('rust'); };
+    F.collapse = function () { return fortressBase('collapse'); };
+    F.half = function () { return fortressBase('half'); };
+    F.split = function () { return fortressBase('split'); };
+
+    F.none = function () { var A = new Float32Array(N * S); hideFrom(A, 0); return { A: A, used: 0 }; };
+
+    F.machine = function () {
+      var A = new Float32Array(N * S), i = 0, cells = [];
+      for (var gz = -12; gz <= 12; gz++) for (var gx = -12; gx <= 12; gx++) {
+        put(A, i, gx * SP, 0, gz * SP, SP * 0.86, 0.6, SP * 0.86, 0, 0, 0, P.iron);
+        cells.push([gx * SP, gz * SP, Math.hypot(gx, gz) * SP]); i++;
+      }
+      var n = i; hideFrom(A, i);
+      return {
+        A: A, used: n,
+        dyn: function (B, Tg, t) {
+          for (var k = 0; k < n; k++) {
+            var o = k * S, d = cells[k][2];
+            var s = 0.5 + 0.5 * Math.sin(t * 1.25 - d * 0.5);
+            Tg[o + 4] = 0.25 + 1.7 * s * s;
+            var c = mix(P.iron, P.goldDim, Math.pow(s, 6));
+            Tg[o + 9] = c[0]; Tg[o + 10] = c[1]; Tg[o + 11] = c[2];
+          }
+        }
+      };
+    };
+
+    F.monolith = function () {
+      var A = new Float32Array(N * S), r = rng(5), i = 0;
+      put(A, i++, 0, 0, 0, 2.2, 13, 2.2, 0, 0.32, 0, mix(P.ironHi, P.goldDim, 0.22));
+      for (var k = 0; k < 16; k++) {
+        var a = k / 16 * Math.PI * 2;
+        put(A, i++, 6.5 * Math.cos(a), 0, 6.5 * Math.sin(a), 0.5, 0.35 + r() * 0.1, 0.9, 0, -a, 0, tint(P.iron, r, 0.2));
+      }
+      hideFrom(A, i);
+      return { A: A, used: i };
+    };
+
+    function ranks(c0) {
+      return function () {
+        var A = new Float32Array(N * S), r = rng(9), i = 0;
+        for (var rw = 0; rw < 30; rw++) for (var c = 0; c < 26; c++) {
+          put(A, i++, (c - 12.5) * 1.0, 0, (rw - 14.5) * 1.15 - 2, 0.36, 1.55 + r() * 0.06, 0.36, 0, 0, 0, tint(c0, r, 0.15));
+        }
+        hideFrom(A, i);
+        return { A: A, used: i };
+      };
+    }
+    F.ranks = ranks(P.iron);
+    F.ranksRust = ranks(mix(P.iron, P.rust, 0.55));
+
+    F.deadlock = function () {
+      var A = new Float32Array(N * S), r = rng(13), i = 0;
+      [-1, 1].forEach(function (side) {
+        for (var c = 0; c < 11; c++) for (var rw = 0; rw < 11; rw++) {
+          var x = side * (1.6 + c * 1.1), z = (rw - 5) * 1.1;
+          var h = 1.0 + (10 - c) / 10 * 3.0 + r() * 0.3;
+          var rz = c === 0 ? side * 0.2 : (c === 1 ? side * 0.08 : 0);
+          var col = side < 0 ? mix(P.iron, P.steel, 0.35) : mix(P.iron, P.rust, 0.25);
+          put(A, i++, x, 0, z, 0.95, h, 0.95, 0, 0, rz, tint(col, r, 0.18));
+        }
+      });
+      hideFrom(A, i);
+      return { A: A, used: i };
+    };
+
+    F.parliament = function () {
+      var A = new Float32Array(N * S), r = rng(17), i = 0;
+      [-1, 1].forEach(function (side) {
+        for (var rw = 0; rw < 5; rw++) for (var s = 0; s < 22; s++) {
+          var gov = side < 0;
+          var col = gov ? (r() < 0.93 ? tint(P.gold, r, 0.2) : P.iron) : (r() < 0.16 ? tint(P.bone, r, 0.1) : tint(P.ironLo, r, 0.2));
+          put(A, i++, (s - 10.5) * 1.1, 0, side * (2.1 + rw * 1.15), 0.92, 0.45 + rw * 0.32, 0.95, 0, 0, 0, col);
+        }
+      });
+      put(A, i++, 0, 0, 0, 9, 0.55, 1.3, 0, 0, 0, P.ironHi);
+      put(A, i++, -15.4, 0, 0, 1.5, 4.8, 1.5, 0, 0, 0, P.bone);
+      hideFrom(A, i);
+      return { A: A, used: i };
+    };
+
+    function growth(variant) {
+      return function () {
+        var A = new Float32Array(N * S), r = rng(23), i = 0;
+        var maxL = Math.round(1.25 * Math.pow(1.135, 21));
+        for (var k = 0; k < 22; k++) {
+          var L = Math.max(1, Math.round(1.25 * Math.pow(1.135, k)));
+          var cx = (k - 10.5) * 1.25;
+          for (var lv = 0; lv < L; lv++) for (var q = 0; q < 4; q++) {
+            var t = lv / maxL;
+            var col = variant === 'rust' ? mix(P.iron, P.rustHi, Math.pow(t, 1.2)) : mix(P.iron, P.gold, Math.pow(t, 1.3));
+            put(A, i++, cx + ((q % 2) - 0.5) * 0.56, lv * 0.56, ((q >> 1) - 0.5) * 0.56, 0.5, 0.5, 0.5, 0, 0, 0, tint(col, r, 0.12));
+          }
+        }
+        hideFrom(A, i);
+        return { A: A, used: i };
+      };
+    }
+    F.growth = growth('gold');
+    F.growthRust = growth('rust');
+
+    function ringSet(centers, radii, step, hmax) {
+      var A = new Float32Array(N * S), r = rng(29), i = 0, info = [];
+      centers.forEach(function (ctr) {
+        radii.forEach(function (R, ri) {
+          var n = Math.round(2 * Math.PI * R / step);
+          for (var k = 0; k < n; k++) {
+            var a = k / n * Math.PI * 2;
+            var h = Math.max(0.35, (hmax || 3.0) - ri * 0.4) * (k % 3 === 0 ? 1.25 : 1);
+            var col = ri < 2 ? mix(P.gold, P.iron, 0.3 + ri * 0.25) : P.iron;
+            put(A, i, ctr[0] + R * Math.cos(a), 0, ctr[1] + R * Math.sin(a), 0.55, h, 2 * Math.PI * R / n * 0.84, 0, -a, 0, tint(col, r, 0.18));
+            info.push([ctr[0], ctr[1], R, a, ri]); i++;
+          }
+        });
+      });
+      var n = i; hideFrom(A, i);
+      return {
+        A: A, used: n,
+        dyn: function (B, Tg, t) {
+          for (var k = 0; k < n; k++) {
+            var o = k * S, f = info[k];
+            var w = (f[4] % 2 ? 1 : -1) * 0.06 / (1 + f[4] * 0.45);
+            var aa = f[3] + t * w;
+            Tg[o] = f[0] + f[2] * Math.cos(aa); Tg[o + 2] = f[1] + f[2] * Math.sin(aa); Tg[o + 7] = -aa;
+          }
+        }
+      };
+    }
+    F.core = function () { return ringSet([[0, 0]], [3.0, 4.8, 6.6, 8.4, 10.2, 12.0, 13.8], 0.78); };
+    F.twin = function () { return ringSet([[-8, 0], [8, 0]], [2.2, 3.6, 5.0, 6.4], 0.72, 1.9); };
+
+    function towers(a, b, ca, cb) {
+      return function () {
+        var A = new Float32Array(N * S), r = rng(37), i = 0;
+        var step = 0.96, cube = 0.88;
+        var tower = function (n, cx, c) {
+          for (var k = 0; k < n; k++) {
+            var lv = Math.floor(k / 4), q = k % 4;
+            put(A, i++, cx + ((q % 2) - 0.5) * step, lv * step, ((q >> 1) - 0.5) * step, cube, cube, cube, 0, 0, 0, tint(c, r, 0.14));
+          }
+        };
+        tower(a, 8, ca); tower(b, 13, cb);
+        hideFrom(A, i);
+        return { A: A, used: i };
+      };
+    }
+    F.towersCPI = towers(84, 32, P.gold, P.steel);
+    F.towersBase = towers(73, 33, P.steel, P.rustHi);
+
+    F.pillars3 = function () {
+      var A = new Float32Array(N * S), r = rng(43), i = 0;
+      [-12.4, 0, 12.4].forEach(function (cx) {
+        put(A, i++, cx, 0, 0, 2.8, 0.5, 2.8, 0, 0, 0, P.boneDim);
+        for (var k = 0; k < 14; k++) {
+          var a = k / 14 * Math.PI * 2;
+          put(A, i++, cx + 0.92 * Math.cos(a), 0.5, 0.92 * Math.sin(a), 0.34, 9, 0.42, 0, -a, 0, tint(P.bone, r, 0.08));
+        }
+        put(A, i++, cx, 9.5, 0, 2.7, 0.45, 2.7, 0, 0, 0, P.goldDim);
+        put(A, i++, cx, 9.95, 0, 3.1, 0.3, 3.1, 0, 0, 0, P.gold);
+      });
+      hideFrom(A, i);
+      return { A: A, used: i };
+    };
+
+    F.paygrid = function () {
+      var A = new Float32Array(N * S), r = rng(47), i = 0;
+      for (var rw = 0; rw < 25; rw++) for (var c = 0; c < 40; c++) {
+        var median = rw === 12 && (c === 19 || c === 20);
+        put(A, i++, (c - 19.5) * 0.72, 0, (rw - 12) * 0.72 - 2, 0.42, median ? 2.6 : 0.9 + r() * 0.08, 0.42, 0, 0, 0, median ? P.goldHi : tint(P.iron, r, 0.22));
+      }
+      hideFrom(A, i);
+      return { A: A, used: i };
+    };
+
+    var NET = { tops: [] };
+    F.network = function () {
+      var A = new Float32Array(N * S), r = rng(53), i = 0;
+      NET.tops = [];
+      for (var k = 0; k < 8; k++) {
+        var a = k * Math.PI / 4 + Math.PI / 8;
+        var cx = 9 * Math.cos(a), cz = 9 * Math.sin(a);
+        var col = k < 5 ? mix(P.steel, P.steelHi, 0.35) : P.bone;
+        for (var lv = 0; lv < 4; lv++) for (var q = 0; q < 9; q++) {
+          put(A, i++, cx + ((q % 3) - 1) * 0.58, lv * 0.58, cz + (Math.floor(q / 3) - 1) * 0.58, 0.5, 0.5, 0.5, 0, 0, 0, tint(lv === 3 ? mix(col, P.steelHi, 0.5) : col, r, 0.15));
+        }
+        NET.tops.push([cx, 2.6, cz]);
+      }
+      for (var c = 0; c < 72; c++) {
+        var b = c / 72 * Math.PI * 2;
+        put(A, i++, 15 * Math.cos(b), 0, 15 * Math.sin(b), 0.32, 0.32, 0.32, 0, -b, 0, P.goldDim);
+      }
+      hideFrom(A, i);
+      return { A: A, used: i };
+    };
+
+    var ISLES = [
+      [-2.0, -11.0, 2.6, 6.5, 0.15], [2.0, -4.5, 1.0, 3.2, -0.9], [-4.2, -2.6, 1.1, 1.6, 0.2],
+      [-9.5, 3.5, 0.7, 6.0, 0.75], [-2.5, 2.8, 1.5, 1.3, 0.5], [-0.6, 5.3, 0.9, 2.4, -0.25],
+      [1.4, 4.6, 0.45, 2.4, -0.35], [2.7, 6.4, 0.9, 0.75, 0], [4.0, 3.2, 0.8, 2.0, -0.2],
+      [5.2, 0.4, 1.4, 1.9, 0.3], [1.6, 0.8, 0.9, 0.6, 0], [4.2, 11.2, 4.6, 3.4, 0.2],
+      [-1.6, 11.0, 2.4, 0.7, -0.4], [-4.2, 14.2, 1.6, 0.4, -0.4]
+    ];
+    var archPts = (function () {
+      var sc2 = 0.8, pts = [], r = rng(59);
+      var inside = function (x, z) {
+        for (var e = 0; e < ISLES.length; e++) {
+          var I = ISLES[e], dx = x / sc2 - I[0], dz = z / sc2 - I[1];
+          var cs = Math.cos(I[4]), sn = Math.sin(I[4]);
+          var u = dx * cs + dz * sn, v = -dx * sn + dz * cs;
+          if (u * u / (I[2] * I[2]) + v * v / (I[3] * I[3]) <= 1) return true;
+        }
+        return false;
+      };
+      var stp = 0.32;
+      for (var z = -16; z <= 13; z += stp) for (var x = -9; x <= 8; x += stp) {
+        if (inside(x, z)) pts.push([x + (r() - 0.5) * 0.06, z + (r() - 0.5) * 0.06]);
+      }
+      for (var k = pts.length - 1; k > 0; k--) { var j = Math.floor(r() * (k + 1)); var tmp = pts[k]; pts[k] = pts[j]; pts[j] = tmp; }
+      return pts;
+    })();
+    F.archScale = function () {
+      var A = new Float32Array(N * S), r = rng(61), i = 0;
+      var n = Math.min(1000, archPts.length);
+      for (var k = 0; k < n; k++) {
+        var p = archPts[k];
+        put(A, i++, p[0], 0, p[1], 0.24, 0.2 + r() * 0.35, 0.24, 0, 0, 0, tint(P.boneDim, r, 0.25));
+      }
+      for (var e = 0; e < 13; e++) {
+        put(A, i++, 13 + (e % 4) * 0.36, 0, -14 + Math.floor(e / 4) * 0.36, 0.26, 0.5, 0.26, 0, 0, 0, P.goldHi);
+      }
+      hideFrom(A, i);
+      return { A: A, used: i };
+    };
+    F.archDefence = function () {
+      var A = new Float32Array(N * S), r = rng(67), i = 0;
+      var n = Math.min(1000, archPts.length);
+      for (var k = 0; k < n; k++) {
+        var p = archPts[k];
+        var post = r() < 0.05;
+        put(A, i++, p[0], 0, p[1], 0.3, post ? 1.4 : 0.12 + r() * 0.4, 0.3, 0, 0, 0, post ? P.gold : tint(mix(P.iron, P.boneDim, 0.35), r, 0.25));
+      }
+      hideFrom(A, i);
+      return { A: A, used: i };
+    };
+
+    F.housing = function () {
+      var A = new Float32Array(N * S), r = rng(71), i = 0;
+      var spots = [-10.5, -3.5, 3.5, 10.5];
+      spots.forEach(function (bx) {
+        spots.forEach(function (bz) {
+          var levels = 9 + Math.floor(r() * 9);
+          var rot = r() < 0.5 ? 0 : Math.PI / 2;
+          var ox = bx + (r() - 0.5) * 1.2, oz = bz + (r() - 0.5) * 1.2;
+          for (var lv = 0; lv < levels; lv++) for (var u = 0; u < 4; u++) {
+            if (i >= N) return;
+            var along = (u - 1.5) * 1.28;
+            var x = ox + (rot ? 0 : along), z = oz + (rot ? along : 0);
+            var lit = r() < 0.2;
+            put(A, i++, x, lv * 0.66, z, rot ? 1.5 : 1.22, 0.62, rot ? 1.22 : 1.5, 0, 0, 0, lit ? tint(P.warm, r, 0.3) : tint(mix(P.boneDim, P.iron, 0.35), r, 0.18));
+          }
+        });
+      });
+      var n = i; hideFrom(A, i);
+      return { A: A, used: n };
+    };
+
+    F.pillars6 = function () {
+      var A = new Float32Array(N * S), r = rng(73), i = 0;
+      for (var k = 0; k < 6; k++) {
+        var a = -Math.PI / 2 + (k - 2.5) * (Math.PI * 2 / 6);
+        var R = k === 5 ? 9.4 : 7.5;
+        var cx = R * Math.cos(a + Math.PI), cz = R * Math.sin(a + Math.PI) * 0.75;
+        var col = k === 5 ? P.steel : P.bone;
+        for (var lv = 0; lv < 14; lv++) for (var q = 0; q < 4; q++) {
+          var top = lv === 13;
+          put(A, i++, cx + ((q % 2) - 0.5) * 0.96, lv * 0.96, cz + ((q >> 1) - 0.5) * 0.96, 0.9, 0.9, 0.9, 0, 0, 0, top ? (k === 5 ? P.steelHi : P.gold) : tint(col, r, 0.1));
+        }
+      }
+      hideFrom(A, i);
+      return { A: A, used: i };
+    };
+
+    F.cube = function () {
+      var A = new Float32Array(N * S), info = [], i = 0;
+      for (var iy = 0; iy < 9; iy++) for (var iz = 0; iz < 11; iz++) for (var ix = 0; ix < 11; ix++) {
+        var ext = (ix === 0 || ix === 10 ? 1 : 0) + (iy === 0 || iy === 8 ? 1 : 0) + (iz === 0 || iz === 10 ? 1 : 0);
+        var x = ix - 5, z = iz - 5;
+        put(A, i, x, iy, z, 0.94, 0.94, 0.94, 0, 0, 0, ext >= 2 ? P.gold : (ext === 1 ? P.ironHi : P.iron));
+        info.push([x, z]); i++;
+      }
+      return {
+        A: A, used: N,
+        dyn: function (B, Tg, t) {
+          var th = t * 0.12, cs = Math.cos(th), sn = Math.sin(th);
+          for (var k = 0; k < N; k++) {
+            var o = k * S, p = info[k];
+            Tg[o] = p[0] * cs - p[1] * sn; Tg[o + 2] = p[0] * sn + p[1] * cs; Tg[o + 7] = -th;
+          }
+        }
+      };
+    };
+
+    F.silence = function () {
+      var A = new Float32Array(N * S), r = rng(79), i = 0;
+      for (var gz = -12; gz <= 12; gz++) for (var gx = -12; gx <= 12; gx++) {
+        var center = gx === 0 && gz === 0;
+        put(A, i++, gx * SP, 0, gz * SP, 0.8, center ? 0.4 : 0.42, 0.8, 0, 0, 0, center ? P.bone : tint(P.ironLo, r, 0.1));
+      }
+      var ci2 = 312, n = i;
+      hideFrom(A, i);
+      return {
+        A: A, used: n,
+        dyn: function (B, Tg, t) {
+          var o = ci2 * S;
+          var s = Math.pow(Math.max(0, Math.sin(t * 0.9)), 8);
+          Tg[o + 4] = 0.42 + 3.6 * s;
+          var c = mix(P.boneDim, P.bone, s);
+          Tg[o + 9] = c[0]; Tg[o + 10] = c[1]; Tg[o + 11] = c[2];
+        }
+      };
+    };
+
+    var cache = {};
+    function formation(name) {
+      if (!cache[name]) cache[name] = (F[name] || F.none)();
+      return cache[name];
+    }
+
+    /* --- core lights --- */
+    function makeCore() {
+      var g = new T.Group();
+      var gem = new T.Mesh(new T.OctahedronGeometry(1, 0), new T.MeshStandardMaterial({ color: lin(0x3b2b0c), emissive: lin(0xffb44a), emissiveIntensity: 2.4, roughness: 0.25, metalness: 0.6 }));
+      var halo = new T.Sprite(new T.SpriteMaterial({ map: glowTex, color: 0xffc469, transparent: true, opacity: 0.85, depthWrite: false, blending: T.AdditiveBlending, fog: false }));
+      halo.scale.set(8, 8, 1);
+      var beam = new T.Mesh(new T.CylinderGeometry(0.05, 0.05, 70, 8, 1, true), new T.MeshBasicMaterial({ color: 0xffc469, transparent: true, opacity: 0.2, depthWrite: false, blending: T.AdditiveBlending, fog: false }));
+      beam.position.y = 35;
+      var light = new T.PointLight(0xffb85c, 0, 28, 2);
+      g.add(gem); g.add(halo); g.add(beam); g.add(light);
+      g.visible = false;
+      scene.add(g);
+      return { g: g, gem: gem, halo: halo, beam: beam, light: light, v: 0, tv: 0, pos: new T.Vector3(0, 3, 0), tpos: new T.Vector3(0, 3, 0) };
+    }
+    var cores = [makeCore(), makeCore()];
+
+    /* --- the sun --- */
+    var sun = new T.Group();
+    var sunHalo = new T.Sprite(new T.SpriteMaterial({ map: glowTex, color: 0xffb04a, transparent: true, opacity: 0, depthWrite: false, blending: T.AdditiveBlending, fog: false }));
+    sunHalo.scale.set(26, 13, 1);
+    sun.add(sunHalo);
+    sun.position.set(0, 2, -90); sun.scale.setScalar(6.5);
+    sun.visible = false;
+    scene.add(sun);
+    var sunV = 0, sunTV = 0;
+
+    /* --- ghost half --- */
+    var ghostMat = new T.MeshBasicMaterial({ color: lin(0xd9ae55), transparent: true, opacity: 0, depthWrite: false, blending: T.AdditiveBlending });
+    var ghost = new T.InstancedMesh(geo, ghostMat, N);
+    (function () {
+      var FB = fortressBase('plain'), d = new T.Object3D();
+      for (var i = 0; i < N; i++) {
+        var o = i * S, show = i < FB.used && FB.A[o] > 0.3;
+        d.position.set(FB.A[o], FB.A[o + 1], FB.A[o + 2]);
+        d.rotation.set(FB.A[o + 6], FB.A[o + 7], FB.A[o + 8]);
+        d.scale.set(FB.A[o + 3] * 1.01, show ? FB.A[o + 4] * 1.01 : 0.0001, FB.A[o + 5] * 1.01);
+        d.updateMatrix(); ghost.setMatrixAt(i, d.matrix);
+      }
+    })();
+    ghost.visible = false; ghost.frustumCulled = false;
+    scene.add(ghost);
+    var ghostV = 0, ghostTV = 0;
+
+    /* --- network fibres and packets --- */
+    formation('network');
+    var netCurves = [];
+    var fibreMat = new T.MeshBasicMaterial({ color: lin(0x9cc0ea), transparent: true, opacity: 0, depthWrite: false, blending: T.AdditiveBlending, toneMapped: false });
+    var netLines = new T.Group();
+    for (var na = 0; na < NET.tops.length; na++) for (var nb = na + 1; nb < NET.tops.length; nb++) {
+      var va = new T.Vector3(NET.tops[na][0], NET.tops[na][1], NET.tops[na][2]);
+      var vb = new T.Vector3(NET.tops[nb][0], NET.tops[nb][1], NET.tops[nb][2]);
+      var vm = va.clone().add(vb).multiplyScalar(0.5); vm.y += 2.6 + va.distanceTo(vb) * 0.12;
+      var curve = new T.QuadraticBezierCurve3(va, vm, vb);
+      netCurves.push(curve);
+      netLines.add(new T.Mesh(new T.TubeGeometry(curve, 24, 0.035, 5, false), fibreMat));
+    }
+    netLines.visible = false;
+    scene.add(netLines);
+    var PK = 42, pkGeo = new T.BufferGeometry(), pkPos = new Float32Array(PK * 3), pkState = [], pkTmp = new T.Vector3();
+    var pr = rng(83);
+    for (var pk = 0; pk < PK; pk++) pkState.push({ e: Math.floor(pr() * netCurves.length), u: pr(), sp: 0.22 + pr() * 0.3 });
+    pkGeo.setAttribute('position', new T.BufferAttribute(pkPos, 3));
+    var pkMat = new T.PointsMaterial({ color: 0xffd27a, size: 0.95, map: dotTex, transparent: true, opacity: 0, depthWrite: false, blending: T.AdditiveBlending, sizeAttenuation: true, toneMapped: false });
+    var packets = new T.Points(pkGeo, pkMat);
+    packets.visible = false; packets.frustumCulled = false;
+    scene.add(packets);
+    var netV = 0, netTV = 0;
+
+    /* --- 11,103 points --- */
+    var PN = 11103, PCOLS = 140, PROWS = Math.ceil(PN / PCOLS);
+    var pGeo = new T.BufferGeometry();
+    var pPos = new Float32Array(PN * 3), pFrom = new Float32Array(PN * 3), pWall = new Float32Array(PN * 3), pFloor = new Float32Array(PN * 3);
+    var prr = rng(89);
+    for (var pi = 0; pi < PN; pi++) {
+      var pc = pi % PCOLS, prw = Math.floor(pi / PCOLS);
+      pWall[pi * 3] = -16 + pc * (32 / (PCOLS - 1));
+      pWall[pi * 3 + 1] = 13.4 - prw * (12.6 / (PROWS - 1));
+      pWall[pi * 3 + 2] = -6;
+      pFloor[pi * 3] = pWall[pi * 3] + (prr() - 0.5) * 0.3;
+      pFloor[pi * 3 + 1] = 0.05;
+      pFloor[pi * 3 + 2] = -6 + (prr() - 0.5) * 6;
+    }
+    pPos.set(pFloor); pFrom.set(pFloor);
+    pGeo.setAttribute('position', new T.BufferAttribute(pPos, 3));
+    var pMat = new T.PointsMaterial({ color: 0xf1e9d8, size: 0.42, map: dotTex, transparent: true, opacity: 0, depthWrite: false, sizeAttenuation: true, toneMapped: false });
+    var points = new T.Points(pGeo, pMat);
+    points.visible = false; points.frustumCulled = false;
+    scene.add(points);
+    var partsOn = false, partsT0 = 0, partsMoving = false, partsV = 0;
+
+    /* --- env --- */
+    var env = { keyI: 2.7, hemi: 0.45, fog: 0.019, exp: 1, grid: 0.35, tiles: 1 };
+    var envT = Object.assign({}, env);
+    var keyCol = lin(0xffe2bc), keyColT = keyCol.clone();
+    var tileCol = lin(0x2a2c30), tileColT = tileCol.clone();
+    var planeCol = lin(0x0c0d0f), planeColT = planeCol.clone();
+
+    /* --- camera --- */
+    var camPos = new T.Vector3(0, 14, 56), camLook = new T.Vector3(0, 4, 0);
+    var camPosT = camPos.clone(), camLookT = camLook.clone();
+    var shift = 0, shiftT = 0, ptrX = 0, ptrY = 0, ptrXT = 0, ptrYT = 0;
+    var currentName = null;
+    var firstSet = true;
+
+    function set(name) {
+      var def = SCENES[name] || SCENES.title;
+      if (name === currentName) return;
+      currentName = name;
+      var now = performance.now();
+      var fm = formation(def.f);
+      base = fm.A; dyn = fm.dyn || null; used = fm.used;
+      tgt.set(base);
+      var rr = rng(now | 0);
+      for (var i = 0; i < N; i++) {
+        var o = i * S;
+        for (var j = 6; j < 9; j++) {
+          var d = cur[o + j] - tgt[o + j];
+          cur[o + j] = tgt[o + j] + Math.atan2(Math.sin(d), Math.cos(d));
+        }
+        var dist = Math.hypot(tgt[o], tgt[o + 2]);
+        startAt[i] = now + (i < used ? 80 + dist * 26 + tgt[o + 1] * 18 : 0) + rr() * 220;
+      }
+      var e = ENVS[def.env] || ENVS.iron;
+      envT.keyI = e.keyI; envT.hemi = e.hemi; envT.fog = e.fog; envT.exp = e.exp; envT.grid = e.grid; envT.tiles = e.tiles;
+      keyColT = lin(e.key); tileColT = lin(e.tile); planeColT = lin(e.plane);
+      camPosT.set(def.cam[0], def.cam[1], def.cam[2]);
+      camLookT.set(def.look[0], def.look[1], def.look[2]);
+      shiftT = def.frame === 'rr' ? -0.27 : def.frame === 'r' ? -0.2 : (def.frame === 'l' ? 0.2 : 0);
+      sunTV = def.sun ? 1 : 0;
+      ghostTV = def.ghost ? 1 : 0;
+      netTV = def.net ? 1 : 0;
+      cores[0].tv = def.core ? 1 : 0; cores[1].tv = def.coreB ? 1 : 0;
+      if (def.core) cores[0].tpos.set(def.core[0], def.core[1], def.core[2]);
+      if (def.coreB) cores[1].tpos.set(def.coreB[0], def.coreB[1], def.coreB[2]);
+      if (!!def.parts !== partsOn) {
+        partsOn = !!def.parts; partsT0 = now; partsMoving = true; pFrom.set(pPos);
+      }
+      if (reduce) snap();
+      if (firstSet) {
+        cores.forEach(function (c) { c.pos.copy(c.tpos); });
+        firstSet = false;
+      }
+    }
+
+    var forceAll = true;
+    function snap() {
+      if (dyn) dyn(base, tgt, 0);
+      cur.set(tgt);
+      forceAll = true;
+      for (var i = 0; i < N; i++) startAt[i] = 0;
+      camPos.copy(camPosT); camLook.copy(camLookT); shift = shiftT;
+      Object.assign(env, envT); keyCol.copy(keyColT); tileCol.copy(tileColT); planeCol.copy(planeColT);
+      sunV = sunTV; ghostV = ghostTV; netV = netTV;
+      cores.forEach(function (c) { c.v = c.tv; c.pos.copy(c.tpos); });
+      pPos.set(partsOn ? pWall : pFloor); partsMoving = false; partsV = partsOn ? 1 : 0;
+      pGeo.attributes.position.needsUpdate = true;
+    }
+
+    var dummy = new T.Object3D(), col = new T.Color();
+    var clock = 0, last = performance.now();
+
+    function frame(now) {
+      var dt = Math.min(0.1, Math.max(0, (now - last) / 1000));
+      last = now;
+      if (!reduce) clock += dt;
+      var k = 1 - Math.exp(-dt * 2.6);
+      var ke = 1 - Math.exp(-dt * 1.6);
+      var kc = 1 - Math.exp(-dt * 1.15);
+
+      if (dyn) dyn(base, tgt, clock);
+
+      /* instances */
+      var moved = false;
+      for (var i = 0; i < N; i++) {
+        if (now < startAt[i]) continue;
+        var o = i * S, ch = false;
+        for (var j = 0; j < S; j++) {
+          var d = tgt[o + j] - cur[o + j];
+          if (d > 1e-4 || d < -1e-4) { cur[o + j] += reduce ? d : d * k; ch = true; }
+        }
+        if (!ch && !forceAll) continue;
+        dummy.position.set(cur[o], cur[o + 1], cur[o + 2]);
+        dummy.rotation.set(cur[o + 6], cur[o + 7], cur[o + 8]);
+        dummy.scale.set(Math.max(1e-4, cur[o + 3]), Math.max(1e-4, cur[o + 4]), Math.max(1e-4, cur[o + 5]));
+        dummy.updateMatrix();
+        mesh.setMatrixAt(i, dummy.matrix);
+        mesh.setColorAt(i, col.setRGB(cur[o + 9], cur[o + 10], cur[o + 11]));
+        moved = true;
+      }
+      if (moved) { mesh.instanceMatrix.needsUpdate = true; mesh.instanceColor.needsUpdate = true; }
+      forceAll = false;
+
+      /* env */
+      env.keyI += (envT.keyI - env.keyI) * ke; env.hemi += (envT.hemi - env.hemi) * ke;
+      env.fog += (envT.fog - env.fog) * ke; env.exp += (envT.exp - env.exp) * ke;
+      env.grid += (envT.grid - env.grid) * ke; env.tiles += (envT.tiles - env.tiles) * ke;
+      keyCol.lerp(keyColT, ke); tileCol.lerp(tileColT, ke); planeCol.lerp(planeColT, ke);
+      key.color.copy(keyCol); key.intensity = env.keyI; hemi.intensity = env.hemi;
+      scene.fog.density = env.fog; renderer.toneMappingExposure = env.exp;
+      grid.material.opacity = env.grid * 0.16; grid.visible = env.grid > 0.01;
+      tileMat.color.copy(tileCol); tileMat.opacity = env.tiles; tiles.visible = env.tiles > 0.01;
+      planeMat.color.copy(planeCol);
+
+      /* sun */
+      sunV += (sunTV - sunV) * ke;
+      sun.visible = sunV > 0.005;
+      sunHalo.material.opacity = sunV * 0.75;
+
+      /* cores */
+      cores.forEach(function (c, ci3) {
+        c.v += (c.tv - c.v) * ke;
+        c.pos.lerp(c.tpos, kc);
+        c.g.visible = c.v > 0.005;
+        c.g.position.copy(c.pos);
+        c.g.position.y += Math.sin(clock * 1.1 + ci3) * 0.18;
+        c.gem.scale.setScalar(0.85 * c.v);
+        c.gem.rotation.y = clock * 0.6; c.gem.rotation.x = 0.25;
+        c.halo.material.opacity = 0.85 * c.v;
+        c.beam.material.opacity = 0.2 * c.v;
+        c.light.intensity = 2.6 * c.v;
+      });
+
+      /* ghost */
+      ghostV += (ghostTV - ghostV) * ke;
+      ghost.visible = ghostV > 0.005; ghostMat.opacity = ghostV * 0.16;
+
+      /* network */
+      netV += (netTV - netV) * ke;
+      netLines.visible = packets.visible = netV > 0.005;
+      fibreMat.opacity = netV * 0.55; pkMat.opacity = netV;
+      if (packets.visible) {
+        for (var q = 0; q < PK; q++) {
+          var ps = pkState[q];
+          ps.u += (reduce ? 0 : dt) * ps.sp;
+          if (ps.u > 1) { ps.u = 0; ps.e = Math.floor(pr() * netCurves.length); }
+          netCurves[ps.e].getPoint(ps.u, pkTmp);
+          pkPos[q * 3] = pkTmp.x; pkPos[q * 3 + 1] = pkTmp.y; pkPos[q * 3 + 2] = pkTmp.z;
+        }
+        pkGeo.attributes.position.needsUpdate = true;
+      }
+
+      /* points */
+      partsV += ((partsOn ? 1 : 0) - partsV) * ke;
+      points.visible = partsV > 0.005 || partsMoving;
+      pMat.opacity = Math.min(1, partsV * 1.05) * 0.95;
+      if (partsMoving) {
+        var el = now - partsT0, done = true;
+        var dest = partsOn ? pWall : pFloor;
+        for (var p = 0; p < PN; p++) {
+          var rowp = Math.floor(p / PCOLS), cp = p % PCOLS;
+          var delay = partsOn ? rowp * 24 + cp * 1.4 : (PROWS - rowp) * 8;
+          var tt = (el - delay) / 1500;
+          if (tt < 1) done = false;
+          tt = tt < 0 ? 0 : (tt > 1 ? 1 : tt);
+          var ee = 1 - Math.pow(1 - tt, 3);
+          var b3 = p * 3;
+          pPos[b3] = pFrom[b3] + (dest[b3] - pFrom[b3]) * ee;
+          pPos[b3 + 1] = pFrom[b3 + 1] + (dest[b3 + 1] - pFrom[b3 + 1]) * ee;
+          pPos[b3 + 2] = pFrom[b3 + 2] + (dest[b3 + 2] - pFrom[b3 + 2]) * ee;
+        }
+        pGeo.attributes.position.needsUpdate = true;
+        if (done) partsMoving = false;
+      }
+
+      /* camera */
+      camPos.lerp(camPosT, reduce ? 1 : kc); camLook.lerp(camLookT, reduce ? 1 : kc);
+      shift += (shiftT - shift) * (reduce ? 1 : kc);
+      ptrX += (ptrXT - ptrX) * ke; ptrY += (ptrYT - ptrY) * ke;
+      var yaw = reduce ? 0 : Math.sin(clock * 0.06) * 0.045 + ptrX * 0.05;
+      var dx = camPos.x - camLook.x, dz = camPos.z - camLook.z;
+      var cs = Math.cos(yaw), sn = Math.sin(yaw);
+      camera.position.set(camLook.x + dx * cs - dz * sn, camPos.y - ptrY * 0.7 + (reduce ? 0 : Math.sin(clock * 0.09) * 0.25), camLook.z + dx * sn + dz * cs);
+      camera.lookAt(camLook);
+      var W = window.innerWidth, H = window.innerHeight;
+      camera.setViewOffset(W, H, shift * W, 0, W, H);
+
+      renderer.render(scene, camera);
+      requestAnimationFrame(frame);
+    }
+
+    function resize() {
+      renderer.setSize(window.innerWidth, window.innerHeight, false);
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+    }
+
+    requestAnimationFrame(frame);
+    return {
+      set: set,
+      snap: snap,
+      resize: resize,
+      pointer: function (x, y) { ptrXT = x; ptrYT = y; }
+    };
+  }
+
+  function loadThree() {
+    if (window.THREE) return Promise.resolve(true);
+    return new Promise(function (resolve) {
+      var s = document.createElement('script');
+      s.src = 'assets/three.min.js';
+      s.onload = function () { resolve(!!window.THREE); };
+      s.onerror = function () { resolve(false); };
+      document.head.appendChild(s);
+    });
+  }
+
+  window.__deck = {
+    go: function (n) { go(n - 1, { scroll: true }); },
+    settle: function () { if (scene3d) scene3d.snap(); }
+  };
+
+  function boot3D() {
+    loadThree().then(function (ok) {
+      if (!ok) { body.classList.add('no-webgl'); return; }
+      try { scene3d = createScene3D($('#scene')); } catch (err) { scene3d = null; if (window.console) console.warn(err); }
+      if (!scene3d) { body.classList.add('no-webgl'); return; }
+      scene3d.resize();
+      var s = slides[Math.max(0, current)];
+      scene3d.set(s.getAttribute('data-scene'));
+    });
+  }
+
+  /* =========================================================
+     Boot
+     ========================================================= */
+  buildSuns();
+  buildWaffles();
+  buildDots();
+  buildMarcosTimeline();
+  $$('[data-r="words"]').forEach(splitWords);
+  $$('[data-draw]').forEach(function (p) {
+    var L = 600;
+    try { L = Math.ceil(p.getTotalLength()); } catch (e) { /* not measurable */ }
+    p.style.setProperty('--len', L);
+  });
+
+  var startHash = parseInt(location.hash.slice(1), 10);
+  var startAtSlide = isNaN(startHash) ? 0 : Math.max(0, Math.min(total - 1, startHash - 1));
+  fit();
+  var fontsReady = document.fonts && document.fonts.ready ? Promise.race([document.fonts.ready, new Promise(function (r) { setTimeout(r, 1200); })]) : Promise.resolve();
+  fontsReady.then(function () {
+    current = startAtSlide;
+    applyMode();
+    if (readingMQ.matches && startAtSlide > 0) slides[startAtSlide].scrollIntoView();
+    boot3D();
+  });
+})();
+</script>
+</body>
+</html>
