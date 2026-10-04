@@ -1,77 +1,144 @@
 <!doctype html>
 <html><head><meta charset="utf-8"><title>Business 1 Cover</title>
 <style>
-@font-face{font-family:"Bodoni";src:url("../assets/fonts/bodoni-moda-latin.woff2") format("woff2");font-weight:400 900;font-style:normal}
-@font-face{font-family:"Bodoni";src:url("../assets/fonts/bodoni-moda-italic-latin.woff2") format("woff2");font-weight:400 900;font-style:italic}
-@font-face{font-family:"Archivo";src:url("../assets/fonts/archivo-latin.woff2") format("woff2");font-weight:100 900;font-stretch:62% 125%}
-@font-face{font-family:"Plex";src:url("../assets/fonts/ibm-plex-mono-400-latin.woff2") format("woff2");font-weight:400}
-@font-face{font-family:"Plex";src:url("../assets/fonts/ibm-plex-mono-500-latin.woff2") format("woff2");font-weight:500}
-:root{--paper:#F5F8FD;--ink:#0E1F3F;--ink-2:#3A4A68;--ink-3:#7A879F;--accent:#1E5BC6;--accent-soft:#CFDDF5;--rule:#0E1F3F}
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{width:816px;height:1344px;background:var(--paper)}
-body{position:relative;overflow:hidden;color:var(--ink);font-family:"Archivo",sans-serif}
-/* frame: 0.5in safe margin for home printers */
-.frame{position:absolute;inset:48px;border:2px solid var(--ink)}
-.frame::after{content:"";position:absolute;inset:7px;border:.75px solid var(--ink)}
-.corner{position:absolute;width:14px;height:14px;background:var(--accent);transform:rotate(45deg)}
-.c1{top:41px;left:41px}.c2{top:41px;right:41px}.c3{bottom:41px;left:41px}.c4{bottom:41px;right:41px}
-.inner{position:absolute;inset:80px 92px;display:flex;flex-direction:column}
-.top{display:flex;justify-content:space-between;align-items:baseline;font-family:"Plex";font-weight:500;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--ink-2);padding-bottom:14px;border-bottom:.75px solid var(--ink)}
-.top b{color:var(--accent);font-weight:500}
-.eyebrow{margin-top:112px;font-family:"Plex";font-size:13px;letter-spacing:.42em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:16px}
-.eyebrow::after{content:"";flex:1;height:.75px;background:var(--accent)}
-h1{margin-top:22px;font-family:"Bodoni";font-weight:500;font-size:150px;line-height:.86;letter-spacing:-.025em}
-.num{display:flex;align-items:flex-end;gap:26px;margin-top:34px}
-.num .one{font-family:"Bodoni";font-weight:600;font-variation-settings:"opsz" 6;font-size:330px;line-height:.72;color:var(--accent)}
-.num .tag{flex:1;display:flex;flex-direction:column;gap:10px;padding-bottom:4px;font-family:"Plex";font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--ink-2)}
-.num .tag::before{content:"";height:.75px;background:var(--ink)}
-.chart{margin-top:70px;height:150px;position:relative}
-.chart svg{width:100%;height:100%;overflow:visible}
-.fields{margin-top:auto;display:grid;grid-template-columns:1fr 1fr;column-gap:36px;row-gap:34px}
-.field{display:flex;flex-direction:column;gap:30px}
-.field.full{grid-column:1/-1}
-.field label{font-family:"Plex";font-weight:500;font-size:10.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--ink-2)}
-.field span{display:block;height:0;border-bottom:1px solid var(--ink)}
-.foot{margin-top:40px;padding-top:14px;border-top:.75px solid var(--ink);display:flex;justify-content:space-between;font-family:"Plex";font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-3)}
+@font-face{font-family:"Bodoni";src:url("../assets/fonts/bodoni-moda-latin.woff2") format("woff2");font-weight:400 900}
+@font-face{font-family:"Draft";src:url("fonts/architects-daughter.woff2") format("woff2")}
+@font-face{font-family:"Pen";src:url("fonts/caveat.woff2") format("woff2");font-weight:400 700}
+*{margin:0;padding:0}
+html,body{width:816px;height:1344px;background:#FAF9F4;overflow:hidden}
+svg{display:block}
+.draft{font-family:"Draft";fill:#24407A;letter-spacing:.22em}
+.pen{font-family:"Pen";font-weight:600;fill:#1A47A8}
 </style></head>
 <body>
-<div class="frame"></div>
-<div class="corner c1"></div><div class="corner c2"></div><div class="corner c3"></div><div class="corner c4"></div>
-<div class="inner">
-  <div class="top"><span>Class Notebook</span><b>No. 01</b></div>
+<!-- Legal page = 816 x 1344 CSS px. Everything is drawn into this one SVG. -->
+<svg id="page" width="816" height="1344" viewBox="0 0 816 1344" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <!-- pencil: wobble the line, then break it up with paper grain -->
+  <filter id="pencil" x="-5%" y="-5%" width="110%" height="110%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="3" xChannelSelector="R" yChannelSelector="G" result="d"/>
+    <feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="2" seed="8" result="g"/>
+    <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.2 1.8" result="gm"/>
+    <feComposite in="d" in2="gm" operator="in"/>
+  </filter>
+  <!-- lighter touch for small lettering so it stays readable -->
+  <filter id="pencil-fine" x="-5%" y="-20%" width="110%" height="140%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="5" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="1.2" xChannelSelector="R" yChannelSelector="G" result="d"/>
+    <feTurbulence type="fractalNoise" baseFrequency="1.3" numOctaves="2" seed="11" result="g"/>
+    <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.4 1.65" result="gm"/>
+    <feComposite in="d" in2="gm" operator="in"/>
+  </filter>
+  <!-- ballpoint ink: barely any wobble, slight skip in the ink -->
+  <filter id="ink" x="-5%" y="-20%" width="110%" height="140%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="1" seed="2" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="1" xChannelSelector="R" yChannelSelector="G" result="d"/>
+    <feTurbulence type="fractalNoise" baseFrequency="1.6" numOctaves="1" seed="4" result="g"/>
+    <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -0.9 1.5" result="gm"/>
+    <feComposite in="d" in2="gm" operator="in"/>
+  </filter>
+  <!-- sketchbook paper tooth -->
+  <filter id="paper" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" seed="21" result="t"/>
+    <feColorMatrix in="t" type="matrix" values="0 0 0 0 0.62  0 0 0 0 0.60  0 0 0 0 0.55  0 0 0 0.09 0"/>
+  </filter>
+  <pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-38)">
+    <line x1="0" y1="0" x2="0" y2="7" stroke="#2C5DB8" stroke-width="1.6"/>
+  </pattern>
+  <pattern id="crosshatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-38)">
+    <line x1="0" y1="0" x2="0" y2="7" stroke="#1F4FAE" stroke-width="1.8"/>
+    <line x1="0" y1="3.5" x2="7" y2="3.5" stroke="#1F4FAE" stroke-width="1.1" opacity=".75"/>
+  </pattern>
+</defs>
 
-  <div class="eyebrow">Subject</div>
-  <h1>Business</h1>
-  <div class="num"><div class="one">1</div><div class="tag">Course One</div></div>
+<rect width="816" height="1344" fill="#FAF9F4"/>
+<rect width="816" height="1344" filter="url(#paper)"/>
 
-  <div class="chart">
-    <svg viewBox="0 0 632 150" preserveAspectRatio="none" aria-hidden="true">
-      <line x1="0" y1="149.5" x2="632" y2="149.5" stroke="#0E1F3F" stroke-width="1"/>
-      <g fill="#DCE7F8" stroke="#0E1F3F" stroke-width="1">
-        <rect x="8"   y="118" width="44" height="31.5"/>
-        <rect x="88"  y="104" width="44" height="45.5"/>
-        <rect x="168" y="110" width="44" height="39.5"/>
-        <rect x="248" y="86"  width="44" height="63.5"/>
-        <rect x="328" y="70"  width="44" height="79.5"/>
-        <rect x="408" y="76"  width="44" height="73.5"/>
-        <rect x="488" y="42"  width="44" height="107.5"/>
-      </g>
-      <rect x="568" y="10" width="44" height="139.5" fill="#1E5BC6"/>
-      <polyline points="30,104 110,90 190,96 270,72 350,56 430,62 510,28 590,0" fill="none" stroke="#1E5BC6" stroke-width="1.5" stroke-dasharray="4 4"/>
-      <g fill="#F5F8FD" stroke="#1E5BC6" stroke-width="1.5">
-        <circle cx="30" cy="104" r="3.5"/><circle cx="110" cy="90" r="3.5"/><circle cx="190" cy="96" r="3.5"/><circle cx="270" cy="72" r="3.5"/><circle cx="350" cy="56" r="3.5"/><circle cx="430" cy="62" r="3.5"/><circle cx="510" cy="28" r="3.5"/>
-      </g>
-      <circle cx="590" cy="0" r="5" fill="#0E1F3F"/>
-    </svg>
-  </div>
+<g id="sketch" filter="url(#pencil)"></g>
 
-  <div class="fields">
-    <div class="field full"><label>Name</label><span></span></div>
-    <div class="field"><label>Grade &amp; Section</label><span></span></div>
-    <div class="field"><label>School Year</label><span></span></div>
-    <div class="field full"><label>Teacher</label><span></span></div>
-  </div>
+<!-- header -->
+<g filter="url(#pencil-fine)">
+  <text class="draft" x="92" y="104" font-size="14">CLASS NOTEBOOK</text>
+  <text class="draft" x="724" y="104" font-size="14" text-anchor="end">NO. 01</text>
+  <text class="draft" x="92" y="212" font-size="15">SUBJECT</text>
+  <text class="draft" x="262" y="620" font-size="15">COURSE ONE</text>
+  <text class="draft" x="92" y="938" font-size="14">NAME</text>
+  <text class="draft" x="92" y="1046" font-size="14">GRADE &amp; SECTION</text>
+  <text class="draft" x="426" y="1046" font-size="14">SCHOOL YEAR</text>
+  <text class="draft" x="92" y="1154" font-size="14">TEACHER</text>
+</g>
 
-  <div class="foot"><span>Business 1</span><span>Legal · 8.5 × 14 in</span></div>
-</div>
+<!-- title: outlined, hatched, with a second loose pass of the outline -->
+<g filter="url(#pencil)">
+  <text x="88" y="372" font-family="Bodoni" font-weight="600" font-size="156" fill="url(#hatch)" stroke="#16306A" stroke-width="2.2">Business</text>
+  <text x="91" y="374" font-family="Bodoni" font-weight="600" font-size="156" fill="none" stroke="#16306A" stroke-width="1" opacity=".5">Business</text>
+  <text x="84" y="666" font-family="Bodoni" font-weight="600" font-size="330" style="font-variation-settings:'opsz' 6" fill="url(#crosshatch)" stroke="#123A8C" stroke-width="2.6">1</text>
+  <text x="88" y="669" font-family="Bodoni" font-weight="600" font-size="330" style="font-variation-settings:'opsz' 6" fill="none" stroke="#123A8C" stroke-width="1.1" opacity=".5">1</text>
+</g>
+
+<!-- filled-in details, written in pen -->
+<g filter="url(#ink)">
+  <text class="pen" x="100" y="986" font-size="40" transform="rotate(-1.2 100 986)">Saad, Mohammad Rajeb H.</text>
+  <text class="pen" x="100" y="1094" font-size="40" transform="rotate(0.8 100 1094)">12SHS2503</text>
+  <text class="pen" x="434" y="1094" font-size="40" transform="rotate(-0.9 434 1094)">2026-2027</text>
+  <text class="pen" x="100" y="1202" font-size="40" transform="rotate(-0.6 100 1202)">Jetka Tisha Venice T. Abogado</text>
+</g>
+</svg>
+
+<script src="vendor/rough.js"></script>
+<script>
+(function () {
+  const svg = document.getElementById('page');
+  const layer = document.getElementById('sketch');
+  const rc = rough.svg(svg);
+  const NAVY = '#16306A', BLUE = '#1F4FAE', SOFT = '#7FA1DC';
+  let seed = 7;
+  const o = (extra) => Object.assign({ seed: seed++, roughness: 1.1, bowing: 1.2, stroke: NAVY, strokeWidth: 1.4 }, extra);
+  const add = (n) => layer.appendChild(n);
+  const line = (x1, y1, x2, y2, extra) => add(rc.line(x1, y1, x2, y2, o(extra)));
+
+  // frame: two loose passes of an outer border plus a fine inner border
+  add(rc.rectangle(48, 48, 720, 1248, o({ strokeWidth: 2, roughness: 1.4 })));
+  add(rc.rectangle(49, 47, 719, 1250, o({ strokeWidth: 1, roughness: 1.8, stroke: BLUE })));
+  add(rc.rectangle(58, 58, 700, 1228, o({ strokeWidth: 0.9, roughness: 1.2 })));
+
+  // corner diamonds, hatched
+  [[48, 48], [768, 48], [48, 1296], [768, 1296]].forEach(([x, y]) => {
+    add(rc.polygon([[x, y - 15], [x + 15, y], [x, y + 15], [x - 15, y]],
+      o({ fill: BLUE, fillStyle: 'cross-hatch', hachureGap: 3, fillWeight: 1, stroke: BLUE, strokeWidth: 1.4 })));
+  });
+
+  // header rule and subject rule
+  line(92, 120, 724, 120, { strokeWidth: 1.2 });
+  line(206, 206, 724, 206, { stroke: BLUE, strokeWidth: 1.1 });
+  // rule beside the numeral
+  line(262, 594, 724, 594, { strokeWidth: 1.2 });
+
+  // chart: baseline at y=860, bars 44 wide every 80px
+  const base = 860, heights = [32, 46, 40, 64, 80, 74, 108];
+  line(86, base, 730, base, { strokeWidth: 1.6 });
+  heights.forEach((h, i) => {
+    add(rc.rectangle(100 + i * 80, base - h, 44, h,
+      o({ fill: SOFT, fillStyle: 'hachure', hachureGap: 6, hachureAngle: -41, fillWeight: 1, strokeWidth: 1.3 })));
+  });
+  add(rc.rectangle(660, base - 140, 44, 140,
+    o({ fill: BLUE, fillStyle: 'cross-hatch', hachureGap: 4, fillWeight: 1.3, stroke: BLUE, strokeWidth: 1.6 })));
+
+  // trend line rising through the bars, ending in an arrow
+  const pts = [[122, 814], [202, 800], [282, 806], [362, 782], [442, 766], [522, 772], [602, 738], [682, 700]];
+  add(rc.curve(pts, o({ stroke: BLUE, strokeWidth: 1.5, roughness: 0.9 })));
+  pts.slice(0, -1).forEach(([x, y]) => add(rc.circle(x, y, 8, o({ stroke: BLUE, strokeWidth: 1.3, fill: '#FAF9F4', fillStyle: 'solid' }))));
+  line(682, 700, 668, 702, { stroke: BLUE, strokeWidth: 1.6 });
+  line(682, 700, 676, 713, { stroke: BLUE, strokeWidth: 1.6 });
+
+  // write-in lines
+  line(92, 998, 724, 998, { strokeWidth: 1.2 });
+  line(92, 1106, 390, 1106, { strokeWidth: 1.2 });
+  line(426, 1106, 724, 1106, { strokeWidth: 1.2 });
+  line(92, 1214, 724, 1214, { strokeWidth: 1.2 });
+
+  document.body.dataset.drawn = '1';
+})();
+</script>
 </body></html>
