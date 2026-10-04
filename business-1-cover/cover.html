@@ -1,0 +1,77 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Business 1 Cover</title>
+<style>
+@font-face{font-family:"Bodoni";src:url("../assets/fonts/bodoni-moda-latin.woff2") format("woff2");font-weight:400 900;font-style:normal}
+@font-face{font-family:"Bodoni";src:url("../assets/fonts/bodoni-moda-italic-latin.woff2") format("woff2");font-weight:400 900;font-style:italic}
+@font-face{font-family:"Archivo";src:url("../assets/fonts/archivo-latin.woff2") format("woff2");font-weight:100 900;font-stretch:62% 125%}
+@font-face{font-family:"Plex";src:url("../assets/fonts/ibm-plex-mono-400-latin.woff2") format("woff2");font-weight:400}
+@font-face{font-family:"Plex";src:url("../assets/fonts/ibm-plex-mono-500-latin.woff2") format("woff2");font-weight:500}
+:root{--paper:#FBF8F1;--ink:#14130F;--ink-2:#4A4740;--ink-3:#8A867C;--gold:#B88A33;--gold-soft:#E6D3A6;--rule:#14130F}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:816px;height:1344px;background:var(--paper)}
+body{position:relative;overflow:hidden;color:var(--ink);font-family:"Archivo",sans-serif}
+/* frame: 0.5in safe margin for home printers */
+.frame{position:absolute;inset:48px;border:2px solid var(--ink)}
+.frame::after{content:"";position:absolute;inset:7px;border:.75px solid var(--ink)}
+.corner{position:absolute;width:14px;height:14px;background:var(--gold);transform:rotate(45deg)}
+.c1{top:41px;left:41px}.c2{top:41px;right:41px}.c3{bottom:41px;left:41px}.c4{bottom:41px;right:41px}
+.inner{position:absolute;inset:80px 92px;display:flex;flex-direction:column}
+.top{display:flex;justify-content:space-between;align-items:baseline;font-family:"Plex";font-weight:500;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--ink-2);padding-bottom:14px;border-bottom:.75px solid var(--ink)}
+.top b{color:var(--gold);font-weight:500}
+.eyebrow{margin-top:112px;font-family:"Plex";font-size:13px;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:16px}
+.eyebrow::after{content:"";flex:1;height:.75px;background:var(--gold)}
+h1{margin-top:22px;font-family:"Bodoni";font-weight:500;font-size:150px;line-height:.86;letter-spacing:-.025em}
+.num{display:flex;align-items:flex-end;gap:26px;margin-top:34px}
+.num .one{font-family:"Bodoni";font-weight:600;font-variation-settings:"opsz" 6;font-size:330px;line-height:.72;color:var(--gold)}
+.num .tag{flex:1;display:flex;flex-direction:column;gap:10px;padding-bottom:4px;font-family:"Plex";font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--ink-2)}
+.num .tag::before{content:"";height:.75px;background:var(--ink)}
+.chart{margin-top:70px;height:150px;position:relative}
+.chart svg{width:100%;height:100%;overflow:visible}
+.fields{margin-top:auto;display:grid;grid-template-columns:1fr 1fr;column-gap:36px;row-gap:34px}
+.field{display:flex;flex-direction:column;gap:30px}
+.field.full{grid-column:1/-1}
+.field label{font-family:"Plex";font-weight:500;font-size:10.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--ink-2)}
+.field span{display:block;height:0;border-bottom:1px solid var(--ink)}
+.foot{margin-top:40px;padding-top:14px;border-top:.75px solid var(--ink);display:flex;justify-content:space-between;font-family:"Plex";font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-3)}
+</style></head>
+<body>
+<div class="frame"></div>
+<div class="corner c1"></div><div class="corner c2"></div><div class="corner c3"></div><div class="corner c4"></div>
+<div class="inner">
+  <div class="top"><span>Class Notebook</span><b>No. 01</b></div>
+
+  <div class="eyebrow">Subject</div>
+  <h1>Business</h1>
+  <div class="num"><div class="one">1</div><div class="tag">Course One</div></div>
+
+  <div class="chart">
+    <svg viewBox="0 0 632 150" preserveAspectRatio="none" aria-hidden="true">
+      <line x1="0" y1="149.5" x2="632" y2="149.5" stroke="#14130F" stroke-width="1"/>
+      <g fill="none" stroke="#14130F" stroke-width="1">
+        <rect x="8"   y="118" width="44" height="31.5"/>
+        <rect x="88"  y="104" width="44" height="45.5"/>
+        <rect x="168" y="110" width="44" height="39.5"/>
+        <rect x="248" y="86"  width="44" height="63.5"/>
+        <rect x="328" y="70"  width="44" height="79.5"/>
+        <rect x="408" y="76"  width="44" height="73.5"/>
+        <rect x="488" y="42"  width="44" height="107.5"/>
+      </g>
+      <rect x="568" y="10" width="44" height="139.5" fill="#B88A33"/>
+      <polyline points="30,104 110,90 190,96 270,72 350,56 430,62 510,28 590,0" fill="none" stroke="#B88A33" stroke-width="1.5" stroke-dasharray="4 4"/>
+      <g fill="#FBF8F1" stroke="#B88A33" stroke-width="1.5">
+        <circle cx="30" cy="104" r="3.5"/><circle cx="110" cy="90" r="3.5"/><circle cx="190" cy="96" r="3.5"/><circle cx="270" cy="72" r="3.5"/><circle cx="350" cy="56" r="3.5"/><circle cx="430" cy="62" r="3.5"/><circle cx="510" cy="28" r="3.5"/>
+      </g>
+      <circle cx="590" cy="0" r="5" fill="#14130F"/>
+    </svg>
+  </div>
+
+  <div class="fields">
+    <div class="field full"><label>Name</label><span></span></div>
+    <div class="field"><label>Grade &amp; Section</label><span></span></div>
+    <div class="field"><label>School Year</label><span></span></div>
+    <div class="field full"><label>Teacher</label><span></span></div>
+  </div>
+
+  <div class="foot"><span>Business 1</span><span>Legal · 8.5 × 14 in</span></div>
+</div>
+</body></html>
