@@ -6,23 +6,23 @@
 @font-face{font-family:"Archivo";src:url("../assets/fonts/archivo-latin.woff2") format("woff2");font-weight:100 900;font-stretch:62% 125%}
 @font-face{font-family:"Plex";src:url("../assets/fonts/ibm-plex-mono-400-latin.woff2") format("woff2");font-weight:400}
 @font-face{font-family:"Plex";src:url("../assets/fonts/ibm-plex-mono-500-latin.woff2") format("woff2");font-weight:500}
-:root{--paper:#FBF8F1;--ink:#14130F;--ink-2:#4A4740;--ink-3:#8A867C;--gold:#B88A33;--gold-soft:#E6D3A6;--rule:#14130F}
+:root{--paper:#F5F8FD;--ink:#0E1F3F;--ink-2:#3A4A68;--ink-3:#7A879F;--accent:#1E5BC6;--accent-soft:#CFDDF5;--rule:#0E1F3F}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:816px;height:1344px;background:var(--paper)}
 body{position:relative;overflow:hidden;color:var(--ink);font-family:"Archivo",sans-serif}
 /* frame: 0.5in safe margin for home printers */
 .frame{position:absolute;inset:48px;border:2px solid var(--ink)}
 .frame::after{content:"";position:absolute;inset:7px;border:.75px solid var(--ink)}
-.corner{position:absolute;width:14px;height:14px;background:var(--gold);transform:rotate(45deg)}
+.corner{position:absolute;width:14px;height:14px;background:var(--accent);transform:rotate(45deg)}
 .c1{top:41px;left:41px}.c2{top:41px;right:41px}.c3{bottom:41px;left:41px}.c4{bottom:41px;right:41px}
 .inner{position:absolute;inset:80px 92px;display:flex;flex-direction:column}
 .top{display:flex;justify-content:space-between;align-items:baseline;font-family:"Plex";font-weight:500;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--ink-2);padding-bottom:14px;border-bottom:.75px solid var(--ink)}
-.top b{color:var(--gold);font-weight:500}
-.eyebrow{margin-top:112px;font-family:"Plex";font-size:13px;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:16px}
-.eyebrow::after{content:"";flex:1;height:.75px;background:var(--gold)}
+.top b{color:var(--accent);font-weight:500}
+.eyebrow{margin-top:112px;font-family:"Plex";font-size:13px;letter-spacing:.42em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:16px}
+.eyebrow::after{content:"";flex:1;height:.75px;background:var(--accent)}
 h1{margin-top:22px;font-family:"Bodoni";font-weight:500;font-size:150px;line-height:.86;letter-spacing:-.025em}
 .num{display:flex;align-items:flex-end;gap:26px;margin-top:34px}
-.num .one{font-family:"Bodoni";font-weight:600;font-variation-settings:"opsz" 6;font-size:330px;line-height:.72;color:var(--gold)}
+.num .one{font-family:"Bodoni";font-weight:600;font-variation-settings:"opsz" 6;font-size:330px;line-height:.72;color:var(--accent)}
 .num .tag{flex:1;display:flex;flex-direction:column;gap:10px;padding-bottom:4px;font-family:"Plex";font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--ink-2)}
 .num .tag::before{content:"";height:.75px;background:var(--ink)}
 .chart{margin-top:70px;height:150px;position:relative}
@@ -46,8 +46,8 @@ h1{margin-top:22px;font-family:"Bodoni";font-weight:500;font-size:150px;line-hei
 
   <div class="chart">
     <svg viewBox="0 0 632 150" preserveAspectRatio="none" aria-hidden="true">
-      <line x1="0" y1="149.5" x2="632" y2="149.5" stroke="#14130F" stroke-width="1"/>
-      <g fill="none" stroke="#14130F" stroke-width="1">
+      <line x1="0" y1="149.5" x2="632" y2="149.5" stroke="#0E1F3F" stroke-width="1"/>
+      <g fill="#DCE7F8" stroke="#0E1F3F" stroke-width="1">
         <rect x="8"   y="118" width="44" height="31.5"/>
         <rect x="88"  y="104" width="44" height="45.5"/>
         <rect x="168" y="110" width="44" height="39.5"/>
@@ -56,12 +56,12 @@ h1{margin-top:22px;font-family:"Bodoni";font-weight:500;font-size:150px;line-hei
         <rect x="408" y="76"  width="44" height="73.5"/>
         <rect x="488" y="42"  width="44" height="107.5"/>
       </g>
-      <rect x="568" y="10" width="44" height="139.5" fill="#B88A33"/>
-      <polyline points="30,104 110,90 190,96 270,72 350,56 430,62 510,28 590,0" fill="none" stroke="#B88A33" stroke-width="1.5" stroke-dasharray="4 4"/>
-      <g fill="#FBF8F1" stroke="#B88A33" stroke-width="1.5">
+      <rect x="568" y="10" width="44" height="139.5" fill="#1E5BC6"/>
+      <polyline points="30,104 110,90 190,96 270,72 350,56 430,62 510,28 590,0" fill="none" stroke="#1E5BC6" stroke-width="1.5" stroke-dasharray="4 4"/>
+      <g fill="#F5F8FD" stroke="#1E5BC6" stroke-width="1.5">
         <circle cx="30" cy="104" r="3.5"/><circle cx="110" cy="90" r="3.5"/><circle cx="190" cy="96" r="3.5"/><circle cx="270" cy="72" r="3.5"/><circle cx="350" cy="56" r="3.5"/><circle cx="430" cy="62" r="3.5"/><circle cx="510" cy="28" r="3.5"/>
       </g>
-      <circle cx="590" cy="0" r="5" fill="#14130F"/>
+      <circle cx="590" cy="0" r="5" fill="#0E1F3F"/>
     </svg>
   </div>
 
